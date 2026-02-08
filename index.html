@@ -1,347 +1,1134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta Tags for SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OTX Digital: Your Marketing & Digital Growth Partner for creative businesses, agencies, studios, and brands. Expert web design, social media, SEO, and growth strategies to scale your vision.">
-    <meta name="keywords" content="marketing partner for creative businesses, digital growth partner, web design for agencies, social media for studios, SEO for brands">
-    <title>OTX Digital | Marketing & Digital Growth Partner for Creative Businesses</title>
-    
-    <!-- Open Graph for Social Sharing -->
-    <meta property="og:title" content="OTX Digital | Your Complete Digital Foundation">
-    <meta property="og:description" content="Transforming creative ideas into stunning digital experiences that drive real results for agencies, studios, and brands.">
-    <meta property="og:image" content="https://unsplash.it/1200/630?image=1080"> <!-- Placeholder OG image -->
-    <meta property="og:url" content="https://yourdomain.com">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon (Placeholder) -->
-    <link rel="icon" href="https://via.placeholder.com/32" type="image/png">
-    
-    <!-- Schema Markup for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "OTX Digital",
-      "description": "Marketing & Digital Growth Partner for creative businesses, handling web design, social media, SEO, content, and growth strategies.",
-      "url": "https://yourdomain.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Toronto",
-        "addressRegion": "ON",
-        "postalCode": "Your Postal Code",
-        "streetAddress": "Your Address"
-      },
-      "telephone": "+1-555-123-4567",
-      "priceRange": "$$",
-      "openingHours": "Mo-Fr 09:00-17:00",
-      "image": "https://unsplash.it/800/600?image=1080",
-      "sameAs": [
-        "https://www.linkedin.com/company/otx-digital",
-        "https://twitter.com/otx_digital"
-      ]
-    }
-    </script>
-    
-    <!-- Embedded CSS (Minified for Performance) -->
+    <meta name="description" content="OTX Digital - Your Complete Digital Foundation. Elite web development, social media, and branding.">
+    <title>OTX Digital | Your Complete Digital Foundation</title>
     <style>
-        /* Reset and Base Styles (Mobile-First) */
-        *{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',sans-serif;background:#fff;color:#001F3F;line-height:1.6;font-size:16px;}h1,h2,h3{font-family:'Montserrat',sans-serif;}a{text-decoration:none;color:#00A896;transition:color 0.3s;}a:hover{color:#FF851B;}img{max-width:100%;height:auto;display:block;}button{background:#00A896;color:#fff;border:none;padding:12px 24px;cursor:pointer;transition:transform 0.3s,background 0.3s;border-radius:4px;}button:hover{background:#008776;transform:scale(1.05);}button:focus{outline:2px solid #FF851B;}
-        
-        /* Header and Nav */
-        header{position:sticky;top:0;background:#001F3F;color:#fff;padding:16px;z-index:10;box-shadow:0 2px 4px rgba(0,0,0,0.1);}nav{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}nav ul{display:flex;list-style:none;}nav li{margin-left:24px;}nav a{color:#fff;}nav a:hover{color:#00A896;}#menu-toggle{display:none;}@media (max-width:768px){nav ul{display:none;flex-direction:column;position:absolute;top:60px;left:0;width:100%;background:#001F3F;}nav ul.show{display:flex;}nav li{margin:16px 0;text-align:center;}#menu-toggle{display:block;background:none;color:#fff;font-size:24px;border:none;cursor:pointer;}}
-        
-        /* Sections */
-        section{padding:60px 20px;max-width:1200px;margin:0 auto;}section h2{text-align:center;margin-bottom:40px;font-size:2.5em;color:#001F3F;}.hero{background:#001F3F;color:#fff;text-align:center;padding:100px 20px;}.hero h1{font-size:3em;margin-bottom:20px;}.hero p{font-size:1.2em;max-width:800px;margin:0 auto 40px;}.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s,transform 0.6s;}.fade-in.visible{opacity:1;transform:translateY(0);}
-        
-        /* Services Cards */
-        .services{display:grid;grid-template-columns:1fr;gap:24px;}@media (min-width:768px){.services{grid-template-columns:repeat(3,1fr);}}.service-card{background:#f8f8f8;padding:24px;border-radius:8px;box-shadow:0 4px 8px rgba(0,0,0,0.1);text-align:center;transition:transform 0.3s;}.service-card:hover{transform:scale(1.03);}.service-card h3{margin-bottom:16px;color:#00A896;}.service-card ul{list-style:none;text-align:left;}
-        
-        /* Portfolio Gallery */
-        .portfolio{display:grid;grid-template-columns:1fr;gap:24px;}@media (min-width:768px){.portfolio{grid-template-columns:repeat(3,1fr);}}.portfolio-item{position:relative;overflow:hidden;border-radius:8px;box-shadow:0 4px 8px rgba(0,0,0,0.1);}.portfolio-item img{transition:transform 0.3s;}.portfolio-item:hover img{transform:scale(1.1);}.portfolio-overlay{position:absolute;bottom:0;left:0;right:0;background:rgba(0,31,63,0.8);color:#fff;padding:16px;text-align:center;transform:translateY(100%);transition:transform 0.3s;}.portfolio-item:hover .portfolio-overlay{transform:translateY(0);}
-        
-        /* Testimonials */
-        .testimonials{display:grid;grid-template-columns:1fr;gap:24px;}@media (min-width:768px){.testimonials{grid-template-columns:repeat(2,1fr);}}.testimonial{background:#f8f8f8;padding:24px;border-radius:8px;box-shadow:0 4px 8px rgba(0,0,0,0.1);}.testimonial p{margin-bottom:16px;}.testimonial cite{font-style:italic;color:#00A896;}
-        
-        /* Contact Form */
-        .contact form{display:grid;gap:16px;max-width:600px;margin:0 auto;}input,textarea{padding:12px;border:1px solid #ccc;border-radius:4px;}input:focus,textarea:focus{outline:2px solid #00A896;border-color:#00A896;}.contact button{width:fit-content;margin:0 auto;}.honeypot{display:none;}
-        
-        /* Footer */
-        footer{background:#001F3F;color:#fff;text-align:center;padding:20px;}footer a{color:#00A896;}
-        
-        /* Animations and High Contrast */
-        :focus{outline:2px solid #FF851B;outline-offset:2px;}/* Ensure 4.5:1 contrast */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --accent: #8b5cf6;
+            --accent2: #ec4899;
+            --accent3: #06b6d4;
+            --light: #f1f5f9;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--primary);
+            color: var(--white);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(125deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s infinite;
+        }
+
+        .shape1 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent);
+            top: 10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .shape2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent2);
+            top: 50%;
+            right: -10%;
+            animation-delay: 5s;
+        }
+
+        .shape3 {
+            width: 600px;
+            height: 600px;
+            background: var(--accent3);
+            bottom: -20%;
+            left: 30%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(50px, -50px) rotate(120deg); }
+            66% { transform: translate(-30px, 30px) rotate(240deg); }
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 15px 30px;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        nav:hover {
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.2);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 150px 20px 100px;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(40px, 8vw, 90px);
+            font-weight: 900;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff 0%, #8b5cf6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideUp 1s ease;
+        }
+
+        .hero-content .tagline {
+            font-size: clamp(18px, 3vw, 28px);
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: slideUp 1s ease 0.2s backwards;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideUp 1s ease 0.4s backwards;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-glow {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: var(--white);
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(139, 92, 246, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-indicator div {
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .scroll-indicator div:after {
+            content: '';
+            width: 6px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 3px;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 30px; }
+        }
+
+        .services {
+            padding: 150px 20px;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(35px, 6vw, 60px);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--white), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            opacity: 0.7;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(236, 72, 153, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 50px 40px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .service-card:hover:before {
+            opacity: 0.1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--accent);
+            box-shadow: 0 30px 60px rgba(139, 92, 246, 0.3);
+        }
+
+        .service-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-icon {
+            font-size: 50px;
+            margin-bottom: 25px;
+            display: inline-block;
+            filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
+        }
+
+        .service-card h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--white), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-card p {
+            opacity: 0.8;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .service-features li {
+            padding: 10px 0;
+            opacity: 0.7;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .service-features li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .portfolio {
+            padding: 150px 20px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-item {
+            aspect-ratio: 16/10;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.4);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(236, 72, 153, 0.9));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            opacity: 0;
+            transition: opacity 0.5s;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-overlay p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        .portfolio-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .contact {
+            padding: 150px 20px;
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        .contact-container h3 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--white), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-container > p {
+            opacity: 0.8;
+            margin-bottom: 50px;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .contact-method:hover {
+            background: rgba(139, 92, 246, 0.15);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .contact-text {
+            text-align: left;
+        }
+
+        .contact-text strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .contact-text span {
+            opacity: 0.7;
+            font-size: 16px;
+        }
+
+        footer {
+            padding: 80px 20px 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--white), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-section a {
+            display: block;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: all 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.5;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                top: 15px;
+                padding: 12px 20px;
+                width: calc(100% - 40px);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--white);
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            .services-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                padding: 40px 30px;
+            }
+
+            .contact-methods {
+                max-width: 100%;
+            }
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: rise 15s infinite ease-in;
+        }
+
+        @keyframes rise {
+            0% {
+                bottom: -10%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 110%;
+                opacity: 0;
+            }
+        }
+
+        /* Insight Cards */
+        .insights-section {
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .insights-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .insight-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(236, 72, 153, 0.08));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            padding: 40px 35px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.2);
+        }
+
+        .insight-card:before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            font-size: 80px;
+            font-family: Georgia, serif;
+            color: var(--accent);
+            opacity: 0.15;
+        }
+
+        .insight-stat {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .insight-text {
+            font-size: 16px;
+            line-height: 1.7;
+            opacity: 0.85;
+            position: relative;
+            z-index: 1;
+        }
+
+        .insight-source {
+            font-size: 13px;
+            opacity: 0.5;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* Quote Banner */
+        .quote-banner {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.15));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-banner:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(139,92,246,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .quote-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-content h3 {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--white), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .quote-content p {
+            font-size: 18px;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
     </style>
-    
-    <!-- Google Analytics Snippet (Replace UA-XXXXX-Y with your ID) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-XXXXX-Y');
-    </script>
 </head>
 <body>
-    <!-- Header with Navigation -->
-    <header role="banner">
-        <nav aria-label="Main navigation">
-            <h1>OTX Digital</h1>
-            <button id="menu-toggle" aria-label="Toggle menu">☰</button>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+            <div class="shape shape3"></div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <nav>
+            <div class="nav-content">
+                <div class="logo">OTX</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#work">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu" id="mobileMenu">☰</button>
+            </div>
         </nav>
-    </header>
-    
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero fade-in" aria-labelledby="hero-heading">
-            <h1 id="hero-heading">Your Marketing & Digital Growth Partner</h1>
-            <p>Transforming creative ideas into stunning digital experiences that drive real results for agencies, studios, brands, and beyond. Scale with us—not limited to one client, we're your fractional partner for web design, social media, SEO, content, and growth.</p>
-            <button onclick="scrollToSection('#contact')">Book a Free Call</button>
-            <!-- Stats from Original (Enhanced) -->
-            <div class="stats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:40px;">
-                <div><strong>93%</strong> of online experiences begin with a search engine. Optimize or be invisible.<cite>— Search Engine Journal</cite></div>
-                <div><strong>75%</strong> of users never scroll past page one. Rank or vanish.<cite>— HubSpot</cite></div>
-                <div><strong>5.17B</strong> social users worldwide. Be seen first.<cite>— DataReportal 2024</cite></div>
-            </div>
-        </section>
-        
-        <!-- About Section (Added/Enhanced for Partnership Focus) -->
-        <section id="about" class="fade-in" aria-labelledby="about-heading">
-            <h2 id="about-heading">Who We Are</h2>
-            <p>OTX Digital is your dedicated Marketing & Digital Growth Partner, specializing in creative businesses like design studios, agencies, and brands. We handle the digital side so you can focus on innovation. From our flagship partnerships (like 3D design) to scalable services for multiple clients, we deliver end-to-end strategies that grow revenue.</p>
-            <img loading="lazy" src="https://unsplash.it/800/400?image=1081" alt="Creative team collaborating on digital strategy" style="margin:20px auto;">
-            <p>"Your future customers are searching right now. Will they find you or your competitor?" Thousands of searches happen every second—each an opportunity. With OTX, you're visible and victorious.</p>
-        </section>
-        
-        <!-- Services Section (as Cards) -->
-        <section id="services" class="fade-in" aria-labelledby="services-heading">
-            <h2 id="services-heading">Our Services</h2>
-            <div class="services">
-                <div class="service-card" role="article">
-                    <h3>Web Development</h3>
-                    <ul>
-                        <li>Custom coded experiences</li>
-                        <li>E-commerce platforms</li>
-                        <li>Progressive web apps</li>
-                        <li>SEO-optimized architecture</li>
-                        <li>Mobile-first responsive design</li>
-                        <li>Website maintenance & support</li>
-                    </ul>
-                    <button onclick="scrollToSection('#contact')">Get Started</button>
-                </div>
-                <div class="service-card" role="article">
-                    <h3>Social Media Marketing</h3>
-                    <ul>
-                        <li>Content strategy & creation</li>
-                        <li>Community management</li>
-                        <li>Paid advertising campaigns</li>
-                        <li>Influencer partnerships</li>
-                        <li>Analytics & performance tracking</li>
-                    </ul>
-                    <button onclick="scrollToSection('#contact')">Get Started</button>
-                </div>
-                <div class="service-card" role="article">
-                    <h3>Branding & Design</h3>
-                    <ul>
-                        <li>Logo & identity design</li>
-                        <li>Brand strategy & positioning</li>
-                        <li>Visual content creation</li>
-                        <li>Print & digital materials</li>
-                        <li>Brand guideline development</li>
-                    </ul>
-                    <button onclick="scrollToSection('#contact')">Get Started</button>
-                </div>
-                <!-- Add remaining services similarly -->
-                <div class="service-card" role="article">
-                    <h3>Digital Marketing</h3>
-                    <ul>
-                        <li>Search engine marketing (SEM)</li>
-                        <li>Pay-per-click advertising (PPC)</li>
-                        <li>Email marketing automation</li>
-                        <li>Conversion rate optimization</li>
-                        <li>Marketing analytics & insights</li>
-                    </ul>
-                    <button onclick="scrollToSection('#contact')">Get Started</button>
-                </div>
-                <div class="service-card" role="article">
-                    <h3>SEO & Content Strategy</h3>
-                    <ul>
-                        <li>Technical SEO audits</li>
-                        <li>Keyword research & strategy</li>
-                        <li>Content marketing & blogging</li>
-                        <li>Link building campaigns</li>
-                        <li>Local SEO optimization</li>
-                    </ul>
-                    <button onclick="scrollToSection('#contact')">Get Started</button>
-                </div>
-                <div class="service-card" role="article">
-                    <h3>Digital Consulting</h3>
-                    <ul>
-                        <li>Digital transformation roadmaps</li>
-                        <li>Technology stack recommendations</li>
-                        <li>Competitive analysis & audits</li>
-                        <li>Growth strategy development</li>
-                        <li>Performance optimization</li>
-                    </ul>
-                    <button onclick="scrollToSection('#contact')">Get Started</button>
+
+        <section class="hero" id="home">
+            <div class="particles" id="particles"></div>
+            <div class="hero-content">
+                <h1>Your Complete<br><span class="gradient-text">Digital Foundation</span></h1>
+                <p class="tagline">Transforming ideas into stunning digital experiences that drive real results</p>
+                <div class="cta-group">
+                    <a href="#contact" class="btn btn-glow">Let's Create Together</a>
+                    <a href="#services" class="btn btn-outline">Explore Services</a>
                 </div>
             </div>
+            <div class="scroll-indicator">
+                <div></div>
+            </div>
         </section>
-        
-        <!-- Portfolio Section (as Gallery) -->
-        <section id="portfolio" class="fade-in" aria-labelledby="portfolio-heading">
-            <h2 id="portfolio-heading">Our Portfolio</h2>
-            <p>Transforming creative businesses across industries—showcasing versatility beyond 3D design.</p>
-            <div class="portfolio">
+
+        <div class="insights-section">
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-stat">93%</div>
+                    <div class="insight-text">
+                        of online experiences begin with a search engine. If you're not optimized for search, you're invisible to potential customers.
+                    </div>
+                    <div class="insight-source">— Search Engine Journal</div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-stat">75%</div>
+                    <div class="insight-text">
+                        of users never scroll past the first page of search results. Ranking on page one isn't optional, it is essential for survival.
+                    </div>
+                    <div class="insight-source">— HubSpot Research</div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-stat">5.17B</div>
+                    <div class="insight-text">
+                        social media users worldwide. Your customers are scrolling right now. Let's ensure they are seeing you first.
+                    </div>
+                    <div class="insight-source">— DataReportal 2024</div>
+                </div>
+            </div>
+        </div>
+
+        <section class="services" id="services">
+            <div class="section-title">
+                <h2>Complete Digital Strategy</h2>
+                <p>End-to-end solutions that cover every aspect of your digital presence</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Web Development</h3>
+                        <p>Blazing-fast, conversion-optimized websites that turn visitors into loyal customers.</p>
+                        <ul class="service-features">
+                            <li>Custom coded experiences</li>
+                            <li>E-commerce platforms</li>
+                            <li>Progressive web apps</li>
+                            <li>SEO-optimized architecture</li>
+                            <li>Mobile-first responsive design</li>
+                            <li>Website maintenance & support</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Social Media Marketing</h3>
+                        <p>Strategic social presence that builds communities and drives engagement across all platforms.</p>
+                        <ul class="service-features">
+                            <li>Content strategy & creation</li>
+                            <li>Community management</li>
+                            <li>Paid advertising campaigns</li>
+                            <li>Influencer partnerships</li>
+                            <li>Analytics & performance tracking</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Branding & Design</h3>
+                        <p>Memorable brand identities that differentiate you in crowded markets.</p>
+                        <ul class="service-features">
+                            <li>Logo & identity design</li>
+                            <li>Brand strategy & positioning</li>
+                            <li>Visual content creation</li>
+                            <li>Print & digital materials</li>
+                            <li>Brand guideline development</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Digital Marketing</h3>
+                        <p>Data-driven campaigns that maximize ROI and accelerate business growth.</p>
+                        <ul class="service-features">
+                            <li>Search engine marketing (SEM)</li>
+                            <li>Pay-per-click advertising (PPC)</li>
+                            <li>Email marketing automation</li>
+                            <li>Conversion rate optimization</li>
+                            <li>Marketing analytics & insights</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>SEO & Content Strategy</h3>
+                        <p>Dominate search rankings and attract qualified organic traffic to your business.</p>
+                        <ul class="service-features">
+                            <li>Technical SEO audits</li>
+                            <li>Keyword research & strategy</li>
+                            <li>Content marketing & blogging</li>
+                            <li>Link building campaigns</li>
+                            <li>Local SEO optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Digital Consulting</h3>
+                        <p>Strategic guidance to navigate the digital landscape and achieve your business objectives.</p>
+                        <ul class="service-features">
+                            <li>Digital transformation roadmaps</li>
+                            <li>Technology stack recommendations</li>
+                            <li>Competitive analysis & audits</li>
+                            <li>Growth strategy development</li>
+                            <li>Performance optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="quote-banner">
+            <div class="quote-content">
+                <h3>"Your future customers are searching right now. The only question is: will they find you or your competitor?"</h3>
+                <p> Thousands of searches happen every second in your industry. Each one is an opportunity, a potential customer looking for exactly what you offer. Without proper SEO and digital presence, you're invisible to them.</p>
+            </div>
+        </div>
+
+        <section class="portfolio" id="work">
+            <div class="section-title">
+                <h2>Our Portfolio</h2>
+                <p>Transforming businesses across industries</p>
+            </div>
+            <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img loading="lazy" src="https://unsplash.it/400/300?image=1082" alt="Bistro Digital Makeover project showcase">
+                    <span class="portfolio-tag">Restaurant</span>
                     <div class="portfolio-overlay">
-                        <h3>Restaurant: Bistro Digital Makeover</h3>
+                        <h3>Bistro Digital Makeover</h3>
                         <p>Complete rebrand with online ordering and 300% social growth</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img loading="lazy" src="https://unsplash.it/400/300?image=1083" alt="Medical Practice Hub project showcase">
+                    <span class="portfolio-tag">Healthcare</span>
                     <div class="portfolio-overlay">
-                        <h3>Healthcare: Medical Practice Hub</h3>
+                        <h3>Medical Practice Hub</h3>
                         <p>Patient portal integration and booking system</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img loading="lazy" src="https://unsplash.it/400/300?image=1084" alt="Retail Store Launch project showcase">
+                    <span class="portfolio-tag">E-commerce</span>
                     <div class="portfolio-overlay">
-                        <h3>E-commerce: Retail Store Launch</h3>
+                        <h3>Retail Store Launch</h3>
                         <p>Full Shopify build with inventory management</p>
                     </div>
                 </div>
-                <!-- Add remaining portfolio items similarly -->
                 <div class="portfolio-item">
-                    <img loading="lazy" src="https://unsplash.it/400/300?image=1085" alt="Contractor Showcase project showcase">
+                    <span class="portfolio-tag">Construction</span>
                     <div class="portfolio-overlay">
-                        <h3>Construction: Contractor Showcase</h3>
+                        <h3>Contractor Showcase</h3>
                         <p>Portfolio-driven site generating 50+ leads/month</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img loading="lazy" src="https://unsplash.it/400/300?image=1086" alt="Hotel Booking Platform project showcase">
+                    <span class="portfolio-tag">Hospitality</span>
                     <div class="portfolio-overlay">
-                        <h3>Hospitality: Hotel Booking Platform</h3>
+                        <h3>Hotel Booking Platform</h3>
                         <p>Multi-location site with reservation system</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img loading="lazy" src="https://unsplash.it/400/300?image=1087" alt="SaaS Landing Page project showcase">
+                    <span class="portfolio-tag">Tech Startup</span>
                     <div class="portfolio-overlay">
-                        <h3>Tech Startup: SaaS Landing Page</h3>
+                        <h3>SaaS Landing Page</h3>
                         <p>High-converting funnel with email automation</p>
                     </div>
                 </div>
             </div>
-            <!-- More Stats from Original -->
-            <div class="stats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:40px;">
-                <div><strong>$8.60</strong> Average ROI for every $1 on email marketing.<cite>— Litmus 2024</cite></div>
-                <div><strong>3.5 sec</strong> Time for 40% to abandon slow sites.<cite>— Google</cite></div>
-                <div><strong>71%</strong> Consumers research online before purchase.<cite>— Retail Dive</cite></div>
+        </section>
+
+        <div class="insights-section">
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-stat">$8.60</div>
+                    <div class="insight-text">
+                        Average ROI for every $1 spent on email marketing. It remains one of the highest-converting digital channels when done right.
+                    </div>
+                    <div class="insight-source">— Litmus 2024</div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-stat">3.5 sec</div>
+                    <div class="insight-text">
+                        The time it takes for 40% of users to abandon a slow website. Speed isn't just UX, it's conversion optimization.
+                    </div>
+                    <div class="insight-source">— Google Research</div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-stat">71%</div>
+                    <div class="insight-text">
+                        of consumers research a brand online before making a purchase. Your digital presence is your first, and often only—impression.
+                    </div>
+                    <div class="insight-source">— Retail Dive</div>
+                </div>
+            </div>
+        </div>
+
+        <section class="contact" id="contact">
+            <div class="section-title">
+                <h2>Let's Create Together</h2>
+                <p>Ready to elevate your digital presence?</p>
+            </div>
+            <div class="contact-container">
+                <h3>Get In Touch</h3>
+                <p>Whether you're starting from scratch or looking to level up, we're here to bring your vision to life.</p>
+                <div class="contact-methods">
+                    <a href="mailto:otxdigital@yahoo.com" class="contact-method">
+                        <div class="contact-icon">✉</div>
+                        <div class="contact-text">
+                            <strong>Email</strong>
+                            <span>otxdigital@yahoo.com</span>
+                        </div>
+                    </a>
+                    <a href="tel:6474603641" class="contact-method">
+                        <div class="contact-icon">☎</div>
+                        <div class="contact-text">
+                            <strong>Phone</strong>
+                            <span>(647) 460-3641</span>
+                        </div>
+                    </a>
+                    <a href="http://linkedin.com/in/david-ajai" target="_blank" class="contact-method">
+                        <div class="contact-icon">in</div>
+                        <div class="contact-text">
+                            <strong>LinkedIn</strong>
+                            <span>Connect with us</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
-        
-        <!-- Testimonials Section (Placeholders - Enhance with Real Ones) -->
-        <section id="testimonials" class="fade-in" aria-labelledby="testimonials-heading">
-            <h2 id="testimonials-heading">What Our Partners Say</h2>
-            <div class="testimonials">
-                <div class="testimonial" role="article">
-                    <p>"OTX transformed our digital presence—300% growth in months!"</p>
-                    <cite>— Bistro Owner, Restaurant Partner</cite>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>OTX Digital</h4>
+                    <p>Building digital foundations for businesses ready to dominate online.</p>
                 </div>
-                <div class="testimonial" role="article">
-                    <p>"Expert partnership for our studio; leads up 50%."</p>
-                    <cite>— Contractor CEO, Construction Client</cite>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <a href="#services">Web Development</a>
+                    <a href="#services">Social Media</a>
+                    <a href="#services">Branding</a>
+                    <a href="#services">E-commerce</a>
                 </div>
-                <!-- Add more as needed -->
-                <div class="testimonial" role="article">
-                    <p>"Scalable strategies that fit our creative agency perfectly."</p>
-                    <cite>— Tech Startup Founder</cite>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="#work">Portfolio</a>
+                    <a href="#contact">Contact</a>
                 </div>
             </div>
-        </section>
-        
-        <!-- Contact Section with Form and Calendly Embed -->
-        <section id="contact" class="contact fade-in" aria-labelledby="contact-heading">
-            <h2 id="contact-heading">Let's Create Together</h2>
-            <p>Ready to elevate your creative business? Whether starting fresh or scaling up, book a call or send a message—we're open to new partnerships.</p>
-            
-            <!-- Calendly Embed (Replace with your Calendly link) -->
-            <div class="calendly-embed" style="max-width:600px;margin:20px auto;">
-                <iframe src="https://calendly.com/your-username/30min?embed=1" width="100%" height="600" frameborder="0" title="Book a call with OTX Digital" loading="lazy"></iframe>
+            <div class="footer-bottom">
+                <p>&copy; 2026 OTX Digital. All rights reserved.</p>
             </div>
-            
-            <!-- Netlify Contact Form -->
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you" aria-labelledby="contact-heading">
-                <input type="hidden" name="form-name" value="contact">
-                <p class="honeypot"><label>Don’t fill this out: <input name="bot-field"></label></p>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required aria-required="true">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required aria-required="true">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-    </main>
-    
-    <!-- Footer -->
-    <footer role="contentinfo">
-        <p>&copy; 2026 OTX Digital. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms</a></p>
-    </footer>
-    
-    <!-- Embedded Vanilla JS for Interactions -->
+        </footer>
+    </div>
+
     <script>
-        // Smooth Scroll Function
-        function scrollToSection(sectionId) {
-            document.querySelector(sectionId).scrollIntoView({ behavior: 'smooth' });
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
         }
-        
-        // Fade-In on Scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = 100;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
-        fadeElements.forEach(el => observer.observe(el));
+
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.querySelector('.nav-links');
         
-        // Menu Toggle for Mobile
-        const menuToggle = document.getElementById('menu-toggle');
-        const navUl = document.querySelector('nav ul');
-        menuToggle.addEventListener('click', () => {
-            navUl.classList.toggle('show');
-        });
-        
-        // Basic Form Validation (Enhance as Needed)
-        const form = document.querySelector('form');
-        form.addEventListener('submit', (e) => {
-            if (!form.checkValidity()) {
-                e.preventDefault();
-                alert('Please fill out all required fields.');
-            }
-        });
-    </script>
-</body>
-</html>
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '100%';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.background = 'rgba(15, 23, 42, 0.95)';
+            navLinks.style.backdropFilter = 'blur(20px)';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.padding = '20px';
