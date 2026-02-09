@@ -145,287 +145,145 @@
             50% { background-position: 100% 50%; }
         }
 
-        /* Navigation Styles - FIXED */
-        nav {
-            position: fixed;
-            top: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 3rem);
-            max-width: 1200px;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            padding: 1rem 2rem;
-            z-index: 1000;
-            transition: all var(--transition-base);
-            animation: slideUp 0.8s var(--transition-base) both;
+        /* ========== SIMPLE HAMBURGER MENU ========== */
+        .menu-toggle {
+            display: none;
         }
-
-        nav.scrolled {
-            padding: 0.75rem 2rem;
-            background: rgba(15, 23, 42, 0.98);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .nav-content {
-            display: flex;
-            align-items: center;
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
             justify-content: space-between;
-            position: relative;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 1001;
         }
-
-        /* Logo */
-        .logo {
-            font-size: 1.75rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--accent), var(--accent2), var(--ai-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            z-index: 1002;
+        
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--white);
+            border-radius: 3px;
+            transition: 0.3s;
         }
-
-        .logo-symbol {
-            display: inline-block;
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, var(--accent), var(--accent2), var(--ai-color));
-            border-radius: 8px;
-            position: relative;
+        
+        .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
         }
-
-        .logo-symbol::after {
-            content: '';
-            position: absolute;
-            inset: 2px;
+        
+        .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
             background: var(--primary);
-            border-radius: 6px;
-        }
-
-        /* Desktop Navigation */
-        .desktop-nav {
+            z-index: 1000;
+            transition: 0.3s;
+            padding-top: 80px;
             display: flex;
-            gap: 2rem;
-            list-style: none;
-            position: absolute;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .menu-toggle:checked ~ .nav-menu {
+            left: 0;
+        }
+        
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            transition: 0.3s;
+            text-align: center;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+        
+        /* Desktop Menu */
+        .desktop-nav {
+            position: fixed;
+            top: 25px;
             left: 50%;
             transform: translateX(-50%);
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 15px 30px;
+            display: flex;
+            gap: 30px;
+            z-index: 999;
+            border: 1px solid rgba(255,255,255,0.1);
         }
-
+        
         .desktop-nav a {
             color: var(--white);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9375rem;
-            transition: color var(--transition-fast);
-            position: relative;
-            padding: 0.5rem 0;
         }
-
-        .desktop-nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--accent2));
-            transition: width var(--transition-base);
-        }
-
-        .desktop-nav a:hover::after,
-        .desktop-nav a.active::after {
-            width: 100%;
-        }
-
-        /* Desktop CTA Button */
-        .desktop-cta {
-            padding: 0.875rem 2rem;
-            background: linear-gradient(135deg, var(--ai-color), var(--accent3));
-            color: var(--white);
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9375rem;
-            cursor: pointer;
-            transition: all var(--transition-base);
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
+        
+        /* Logo */
+        .logo {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             z-index: 1002;
         }
-
-        .desktop-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-ai);
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .logo {
+                left: 50%;
+                transform: translateX(-50%);
+                top: 25px;
+            }
         }
-
-        /* Mobile Menu Button */
-        .mobile-menu {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--white);
-            cursor: pointer;
-            padding: 0.5rem;
-            position: relative;
-            z-index: 1002;
-            width: 40px;
-            height: 40px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .menu-icon {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--white);
-            position: relative;
-            transition: background-color 0.3s;
-        }
-
-        .menu-icon::before,
-        .menu-icon::after {
-            content: '';
-            position: absolute;
-            width: 24px;
-            height: 2px;
-            background: var(--white);
-            left: 0;
-            transition: transform 0.3s;
-        }
-
-        .menu-icon::before {
-            top: -6px;
-        }
-
-        .menu-icon::after {
-            bottom: -6px;
-        }
-
-        .mobile-menu[aria-expanded="true"] .menu-icon {
-            background: transparent;
-        }
-
-        .mobile-menu[aria-expanded="true"] .menu-icon::before {
-            transform: rotate(45deg);
-            top: 0;
-        }
-
-        .mobile-menu[aria-expanded="true"] .menu-icon::after {
-            transform: rotate(-45deg);
-            bottom: 0;
-        }
-
-        /* Mobile Navigation Container */
-        .mobile-nav-container {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: var(--primary-dark);
-            border-radius: 0 0 20px 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-            z-index: 1001;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-top: none;
-        }
-
-        /* Mobile Navigation Links */
-        .mobile-nav-links {
-            list-style: none;
-            padding: 1.5rem;
-        }
-
-        .mobile-nav-links li {
-            margin-bottom: 0.5rem;
-        }
-
-        .mobile-nav-links a {
-            display: block;
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.125rem;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            transition: all var(--transition-fast);
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .mobile-nav-links a:hover,
-        .mobile-nav-links a.active {
-            background: rgba(139, 92, 246, 0.15);
-            border-color: var(--accent);
-            transform: translateX(5px);
-        }
-
-        .mobile-cta-button {
-            background: linear-gradient(135deg, var(--ai-color), var(--accent3)) !important;
-            border: none !important;
-            color: var(--white) !important;
-            text-align: center !important;
-            margin-top: 1rem !important;
-        }
-
-        .mobile-cta-button:hover {
-            background: linear-gradient(135deg, var(--ai-color), var(--accent3)) !important;
-            transform: translateY(-2px) !important;
-            box-shadow: var(--shadow-ai) !important;
-        }
+        /* ========== END SIMPLE HAMBURGER MENU ========== */
 
         /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            position: relative;
-            padding: 8rem 1.5rem 4rem;
-            overflow: hidden;
-        }
-
-        .hero-background {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
+            justify-content: center;
             text-align: center;
-            animation: slideUp 0.8s var(--transition-base) 0.2s both;
+            padding: 100px 20px;
         }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 0.5rem 1.25rem;
-            background: rgba(139, 92, 246, 0.15);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            animation: slideUp 0.8s var(--transition-base) 0.4s both;
-        }
-
-        .ai-badge {
-            background: rgba(16, 185, 129, 0.15);
-            border-color: rgba(16, 185, 129, 0.3);
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: 20px;
         }
 
         .gradient-text {
@@ -435,22 +293,6 @@
             color: transparent;
             background-size: 200% 200%;
             animation: gradientShift 3s ease infinite;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.125rem, 3vw, 1.5rem);
-            color: var(--gray-400);
-            margin: 1.5rem 0 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-cta-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
         }
 
         /* Client Proof Grid */
@@ -535,24 +377,6 @@
             flex-direction: column;
             justify-content: space-between;
             border: 1px solid rgba(255,255,255,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portfolio-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(236,72,153,0.1));
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .portfolio-item:hover::before {
-            opacity: 1;
         }
 
         /* Contact Container */
@@ -670,38 +494,10 @@
             box-shadow: var(--shadow-ai);
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .desktop-nav {
-                gap: 1.5rem;
-            }
-            
-            .desktop-nav a {
-                font-size: 0.875rem;
-            }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .desktop-nav,
-            .desktop-cta {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            nav {
-                width: calc(100% - 2rem);
-                padding: 0.75rem 1.5rem;
-            }
-
-            .nav-content {
-                justify-content: space-between;
-            }
-
             .hero {
-                padding: 7rem 1.5rem 3rem;
+                padding: 80px 20px;
             }
 
             .proof-grid {
@@ -713,13 +509,9 @@
                 font-size: 2.5rem;
             }
 
-            .hero-cta-group {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .hero-cta-group .cta-button {
-                width: 100%;
+            .services-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
             }
 
             .contact-container {
@@ -729,15 +521,6 @@
             .contact-grid {
                 grid-template-columns: 1fr;
             }
-
-            .mobile-nav-container {
-                display: none;
-            }
-
-            .services-grid,
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 480px) {
@@ -745,23 +528,8 @@
                 grid-template-columns: 1fr;
             }
 
-            nav {
-                width: calc(100% - 1rem);
-                padding: 0.75rem 1rem;
-            }
-
             .logo {
                 font-size: 1.5rem;
-            }
-
-            .logo-symbol {
-                width: 28px;
-                height: 28px;
-            }
-
-            .mobile-nav-links a {
-                font-size: 1rem;
-                padding: 0.875rem 1.25rem;
             }
         }
     </style>
@@ -776,62 +544,51 @@
     <!-- Skip to content for accessibility -->
     <a href="#main-content" class="sr-only">Skip to main content</a>
     
-    <!-- Navigation - FIXED -->
-    <nav role="navigation" aria-label="Main navigation">
-        <div class="container">
-            <div class="nav-content">
-                <a href="#home" class="logo">
-                    <span class="logo-symbol" aria-hidden="true"></span>
-                    DOTxLabs
-                </a>
-                
-                <!-- Desktop Navigation -->
-                <ul class="desktop-nav">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#insights">Insights</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                
-                <!-- Mobile Menu Button -->
-                <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNavLinks">
-                    <span class="menu-icon" aria-hidden="true"></span>
-                </button>
-                
-                <a href="#contact" class="desktop-cta ai-button js-only">AI Consultation</a>
-            </div>
-            
-            <!-- Mobile Navigation Menu -->
-            <div class="mobile-nav-container" id="mobileNavLinks">
-                <ul class="mobile-nav-links">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#insights">Insights</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#contact" class="mobile-cta-button">AI Consultation</a></li>
-                </ul>
-            </div>
-        </div>
+    <!-- ========== SIMPLE HIDDEN HAMBURGER MENU ========== -->
+    <!-- Hidden Checkbox for Menu State -->
+    <input type="checkbox" id="menuToggle" class="menu-toggle">
+    
+    <!-- Hamburger Icon -->
+    <label for="menuToggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+    
+    <!-- Logo -->
+    <div class="logo">DOTxLabs</div>
+    
+    <!-- Desktop Menu -->
+    <nav class="desktop-nav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <nav class="nav-menu">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
     </nav>
 
     <!-- Main Content -->
     <main id="main-content">
         <!-- Hero Section -->
         <section class="hero" id="home" aria-labelledby="hero-heading">
-            <div class="hero-background" aria-hidden="true"></div>
             <div class="container">
                 <div class="hero-content">
-                    <span class="hero-badge ai-badge">AI-Powered Digital Growth Partner</span>
+                    <span style="display: inline-block; padding: 0.5rem 1.25rem; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 50px; font-size: 0.875rem; font-weight: 500; margin-bottom: 2rem;">AI-Powered Digital Growth Partner</span>
                     <h1 id="hero-heading">
                         Transform Your Business<br>
                         <span class="gradient-text">With AI Intelligence</span>
                     </h1>
-                    <p class="hero-subtitle">
+                    <p style="font-size: clamp(1.125rem, 3vw, 1.5rem); color: var(--gray-400); margin: 1.5rem 0 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
                         We build award-winning digital foundations powered by AI that deliver 5-10x more leads, dominate search rankings, and accelerate growth for creative businesses worldwide.
                     </p>
-                    <div class="hero-cta-group">
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                         <a href="#contact" class="cta-button ai-button">Book AI Strategy Call</a>
                         <a href="#portfolio" class="cta-button" style="background: transparent; border: 2px solid rgba(255,255,255,0.2);">View Global Portfolio</a>
                     </div>
@@ -840,9 +597,9 @@
         </section>
 
         <!-- AI Impact Statistics Section -->
-        <section class="ai-impact" aria-labelledby="ai-impact-heading" style="padding: 4rem 0; background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(6, 182, 212, 0.05));">
+        <section style="padding: 4rem 0; background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(6, 182, 212, 0.05));">
             <div class="container">
-                <h2 id="ai-impact-heading" class="sr-only">AI Impact Statistics</h2>
+                <h2 class="sr-only">AI Impact Statistics</h2>
                 <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
                     <h3 style="font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--ai-color), var(--accent3)); -webkit-background-clip: text; background-clip: text; color: transparent;">
                         The AI Revolution in Business
@@ -872,25 +629,18 @@
                         <div style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.6;">Boston Consulting Group</div>
                     </div>
                 </div>
-                
-                <div style="text-align: center; margin-top: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    <p style="opacity: 0.8; font-size: 1.125rem; line-height: 1.6;">
-                        Businesses that implement AI solutions see measurable improvements across all key performance indicators, from customer acquisition to operational efficiency.
-                    </p>
-                </div>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section class="services" id="services" aria-labelledby="services-heading" style="padding: 6rem 0; background: var(--primary-dark);">
+        <section id="services" style="padding: 6rem 0; background: var(--primary-dark);">
             <div class="container">
                 <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
-                    <h2 id="services-heading" style="margin-bottom: 1rem;">AI-Powered Digital Growth Ecosystem</h2>
+                    <h2 style="margin-bottom: 1rem;">AI-Powered Digital Growth Ecosystem</h2>
                     <p style="font-size: 1.125rem; opacity: 0.8;">End-to-end solutions enhanced with artificial intelligence to transform your digital presence</p>
                 </div>
                 
                 <div class="services-grid">
-                    <!-- AI Services First -->
                     <div class="service-card ai-service-card">
                         <span class="ai-tag">AI-Powered</span>
                         <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">AI Business Solutions</h3>
@@ -904,9 +654,6 @@
                             </li>
                             <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
                                 <span style="position: absolute; left: 0; color: var(--ai-color);">→</span> Machine Learning Models
-                            </li>
-                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--ai-color);">→</span> Data Intelligence
                             </li>
                         </ul>
                     </div>
@@ -925,9 +672,6 @@
                             <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
                                 <span style="position: absolute; left: 0; color: var(--ai-color);">→</span> Smart Ad Optimization
                             </li>
-                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--ai-color);">→</span> AI Analytics
-                            </li>
                         </ul>
                     </div>
                     
@@ -944,47 +688,6 @@
                             <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
                                 <span style="position: absolute; left: 0; color: var(--accent);">→</span> Headless CMS
                             </li>
-                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent);">→</span> PWA Development
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="service-card">
-                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Digital Marketing</h3>
-                        <p style="opacity: 0.8; margin-bottom: 1.5rem;">Data-driven campaigns that maximize ROI across all digital channels.</p>
-                        <ul style="list-style: none; opacity: 0.7;">
-                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent);">→</span> Paid Advertising
-                            </li>
-                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent);">→</span> Social Media Strategy
-                            </li>
-                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent);">→</span> Email Marketing
-                            </li>
-                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent);">→</span> Conversion Optimization
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="service-card">
-                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">SEO & Content</h3>
-                        <p style="opacity: 0.8; margin-bottom: 1.5rem;">Dominate search rankings with comprehensive SEO and content strategies.</p>
-                        <ul style="list-style: none; opacity: 0.7;">
-                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent);">→</span> Technical SEO
-                            </li>
-                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent);">→</span> Content Strategy
-                            </li>
-                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent);">→</span> Link Building
-                            </li>
-                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent);">→</span> Local SEO
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -992,7 +695,7 @@
         </section>
 
         <!-- AI CTA Banner -->
-        <section class="cta-banner ai-cta-banner" aria-label="AI Consultation call to action">
+        <section class="cta-banner ai-cta-banner">
             <div class="container">
                 <h2 style="margin-bottom: 1rem; font-size: 2.5rem;">Ready to Transform Your Business with AI?</h2>
                 <p style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95;">Book a free AI strategy session and receive a customized intelligence roadmap</p>
@@ -1000,47 +703,11 @@
             </div>
         </section>
 
-        <!-- AI Insights Section -->
-        <section class="insights" id="insights" aria-labelledby="insights-heading" style="padding: 6rem 0;">
-            <div class="container">
-                <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
-                    <h2 id="insights-heading" style="margin-bottom: 1rem;">AI & Digital Marketing Insights</h2>
-                    <p style="font-size: 1.125rem; opacity: 0.8;">Data-driven perspectives on the AI-powered digital landscape</p>
-                </div>
-                
-                <div class="services-grid">
-                    <div class="service-card ai-service-card">
-                        <div style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--ai-color), var(--accent3)); -webkit-background-clip: text; background-clip: text; color: transparent;">40%</div>
-                        <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 1rem;">
-                            of businesses will implement AI-powered process automation by 2025. Early adopters gain significant competitive advantage.
-                        </p>
-                        <div style="font-size: 0.875rem; opacity: 0.6; font-style: italic;">Gartner Research</div>
-                    </div>
-                    
-                    <div class="service-card ai-service-card">
-                        <div style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--ai-color), var(--accent3)); -webkit-background-clip: text; background-clip: text; color: transparent;">3.5x</div>
-                        <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 1rem;">
-                            higher ROI from AI-optimized marketing campaigns compared to traditional methods. AI doesn't just improve—it transforms.
-                        </p>
-                        <div style="font-size: 0.875rem; opacity: 0.6; font-style: italic;">McKinsey & Company</div>
-                    </div>
-                    
-                    <div class="service-card ai-service-card">
-                        <div style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--ai-color), var(--accent3)); -webkit-background-clip: text; background-clip: text; color: transparent;">$15.7T</div>
-                        <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 1rem;">
-                            projected contribution of AI to the global economy by 2030. The question isn't if you should adopt AI, but when.
-                        </p>
-                        <div style="font-size: 0.875rem; opacity: 0.6; font-style: italic;">PwC Analysis</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Portfolio Section -->
-        <section class="portfolio" id="portfolio" aria-labelledby="portfolio-heading" style="padding: 6rem 0; background: var(--primary-dark);">
+        <section id="portfolio" style="padding: 6rem 0; background: var(--primary-dark);">
             <div class="container">
                 <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
-                    <h2 id="portfolio-heading" style="margin-bottom: 1rem;">Global Portfolio</h2>
+                    <h2 style="margin-bottom: 1rem;">Global Portfolio</h2>
                     <p style="font-size: 1.125rem; opacity: 0.8;">Transforming businesses worldwide with measurable results</p>
                 </div>
                 
@@ -1074,36 +741,6 @@
                             <strong>Result:</strong> 10K+ leads with AI lead scoring
                         </div>
                     </div>
-                    
-                    <div class="portfolio-item">
-                        <div>
-                            <span style="display: inline-block; padding: 0.25rem 1rem; background: rgba(139,92,246,0.2); border-radius: 50px; font-size: 0.875rem; margin-bottom: 1rem;">Restaurant</span>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Fine Dining Group</h3>
-                        </div>
-                        <div style="opacity: 0.8;">
-                            <strong>Result:</strong> 400% revenue with AI reservations
-                        </div>
-                    </div>
-                    
-                    <div class="portfolio-item">
-                        <div>
-                            <span style="display: inline-block; padding: 0.25rem 1rem; background: rgba(139,92,246,0.2); border-radius: 50px; font-size: 0.875rem; margin-bottom: 1rem;">Contracting</span>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Construction Specialists</h3>
-                        </div>
-                        <div style="opacity: 0.8;">
-                            <strong>Result:</strong> 250% project growth
-                        </div>
-                    </div>
-                    
-                    <div class="portfolio-item">
-                        <div>
-                            <span style="display: inline-block; padding: 0.25rem 1rem; background: rgba(139,92,246,0.2); border-radius: 50px; font-size: 0.875rem; margin-bottom: 1rem;">Design Studio</span>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Creative Design Agency</h3>
-                        </div>
-                        <div style="opacity: 0.8;">
-                            <strong>Result:</strong> 3x client acquisition
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1115,49 +752,15 @@
                     <h3 style="font-size: 2rem; margin-bottom: 1.5rem; line-height: 1.3;">
                         "AI is not replacing humans—it's amplifying human potential. The businesses that understand this will dominate their markets."
                     </h3>
-                    <p style="font-size: 1.125rem; opacity: 0.9; line-height: 1.6;">
-                        Artificial intelligence processes thousands of data points in seconds, identifying patterns and opportunities invisible to the human eye. When combined with human creativity and strategy, the results are transformative.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- More Insights -->
-        <section style="padding: 6rem 0;">
-            <div class="container">
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent;">93%</div>
-                        <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 1rem;">
-                            of online experiences begin with a search engine. If you're not optimized for search, you're invisible to potential customers.
-                        </p>
-                        <div style="font-size: 0.875rem; opacity: 0.6; font-style: italic;">Search Engine Journal</div>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent;">75%</div>
-                        <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 1rem;">
-                            of users never scroll past the first page of search results. Ranking on page one isn't optional, it is essential for survival.
-                        </p>
-                        <div style="font-size: 0.875rem; opacity: 0.6; font-style: italic;">HubSpot Research</div>
-                    </div>
-                    
-                    <div class="service-card ai-service-card">
-                        <div style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--ai-color), var(--accent3)); -webkit-background-clip: text; background-clip: text; color: transparent;">71%</div>
-                        <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 1rem;">
-                            of executives say AI will be fundamental to their business strategy within two years. The time to implement is now.
-                        </p>
-                        <div style="font-size: 0.875rem; opacity: 0.6; font-style: italic;">Deloitte AI Survey</div>
-                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section class="contact" id="contact" aria-labelledby="contact-heading" style="padding: 6rem 0; background: var(--primary-dark);">
+        <section id="contact" style="padding: 6rem 0; background: var(--primary-dark);">
             <div class="container">
                 <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
-                    <h2 id="contact-heading" style="margin-bottom: 1rem;">Let's Build Something Intelligent</h2>
+                    <h2 style="margin-bottom: 1rem;">Let's Build Something Intelligent</h2>
                     <p style="font-size: 1.125rem; opacity: 0.8;">Connect with us for a free AI strategy consultation</p>
                 </div>
                 
@@ -1193,20 +796,6 @@
                                 <span>Connect with us</span>
                             </div>
                         </a>
-                        
-                        <a href="#contact" class="contact-method ai-contact-method">
-                            <div class="contact-icon">AI</div>
-                            <div class="contact-text">
-                                <strong>AI Consultation</strong>
-                                <span>Book free strategy call</span>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                        <p style="opacity: 0.7; font-size: 0.9375rem;">
-                            Typically respond within 2 hours during business hours
-                        </p>
                     </div>
                 </div>
             </div>
@@ -1214,11 +803,11 @@
     </main>
 
     <!-- Footer -->
-    <footer role="contentinfo" style="padding: 4rem 0 2rem;">
+    <footer style="padding: 4rem 0 2rem;">
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <a href="#home" class="logo" style="font-size: 1.5rem; margin-bottom: 1rem; display: inline-block;">DOTxLabs</a>
+                    <div class="logo" style="font-size: 1.5rem; margin-bottom: 1rem; display: inline-block;">DOTxLabs</div>
                     <p style="opacity: 0.7; line-height: 1.6;">AI-powered digital foundations that drive measurable growth for creative businesses worldwide.</p>
                 </div>
                 <div>
@@ -1227,14 +816,12 @@
                         <li style="margin-bottom: 0.5rem;"><a href="#services" style="color: inherit; text-decoration: none;">AI Solutions</a></li>
                         <li style="margin-bottom: 0.5rem;"><a href="#services" style="color: inherit; text-decoration: none;">Web Development</a></li>
                         <li style="margin-bottom: 0.5rem;"><a href="#services" style="color: inherit; text-decoration: none;">Digital Marketing</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#services" style="color: inherit; text-decoration: none;">SEO & Content</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 style="font-size: 1.125rem; margin-bottom: 1rem; opacity: 0.9;">Connect</h3>
                     <ul style="list-style: none; opacity: 0.7;">
                         <li style="margin-bottom: 0.5rem;"><a href="#portfolio" style="color: inherit; text-decoration: none;">Portfolio</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#insights" style="color: inherit; text-decoration: none;">Insights</a></li>
                         <li style="margin-bottom: 0.5rem;"><a href="#contact" style="color: inherit; text-decoration: none;">Contact</a></li>
                     </ul>
                 </div>
@@ -1242,85 +829,26 @@
             
             <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6;">
                 <p>&copy; <span id="currentYear">2024</span> DOTxLabs. All rights reserved.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.875rem;">Designed for maximum conversions & AI-powered performance</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // Remove no-js class for JavaScript users
-        document.documentElement.classList.remove('no-js');
-        
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Mobile menu functionality
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileNavLinks = document.getElementById('mobileNavLinks');
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menuToggle').checked = false;
+            });
+        });
         
-        if (mobileMenu && mobileNavLinks) {
-            mobileMenu.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const isExpanded = mobileMenu.getAttribute('aria-expanded') === 'true';
-                mobileMenu.setAttribute('aria-expanded', !isExpanded);
-                mobileNavLinks.style.display = isExpanded ? 'none' : 'block';
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!mobileNavLinks.contains(e.target) && !mobileMenu.contains(e.target)) {
-                    mobileMenu.setAttribute('aria-expanded', 'false');
-                    mobileNavLinks.style.display = 'none';
-                }
-            });
-
-            // Close mobile menu when clicking a link
-            mobileNavLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.setAttribute('aria-expanded', 'false');
-                    mobileNavLinks.style.display = 'none';
-                });
-            });
-        }
-
-        // Nav scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
+        // Close menu when clicking outside
+        document.querySelector('.nav-menu').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                document.getElementById('menuToggle').checked = false;
             }
-            
-            // Update active nav link
-            const sections = document.querySelectorAll('section[id]');
-            const desktopNavItems = document.querySelectorAll('.desktop-nav a');
-            const mobileNavItems = document.querySelectorAll('.mobile-nav-links a');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            // Update desktop nav
-            desktopNavItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('href') === `#${current}`) {
-                    item.classList.add('active');
-                }
-            });
-            
-            // Update mobile nav
-            mobileNavItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('href') === `#${current}`) {
-                    item.classList.add('active');
-                }
-            });
         });
 
         // Smooth scrolling for anchor links
@@ -1333,67 +861,13 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    const navHeight = document.querySelector('nav').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - navHeight;
-                    
                     window.scrollTo({
-                        top: targetPosition,
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
             });
         });
-
-        // Initialize on load
-        window.addEventListener('DOMContentLoaded', () => {
-            // Trigger scroll event to set initial nav state
-            window.dispatchEvent(new Event('scroll'));
-            
-            // Initially hide mobile nav
-            if (mobileNavLinks) {
-                mobileNavLinks.style.display = 'none';
-            }
-        });
-
-        // Close mobile menu on window resize (if resized to desktop)
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                if (mobileNavLinks) {
-                    mobileNavLinks.style.display = 'none';
-                }
-                if (mobileMenu) {
-                    mobileMenu.setAttribute('aria-expanded', 'false');
-                }
-            }
-        });
-    </script>
-
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "DOTxLabs",
-        "description": "AI-Powered Digital Growth Partner specializing in artificial intelligence solutions, web design, digital marketing, and growth strategies for creative businesses.",
-        "url": "https://dotxlabs.com",
-        "logo": "https://dotxlabs.com/logo.png",
-        "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "Worldwide"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+1-647-460-3641",
-            "contactType": "Customer Service",
-            "email": "contact@dotxlabs.com",
-            "availableLanguage": "English"
-        },
-        "serviceType": ["AI Solutions", "Web Development", "Digital Marketing", "SEO", "Artificial Intelligence"],
-        "areaServed": {
-            "@type": "Country",
-            "name": "Worldwide"
-        }
-    }
     </script>
 </body>
 </html>
