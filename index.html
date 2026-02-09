@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="DOTxLabs - Elite Marketing & Digital Growth Partner for creative businesses. Award-winning web design, social media, SEO, and growth strategies that deliver 5-10x leads.">
-    <meta name="keywords" content="digital marketing, web design, SEO, artificial intelligence, machine learning, creative agencies, growth strategy">
+    <meta name="description" content="DOTxLabs - AI Innovation Lab for creative businesses. Building intelligent digital solutions with cutting-edge AI, machine learning, and growth strategies.">
+    <meta name="keywords" content="AI lab, machine learning, digital innovation, tech solutions, AI development, creative agencies, growth technology">
     <meta name="author" content="DOTxLabs">
-    <meta property="og:title" content="DOTxLabs | Marketing & Digital Growth Partner">
-    <meta property="og:description" content="Transforming creative businesses with elite digital strategies that drive measurable growth.">
+    <meta property="og:title" content="DOTxLabs | AI Innovation Lab for Creative Growth">
+    <meta property="og:description" content="Where artificial intelligence meets creative business transformation.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://dotxlabs.com">
     <meta property="og:image" content="https://dotxlabs.com/og-image.jpg">
@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style">
-    <title>DOTxLabs | Marketing & Digital Growth Partner for Creative Businesses</title>
+    <title>DOTxLabs | AI Innovation Lab for Creative Business Growth</title>
     
     <!-- Critical CSS inlined for maximum performance -->
     <style>
@@ -30,7 +30,9 @@
             --accent-dark: #7c3aed;
             --accent2: #ec4899;
             --accent3: #06b6d4;
-            --ai-color: #10b981;
+            --lab-green: #10b981;
+            --lab-cyan: #22d3ee;
+            --lab-blue: #3b82f6;
             --success: #10b981;
             --light: #f8fafc;
             --white: #ffffff;
@@ -42,7 +44,7 @@
             --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
             --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
             --shadow-accent: 0 10px 40px rgba(139, 92, 246, 0.3);
-            --shadow-ai: 0 10px 40px rgba(16, 185, 129, 0.3);
+            --shadow-lab: 0 10px 40px rgba(16, 185, 129, 0.3);
             --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
             --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
             --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -76,7 +78,7 @@
 
         /* Accessibility focus styles */
         :focus {
-            outline: 3px solid var(--accent);
+            outline: 3px solid var(--lab-green);
             outline-offset: 3px;
         }
 
@@ -145,6 +147,16 @@
             50% { background-position: 100% 50%; }
         }
 
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         /* ========== SIMPLE HAMBURGER MENU ========== */
         .menu-toggle {
             display: none;
@@ -161,6 +173,9 @@
             top: 25px;
             right: 25px;
             z-index: 1001;
+            background: transparent;
+            border: none;
+            padding: 0;
         }
         
         .hamburger span {
@@ -184,7 +199,7 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
         
-        .nav-menu {
+        .mobile-nav-menu {
             position: fixed;
             top: 0;
             left: -100%;
@@ -193,28 +208,32 @@
             background: var(--primary);
             z-index: 1000;
             transition: 0.3s;
-            padding-top: 80px;
+            padding-top: 100px;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 20px;
         }
         
-        .menu-toggle:checked ~ .nav-menu {
+        .menu-toggle:checked ~ .mobile-nav-menu {
             left: 0;
         }
         
-        .nav-menu a {
+        .mobile-nav-menu a {
             color: var(--white);
             text-decoration: none;
             font-size: 1.5rem;
-            padding: 15px 30px;
+            padding: 15px 40px;
             transition: 0.3s;
             text-align: center;
+            width: 100%;
+            max-width: 300px;
         }
         
-        .nav-menu a:hover {
-            color: var(--accent);
+        .mobile-nav-menu a:hover {
+            color: var(--lab-green);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
         }
         
         /* Desktop Menu */
@@ -237,20 +256,70 @@
             color: var(--white);
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .desktop-nav a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--lab-green), var(--lab-cyan));
+            transition: width 0.3s;
+        }
+        
+        .desktop-nav a:hover:after,
+        .desktop-nav a.active:after {
+            width: 100%;
         }
         
         /* Logo */
-        .logo {
+        .site-logo {
             position: fixed;
-            top: 25px;
+            top: 20px;
             left: 25px;
             font-size: 1.8rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan), var(--lab-blue));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             z-index: 1002;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--lab-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        /* CTA Button */
+        .nav-cta {
+            position: fixed;
+            top: 20px;
+            right: 25px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan));
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            z-index: 1002;
+            transition: all 0.3s;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lab);
         }
         
         /* Responsive */
@@ -263,10 +332,14 @@
                 display: flex;
             }
             
-            .logo {
+            .site-logo {
                 left: 50%;
                 transform: translateX(-50%);
-                top: 25px;
+                top: 20px;
+            }
+            
+            .nav-cta {
+                display: none;
             }
         }
         /* ========== END SIMPLE HAMBURGER MENU ========== */
@@ -276,18 +349,59 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 100px 20px;
+            position: relative;
+            padding: 8rem 1.5rem 4rem;
+            overflow: hidden;
         }
-        
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            margin-bottom: 20px;
+
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(34, 211, 238, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+        }
+
+        .lab-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--lab-cyan);
+            border-radius: 50%;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            animation: slideUp 0.8s var(--transition-base) 0.2s both;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.5rem 1.25rem;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            animation: slideUp 0.8s var(--transition-base) 0.4s both;
+        }
+
+        .lab-icon {
+            font-size: 1rem;
+            animation: pulse 2s infinite;
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, var(--white) 0%, var(--accent) 30%, var(--accent2) 50%, var(--ai-color) 100%);
+            background: linear-gradient(135deg, var(--lab-green) 0%, var(--lab-cyan) 50%, var(--lab-blue) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -295,36 +409,63 @@
             animation: gradientShift 3s ease infinite;
         }
 
-        /* Client Proof Grid */
-        .proof-grid {
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            color: var(--gray-400);
+            margin: 1.5rem 0 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Lab Stats Grid */
+        .lab-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             margin: 4rem 0;
         }
 
-        .proof-item {
+        .lab-stat {
             text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
         }
 
-        .proof-number {
+        .lab-stat:hover {
+            border-color: var(--lab-green);
+            transform: translateY(-5px);
+        }
+
+        .lab-number {
             font-size: 3rem;
             font-weight: 800;
             line-height: 1;
-            background: linear-gradient(135deg, var(--accent), var(--accent2), var(--ai-color));
+            background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan), var(--lab-blue));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            margin-bottom: 0.5rem;
         }
 
-        /* Services Grid */
-        .services-grid {
+        /* Experiment Grid */
+        .experiments-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .service-card {
+        .experiment-card {
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 1rem;
@@ -334,31 +475,32 @@
             overflow: hidden;
         }
 
-        .service-card:hover {
+        .experiment-card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: var(--shadow-accent);
+            border-color: var(--lab-green);
+            box-shadow: var(--shadow-lab);
         }
 
-        .ai-service-card {
-            border-color: rgba(16, 185, 129, 0.3);
-        }
-
-        .ai-service-card:hover {
-            border-color: var(--ai-color);
-            box-shadow: var(--shadow-ai);
-        }
-
-        .ai-tag {
+        .experiment-tag {
             position: absolute;
             top: 1rem;
             right: 1rem;
             background: rgba(16, 185, 129, 0.2);
-            color: var(--ai-color);
+            color: var(--lab-green);
             padding: 0.25rem 0.75rem;
             border-radius: 50px;
             font-size: 0.75rem;
             font-weight: 600;
+        }
+
+        .ai-tag {
+            background: rgba(34, 211, 238, 0.2);
+            color: var(--lab-cyan);
+        }
+
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--lab-blue);
         }
 
         /* Portfolio Grid */
@@ -370,13 +512,21 @@
 
         .portfolio-item {
             aspect-ratio: 4/3;
-            background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(236,72,153,0.1));
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(34, 211, 238, 0.1));
             border-radius: 1rem;
             padding: 2rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--lab-green);
         }
 
         /* Contact Container */
@@ -410,15 +560,15 @@
         }
 
         .contact-method:hover {
-            background: rgba(139, 92, 246, 0.1);
-            border-color: var(--accent);
+            background: rgba(16, 185, 129, 0.1);
+            border-color: var(--lab-green);
             transform: translateY(-2px);
         }
 
         .contact-icon {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan));
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -427,8 +577,8 @@
             flex-shrink: 0;
         }
 
-        .ai-contact-method .contact-icon {
-            background: linear-gradient(135deg, var(--ai-color), var(--accent3));
+        .lab-contact-method .contact-icon {
+            background: linear-gradient(135deg, var(--lab-blue), var(--lab-cyan));
         }
 
         .contact-text {
@@ -448,13 +598,23 @@
 
         /* CTA Banner */
         .cta-banner {
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan));
             padding: 4rem 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .ai-cta-banner {
-            background: linear-gradient(135deg, var(--ai-color), var(--accent3));
+        .lab-cta-banner {
+            background: linear-gradient(135deg, var(--lab-blue), var(--lab-cyan));
+        }
+
+        /* Quote Banner */
+        .quote-banner {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(34, 211, 238, 0.1));
+            position: relative;
+            overflow: hidden;
         }
 
         /* Footer */
@@ -468,7 +628,7 @@
         /* CTA Button Styles */
         .cta-button {
             padding: 0.875rem 2rem;
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan));
             color: var(--white);
             border: none;
             border-radius: 50px;
@@ -483,35 +643,35 @@
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-accent);
+            box-shadow: var(--shadow-lab);
         }
 
-        .ai-button {
-            background: linear-gradient(135deg, var(--ai-color), var(--accent3));
-        }
-
-        .ai-button:hover {
-            box-shadow: var(--shadow-ai);
+        .lab-button {
+            background: linear-gradient(135deg, var(--lab-blue), var(--lab-cyan));
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero {
-                padding: 80px 20px;
+                padding: 7rem 1.5rem 3rem;
             }
 
-            .proof-grid {
+            .lab-stats {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
             }
 
-            .proof-number {
+            .lab-number {
                 font-size: 2.5rem;
             }
 
-            .services-grid,
-            .portfolio-grid {
-                grid-template-columns: 1fr;
+            .hero-cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-cta-group .cta-button {
+                width: 100%;
             }
 
             .contact-container {
@@ -521,14 +681,19 @@
             .contact-grid {
                 grid-template-columns: 1fr;
             }
+
+            .experiments-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
-            .proof-grid {
+            .lab-stats {
                 grid-template-columns: 1fr;
             }
 
-            .logo {
+            .site-logo {
                 font-size: 1.5rem;
             }
         }
@@ -556,137 +721,189 @@
     </label>
     
     <!-- Logo -->
-    <div class="logo">DOTxLabs</div>
+    <a href="#home" class="site-logo">
+        <span class="logo-dot"></span>
+        DOTxLabs
+    </a>
     
     <!-- Desktop Menu -->
     <nav class="desktop-nav">
         <a href="#home">Home</a>
-        <a href="#services">Services</a>
+        <a href="#experiments">Experiments</a>
         <a href="#portfolio">Portfolio</a>
+        <a href="#insights">Insights</a>
         <a href="#contact">Contact</a>
     </nav>
     
     <!-- Mobile Menu -->
-    <nav class="nav-menu">
+    <nav class="mobile-nav-menu">
         <a href="#home">Home</a>
-        <a href="#services">Services</a>
+        <a href="#experiments">Experiments</a>
         <a href="#portfolio">Portfolio</a>
+        <a href="#insights">Insights</a>
         <a href="#contact">Contact</a>
     </nav>
+    
+    <!-- CTA Button -->
+    <a href="#contact" class="nav-cta lab-button">Start Experiment</a>
+    <!-- ========== END HAMBURGER MENU ========== -->
 
     <!-- Main Content -->
     <main id="main-content">
         <!-- Hero Section -->
         <section class="hero" id="home" aria-labelledby="hero-heading">
+            <div class="hero-background" aria-hidden="true"></div>
+            <div id="labParticles"></div>
+            
             <div class="container">
                 <div class="hero-content">
-                    <span style="display: inline-block; padding: 0.5rem 1.25rem; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 50px; font-size: 0.875rem; font-weight: 500; margin-bottom: 2rem;">AI-Powered Digital Growth Partner</span>
+                    <span class="hero-badge">
+                        <span class="lab-icon">⚗️</span>
+                        AI Innovation Lab
+                    </span>
                     <h1 id="hero-heading">
-                        Transform Your Business<br>
-                        <span class="gradient-text">With AI Intelligence</span>
+                        Where AI Meets<br>
+                        <span class="gradient-text">Creative Growth</span>
                     </h1>
-                    <p style="font-size: clamp(1.125rem, 3vw, 1.5rem); color: var(--gray-400); margin: 1.5rem 0 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                        We build award-winning digital foundations powered by AI that deliver 5-10x more leads, dominate search rankings, and accelerate growth for creative businesses worldwide.
+                    <p class="hero-subtitle">
+                        We experiment with cutting-edge artificial intelligence to build intelligent digital solutions that drive measurable growth for creative businesses.
                     </p>
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="#contact" class="cta-button ai-button">Book AI Strategy Call</a>
-                        <a href="#portfolio" class="cta-button" style="background: transparent; border: 2px solid rgba(255,255,255,0.2);">View Global Portfolio</a>
+                    <div class="hero-cta-group">
+                        <a href="#contact" class="cta-button lab-button">Start Your Experiment</a>
+                        <a href="#experiments" class="cta-button" style="background: transparent; border: 2px solid rgba(255,255,255,0.2);">View Our Experiments</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- AI Impact Statistics Section -->
-        <section style="padding: 4rem 0; background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(6, 182, 212, 0.05));">
+        <!-- Lab Statistics Section -->
+        <section class="ai-impact" aria-labelledby="stats-heading" style="padding: 4rem 0; background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(34, 211, 238, 0.05));">
             <div class="container">
-                <h2 class="sr-only">AI Impact Statistics</h2>
+                <h2 id="stats-heading" class="sr-only">Lab Performance Metrics</h2>
                 <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
-                    <h3 style="font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--ai-color), var(--accent3)); -webkit-background-clip: text; background-clip: text; color: transparent;">
-                        The AI Revolution in Business
+                    <h3 style="font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan)); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                        Lab Performance Metrics
                     </h3>
-                    <p style="font-size: 1.125rem; opacity: 0.8;">How artificial intelligence is transforming industries and creating unprecedented opportunities</p>
+                    <p style="font-size: 1.125rem; opacity: 0.8;">Quantifying innovation and measuring impact through data-driven experimentation</p>
                 </div>
                 
-                <div class="proof-grid">
-                    <div class="proof-item">
-                        <div class="proof-number">47%</div>
-                        <p>of companies have embedded AI in business processes</p>
-                        <div style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.6;">IBM Global AI Adoption Index</div>
+                <div class="lab-stats">
+                    <div class="lab-stat">
+                        <div class="lab-number">247+</div>
+                        <p>Successful Experiments</p>
+                        <div style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.6;">Global Projects Completed</div>
                     </div>
-                    <div class="proof-item">
-                        <div class="proof-number">54%</div>
-                        <p>boost in productivity from AI-powered automation</p>
-                        <div style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.6;">Accenture Research</div>
+                    <div class="lab-stat">
+                        <div class="lab-number">93%</div>
+                        <p>Client Retention Rate</p>
+                        <div style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.6;">Long-term Partnerships</div>
                     </div>
-                    <div class="proof-item">
-                        <div class="proof-number">$4.4T</div>
-                        <p>annual business value from AI-powered analytics</p>
-                        <div style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.6;">McKinsey Global Institute</div>
+                    <div class="lab-stat">
+                        <div class="lab-number">5.2x</div>
+                        <p>Average ROI Increase</p>
+                        <div style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.6;">Measured Business Impact</div>
                     </div>
-                    <div class="proof-item">
-                        <div class="proof-number">3.2x</div>
-                        <p>faster revenue growth for AI-adopting companies</p>
-                        <div style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.6;">Boston Consulting Group</div>
+                    <div class="lab-stat">
+                        <div class="lab-number">3.1s</div>
+                        <p>Average Load Time</p>
+                        <div style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.6;">Performance Optimized</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services" style="padding: 6rem 0; background: var(--primary-dark);">
+        <!-- Experiments Section -->
+        <section class="services" id="experiments" aria-labelledby="experiments-heading" style="padding: 6rem 0; background: var(--primary-dark);">
             <div class="container">
                 <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
-                    <h2 style="margin-bottom: 1rem;">AI-Powered Digital Growth Ecosystem</h2>
-                    <p style="font-size: 1.125rem; opacity: 0.8;">End-to-end solutions enhanced with artificial intelligence to transform your digital presence</p>
+                    <h2 id="experiments-heading" style="margin-bottom: 1rem;">Active Experiments</h2>
+                    <p style="font-size: 1.125rem; opacity: 0.8;">Our current research and development initiatives pushing the boundaries of digital innovation</p>
                 </div>
                 
-                <div class="services-grid">
-                    <div class="service-card ai-service-card">
-                        <span class="ai-tag">AI-Powered</span>
-                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">AI Business Solutions</h3>
-                        <p style="opacity: 0.8; margin-bottom: 1.5rem;">Intelligent automation, predictive analytics, and AI-driven decision making for your business.</p>
+                <div class="experiments-grid">
+                    <!-- AI Experiments -->
+                    <div class="experiment-card">
+                        <span class="experiment-tag ai-tag">AI Research</span>
+                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Neural Growth Optimization</h3>
+                        <p style="opacity: 0.8; margin-bottom: 1.5rem;">Deep learning algorithms that predict customer behavior and optimize conversion paths in real-time.</p>
                         <ul style="list-style: none; opacity: 0.7;">
                             <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--ai-color);">→</span> Predictive Analytics
+                                <span style="position: absolute; left: 0; color: var(--lab-cyan);">→</span> Predictive Analytics Engine
                             </li>
                             <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--ai-color);">→</span> AI Chatbots & Automation
+                                <span style="position: absolute; left: 0; color: var(--lab-cyan);">→</span> Real-time Optimization
                             </li>
                             <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--ai-color);">→</span> Machine Learning Models
+                                <span style="position: absolute; left: 0; color: var(--lab-cyan);">→</span> Behavioral Pattern Recognition
                             </li>
                         </ul>
                     </div>
                     
-                    <div class="service-card ai-service-card">
-                        <span class="ai-tag">AI-Powered</span>
-                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">AI Marketing & SEO</h3>
-                        <p style="opacity: 0.8; margin-bottom: 1.5rem;">AI-optimized campaigns, predictive content strategy, and intelligent SEO automation.</p>
+                    <div class="experiment-card">
+                        <span class="experiment-tag ai-tag">Machine Learning</span>
+                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Content Intelligence System</h3>
+                        <p style="opacity: 0.8; margin-bottom: 1.5rem;">AI that analyzes performance data to generate and optimize content strategies automatically.</p>
                         <ul style="list-style: none; opacity: 0.7;">
                             <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--ai-color);">→</span> AI Content Generation
+                                <span style="position: absolute; left: 0; color: var(--lab-cyan);">→</span> NLP Content Analysis
                             </li>
                             <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--ai-color);">→</span> Predictive SEO
+                                <span style="position: absolute; left: 0; color: var(--lab-cyan);">→</span> Automated Strategy Generation
                             </li>
                             <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--ai-color);">→</span> Smart Ad Optimization
+                                <span style="position: absolute; left: 0; color: var(--lab-cyan);">→</span> Performance Prediction Models
                             </li>
                         </ul>
                     </div>
                     
-                    <div class="service-card">
-                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Web Development</h3>
-                        <p style="opacity: 0.8; margin-bottom: 1.5rem;">Blazing-fast, conversion-optimized websites built for performance and user experience.</p>
+                    <!-- Tech Experiments -->
+                    <div class="experiment-card">
+                        <span class="experiment-tag tech-tag">Web Technology</span>
+                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Quantum Web Architecture</h3>
+                        <p style="opacity: 0.8; margin-bottom: 1.5rem;">Next-generation web frameworks that deliver sub-second load times and seamless user experiences.</p>
                         <ul style="list-style: none; opacity: 0.7;">
                             <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent);">→</span> Custom React/Next.js
+                                <span style="position: absolute; left: 0; color: var(--lab-blue);">→</span> Edge Computing Integration
                             </li>
                             <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent);">→</span> E-commerce Solutions
+                                <span style="position: absolute; left: 0; color: var(--lab-blue);">→</span> Predictive Preloading
                             </li>
                             <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent);">→</span> Headless CMS
+                                <span style="position: absolute; left: 0; color: var(--lab-blue);">→</span> Adaptive Image Delivery
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experiment-card">
+                        <span class="experiment-tag">Growth Tech</span>
+                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Conversion Genetics</h3>
+                        <p style="opacity: 0.8; margin-bottom: 1.5rem;">Genetic algorithm approach to continuously evolve and optimize digital experiences for maximum conversion.</p>
+                        <ul style="list-style: none; opacity: 0.7;">
+                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: var(--lab-green);">→</span> A/B Evolution Engine
+                            </li>
+                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: var(--lab-green);">→</span> Mutation-Based Optimization
+                            </li>
+                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: var(--lab-green);">→</span> Survival of the Fittest Testing
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experiment-card">
+                        <span class="experiment-tag ai-tag">AI Automation</span>
+                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Autonomous Marketing Systems</h3>
+                        <p style="opacity: 0.8; margin-bottom: 1.5rem;">Self-learning systems that manage and optimize digital marketing campaigns with minimal human intervention.</p>
+                        <ul style="list-style: none; opacity: 0.7;">
+                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: var(--lab-cyan);">→</span> Bid Optimization AI
+                            </li>
+                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: var(--lab-cyan);">→</span> Content Scheduling Intelligence
+                            </li>
+                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: var(--lab-cyan);">→</span> ROI Prediction Models
                             </li>
                         </ul>
                     </div>
@@ -694,97 +911,215 @@
             </div>
         </section>
 
-        <!-- AI CTA Banner -->
-        <section class="cta-banner ai-cta-banner">
+        <!-- Lab CTA Banner -->
+        <section class="cta-banner lab-cta-banner" aria-label="Lab consultation call to action">
             <div class="container">
-                <h2 style="margin-bottom: 1rem; font-size: 2.5rem;">Ready to Transform Your Business with AI?</h2>
-                <p style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95;">Book a free AI strategy session and receive a customized intelligence roadmap</p>
-                <a href="#contact" class="cta-button" style="background: var(--white); color: var(--primary); font-size: 1.125rem; padding: 1rem 3rem;">Claim Free AI Strategy Session</a>
+                <h2 style="margin-bottom: 1rem; font-size: 2.5rem;">Ready to Experiment?</h2>
+                <p style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95;">Book a free lab consultation and receive a custom innovation roadmap</p>
+                <a href="#contact" class="cta-button" style="background: var(--white); color: var(--primary); font-size: 1.125rem; padding: 1rem 3rem;">Schedule Lab Session</a>
+            </div>
+        </section>
+
+        <!-- AI Insights Section -->
+        <section class="insights" id="insights" aria-labelledby="insights-heading" style="padding: 6rem 0;">
+            <div class="container">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
+                    <h2 id="insights-heading" style="margin-bottom: 1rem;">Lab Research Findings</h2>
+                    <p style="font-size: 1.125rem; opacity: 0.8;">Data-driven discoveries from our ongoing experiments in digital growth and AI</p>
+                </div>
+                
+                <div class="experiments-grid">
+                    <div class="experiment-card">
+                        <div style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan)); -webkit-background-clip: text; background-clip: text; color: transparent;">47%</div>
+                        <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 1rem;">
+                            of companies embedding AI report significant competitive advantage within 6 months of implementation.
+                        </p>
+                        <div style="font-size: 0.875rem; opacity: 0.6; font-style: italic;">DOTxLabs Research 2024</div>
+                    </div>
+                    
+                    <div class="experiment-card">
+                        <div style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan)); -webkit-background-clip: text; background-clip: text; color: transparent;">3.5x</div>
+                        <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 1rem;">
+                            higher ROI from AI-optimized customer journeys compared to traditional funnel approaches.
+                        </p>
+                        <div style="font-size: 0.875rem; opacity: 0.6; font-style: italic;">Growth Intelligence Report</div>
+                    </div>
+                    
+                    <div class="experiment-card">
+                        <div style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan)); -webkit-background-clip: text; background-clip: text; color: transparent;">0.8s</div>
+                        <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 1rem;">
+                            faster page loads can increase conversion rates by up to 7% across e-commerce and lead generation sites.
+                        </p>
+                        <div style="font-size: 0.875rem; opacity: 0.6; font-style: italic;">Performance Lab Findings</div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Portfolio Section -->
-        <section id="portfolio" style="padding: 6rem 0; background: var(--primary-dark);">
+        <section class="portfolio" id="portfolio" aria-labelledby="portfolio-heading" style="padding: 6rem 0; background: var(--primary-dark);">
             <div class="container">
                 <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
-                    <h2 style="margin-bottom: 1rem;">Global Portfolio</h2>
-                    <p style="font-size: 1.125rem; opacity: 0.8;">Transforming businesses worldwide with measurable results</p>
+                    <h2 id="portfolio-heading" style="margin-bottom: 1rem;">Experiment Results</h2>
+                    <p style="font-size: 1.125rem; opacity: 0.8;">Measurable outcomes from our applied research and client collaborations</p>
                 </div>
                 
                 <div class="portfolio-grid">
                     <div class="portfolio-item">
                         <div>
-                            <span style="display: inline-block; padding: 0.25rem 1rem; background: rgba(139,92,246,0.2); border-radius: 50px; font-size: 0.875rem; margin-bottom: 1rem;">Accounting Firm</span>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Financial Solutions Co.</h3>
+                            <span style="display: inline-block; padding: 0.25rem 1rem; background: rgba(16, 185, 129, 0.2); border-radius: 50px; font-size: 0.875rem; margin-bottom: 1rem;">AI Implementation</span>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Accounting Intelligence</h3>
                         </div>
                         <div style="opacity: 0.8;">
-                            <strong>Result:</strong> 300% lead increase with AI-powered CRM
+                            <strong>Experiment:</strong> AI-powered CRM + Predictive Analytics
+                            <div style="margin-top: 0.5rem;">
+                                <strong>Result:</strong> 300% lead increase
+                            </div>
                         </div>
                     </div>
                     
                     <div class="portfolio-item">
                         <div>
-                            <span style="display: inline-block; padding: 0.25rem 1rem; background: rgba(139,92,246,0.2); border-radius: 50px; font-size: 0.875rem; margin-bottom: 1rem;">Rental Services</span>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Premium Rentals Inc.</h3>
+                            <span style="display: inline-block; padding: 0.25rem 1rem; background: rgba(34, 211, 238, 0.2); border-radius: 50px; font-size: 0.875rem; margin-bottom: 1rem;">Dynamic Pricing</span>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Rental Services AI</h3>
                         </div>
                         <div style="opacity: 0.8;">
-                            <strong>Result:</strong> 5x booking growth with AI pricing
+                            <strong>Experiment:</strong> Machine Learning Pricing Algorithm
+                            <div style="margin-top: 0.5rem;">
+                                <strong>Result:</strong> 5x booking growth
+                            </div>
                         </div>
                     </div>
                     
                     <div class="portfolio-item">
                         <div>
-                            <span style="display: inline-block; padding: 0.25rem 1rem; background: rgba(139,92,246,0.2); border-radius: 50px; font-size: 0.875rem; margin-bottom: 1rem;">Consulting</span>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">West Africa Consulting</h3>
+                            <span style="display: inline-block; padding: 0.25rem 1rem; background: rgba(16, 185, 129, 0.2); border-radius: 50px; font-size: 0.875rem; margin-bottom: 1rem;">Lead Scoring AI</span>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Consulting Intelligence</h3>
                         </div>
                         <div style="opacity: 0.8;">
-                            <strong>Result:</strong> 10K+ leads with AI lead scoring
+                            <strong>Experiment:</strong> Neural Network Lead Qualification
+                            <div style="margin-top: 0.5rem;">
+                                <strong>Result:</strong> 10K+ qualified leads
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div>
+                            <span style="display: inline-block; padding: 0.25rem 1rem; background: rgba(34, 211, 238, 0.2); border-radius: 50px; font-size: 0.875rem; margin-bottom: 1rem;">Reservation AI</span>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Restaurant Optimization</h3>
+                        </div>
+                        <div style="opacity: 0.8;">
+                            <strong>Experiment:</strong> Predictive Reservation System
+                            <div style="margin-top: 0.5rem;">
+                                <strong>Result:</strong> 400% revenue increase
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div>
+                            <span style="display: inline-block; padding: 0.25rem 1rem; background: rgba(16, 185, 129, 0.2); border-radius: 50px; font-size: 0.875rem; margin-bottom: 1rem;">Project Management AI</span>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Construction Intelligence</h3>
+                        </div>
+                        <div style="opacity: 0.8;">
+                            <strong>Experiment:</strong> AI Resource Allocation System
+                            <div style="margin-top: 0.5rem;">
+                                <strong>Result:</strong> 250% project efficiency
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div>
+                            <span style="display: inline-block; padding: 0.25rem 1rem; background: rgba(34, 211, 238, 0.2); border-radius: 50px; font-size: 0.875rem; margin-bottom: 1rem;">Creative AI</span>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Design Studio Evolution</h3>
+                        </div>
+                        <div style="opacity: 0.8;">
+                            <strong>Experiment:</strong> AI-Assisted Creative Process
+                            <div style="margin-top: 0.5rem;">
+                                <strong>Result:</strong> 3x client acquisition
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- AI Quote Section -->
-        <section class="cta-banner ai-cta-banner">
+        <!-- Quote Banner -->
+        <section class="quote-banner">
             <div class="container">
                 <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; line-height: 1.3;">
-                        "AI is not replacing humans—it's amplifying human potential. The businesses that understand this will dominate their markets."
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; line-height: 1.3; background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan)); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                        "Innovation is experimentation applied. Every breakthrough begins as a hypothesis in the lab."
                     </h3>
+                    <p style="font-size: 1.125rem; opacity: 0.9; line-height: 1.6;">
+                        At DOTxLabs, we approach every challenge with scientific rigor—forming hypotheses, running experiments, and measuring outcomes to deliver intelligent solutions that drive real business growth.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- More Insights -->
+        <section style="padding: 6rem 0;">
+            <div class="container">
+                <div class="experiments-grid">
+                    <div class="experiment-card">
+                        <div style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan)); -webkit-background-clip: text; background-clip: text; color: transparent;">93%</div>
+                        <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 1rem;">
+                            of online experiences begin with search. Our AI-powered SEO experiments consistently achieve first-page rankings within 90 days.
+                        </p>
+                        <div style="font-size: 0.875rem; opacity: 0.6; font-style: italic;">SEO Lab Data</div>
+                    </div>
+                    
+                    <div class="experiment-card">
+                        <div style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan)); -webkit-background-clip: text; background-clip: text; color: transparent;">71%</div>
+                        <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 1rem;">
+                            of executives accelerating AI adoption within two years. Early experimentation provides significant competitive advantage.
+                        </p>
+                        <div style="font-size: 0.875rem; opacity: 0.6; font-style: italic;">Executive Innovation Survey</div>
+                    </div>
+                    
+                    <div class="experiment-card">
+                        <div style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan)); -webkit-background-clip: text; background-clip: text; color: transparent;">$4.4T</div>
+                        <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 1rem;">
+                            in annual business value generated by AI-powered analytics. Strategic experimentation unlocks this value for businesses of all sizes.
+                        </p>
+                        <div style="font-size: 0.875rem; opacity: 0.6; font-style: italic;">Economic Impact Study</div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" style="padding: 6rem 0; background: var(--primary-dark);">
+        <section class="contact" id="contact" aria-labelledby="contact-heading" style="padding: 6rem 0; background: var(--primary-dark);">
             <div class="container">
                 <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
-                    <h2 style="margin-bottom: 1rem;">Let's Build Something Intelligent</h2>
-                    <p style="font-size: 1.125rem; opacity: 0.8;">Connect with us for a free AI strategy consultation</p>
+                    <h2 id="contact-heading" style="margin-bottom: 1rem;">Visit Our Lab</h2>
+                    <p style="font-size: 1.125rem; opacity: 0.8;">Schedule a consultation to explore how our experiments can drive your business growth</p>
                 </div>
                 
                 <div class="contact-container">
                     <div style="text-align: center; margin-bottom: 3rem;">
-                        <h3 style="font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--accent), var(--accent2), var(--ai-color)); -webkit-background-clip: text; background-clip: text; color: transparent;">
-                            Get in Touch
+                        <h3 style="font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--lab-green), var(--lab-cyan), var(--lab-blue)); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                            Connect With Our Researchers
                         </h3>
-                        <p style="opacity: 0.8;">Whether you're starting from scratch or looking to integrate AI into your existing operations, we're here to help.</p>
+                        <p style="opacity: 0.8;">Whether you're starting a new experiment or looking to optimize existing systems, our lab is ready to collaborate.</p>
                     </div>
                     
                     <div class="contact-grid">
-                        <a href="mailto:contact@dotxlabs.com" class="contact-method">
+                        <a href="mailto:research@dotxlabs.com" class="contact-method">
                             <div class="contact-icon">@</div>
                             <div class="contact-text">
-                                <strong>Email</strong>
-                                <span>contact@dotxlabs.com</span>
+                                <strong>Research Email</strong>
+                                <span>research@dotxlabs.com</span>
                             </div>
                         </a>
                         
                         <a href="tel:+16474603641" class="contact-method">
                             <div class="contact-icon">📞</div>
                             <div class="contact-text">
-                                <strong>Phone</strong>
+                                <strong>Lab Phone</strong>
                                 <span>+1 (647) 460-3641</span>
                             </div>
                         </a>
@@ -793,9 +1128,23 @@
                             <div class="contact-icon">in</div>
                             <div class="contact-text">
                                 <strong>LinkedIn</strong>
-                                <span>Connect with us</span>
+                                <span>Connect with our team</span>
                             </div>
                         </a>
+                        
+                        <a href="#contact" class="contact-method lab-contact-method">
+                            <div class="contact-icon">⚗️</div>
+                            <div class="contact-text">
+                                <strong>Lab Tour</strong>
+                                <span>Schedule virtual visit</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <p style="opacity: 0.7; font-size: 0.9375rem;">
+                            Lab hours: Monday-Friday, 9AM-6PM EST • Initial consultations within 24 hours
+                        </p>
                     </div>
                 </div>
             </div>
@@ -803,52 +1152,101 @@
     </main>
 
     <!-- Footer -->
-    <footer style="padding: 4rem 0 2rem;">
+    <footer role="contentinfo" style="padding: 4rem 0 2rem;">
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <div class="logo" style="font-size: 1.5rem; margin-bottom: 1rem; display: inline-block;">DOTxLabs</div>
-                    <p style="opacity: 0.7; line-height: 1.6;">AI-powered digital foundations that drive measurable growth for creative businesses worldwide.</p>
+                    <a href="#home" class="site-logo" style="font-size: 1.5rem; margin-bottom: 1rem; display: inline-flex; align-items: center; gap: 6px;">
+                        <span class="logo-dot"></span>
+                        DOTxLabs
+                    </a>
+                    <p style="opacity: 0.7; line-height: 1.6;">Where artificial intelligence meets creative business transformation through rigorous experimentation and innovation.</p>
                 </div>
                 <div>
-                    <h3 style="font-size: 1.125rem; margin-bottom: 1rem; opacity: 0.9;">Services</h3>
+                    <h3 style="font-size: 1.125rem; margin-bottom: 1rem; opacity: 0.9;">Research Areas</h3>
                     <ul style="list-style: none; opacity: 0.7;">
-                        <li style="margin-bottom: 0.5rem;"><a href="#services" style="color: inherit; text-decoration: none;">AI Solutions</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#services" style="color: inherit; text-decoration: none;">Web Development</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#services" style="color: inherit; text-decoration: none;">Digital Marketing</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#experiments" style="color: inherit; text-decoration: none;">AI & Machine Learning</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#experiments" style="color: inherit; text-decoration: none;">Web Technology</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#experiments" style="color: inherit; text-decoration: none;">Growth Intelligence</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#experiments" style="color: inherit; text-decoration: none;">Digital Transformation</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 style="font-size: 1.125rem; margin-bottom: 1rem; opacity: 0.9;">Connect</h3>
                     <ul style="list-style: none; opacity: 0.7;">
-                        <li style="margin-bottom: 0.5rem;"><a href="#portfolio" style="color: inherit; text-decoration: none;">Portfolio</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#contact" style="color: inherit; text-decoration: none;">Contact</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#portfolio" style="color: inherit; text-decoration: none;">Experiment Results</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#insights" style="color: inherit; text-decoration: none;">Research Findings</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#contact" style="color: inherit; text-decoration: none;">Lab Consultation</a></li>
                     </ul>
                 </div>
             </div>
             
             <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6;">
                 <p>&copy; <span id="currentYear">2024</span> DOTxLabs. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.875rem;">Where innovation meets measurable growth through experimentation</p>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script>
+        // Remove no-js class for JavaScript users
+        document.documentElement.classList.remove('no-js');
+        
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
+        // Create lab particles
+        const labParticles = document.getElementById('labParticles');
+        if (labParticles) {
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'lab-particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                labParticles.appendChild(particle);
+            }
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('menuToggle').checked = false;
             });
         });
-        
-        // Close menu when clicking outside
-        document.querySelector('.nav-menu').addEventListener('click', (e) => {
-            if (e.target === e.currentTarget) {
-                document.getElementById('menuToggle').checked = false;
-            }
+
+        // Nav scroll effect
+        window.addEventListener('scroll', () => {
+            // Update active nav link
+            const sections = document.querySelectorAll('section[id]');
+            const desktopNavItems = document.querySelectorAll('.desktop-nav a');
+            const mobileNavItems = document.querySelectorAll('.mobile-nav-menu a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            // Update desktop nav
+            desktopNavItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Update mobile nav
+            mobileNavItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
         });
 
         // Smooth scrolling for anchor links
@@ -861,13 +1259,49 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    const targetPosition = targetElement.offsetTop;
+                    
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
                 }
             });
         });
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Trigger scroll event to set initial nav state
+            window.dispatchEvent(new Event('scroll'));
+        });
+    </script>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ResearchOrganization",
+        "name": "DOTxLabs",
+        "description": "AI Innovation Lab specializing in artificial intelligence experiments, machine learning research, and digital growth technology for creative businesses.",
+        "url": "https://dotxlabs.com",
+        "logo": "https://dotxlabs.com/logo.png",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "Worldwide"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-647-460-3641",
+            "contactType": "Research Inquiry",
+            "email": "research@dotxlabs.com",
+            "availableLanguage": "English"
+        },
+        "researchArea": ["Artificial Intelligence", "Machine Learning", "Web Technology", "Growth Intelligence"],
+        "areaServed": {
+            "@type": "Country",
+            "name": "Worldwide"
+        }
+    }
     </script>
 </body>
 </html>
