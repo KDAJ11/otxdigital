@@ -692,90 +692,6 @@
             font-weight: 500;
         }
 
-        /* Testimonials */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 1rem;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .testimonial-content {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
-        }
-
-        .author-info h4 {
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .author-info p {
-            font-size: 0.875rem;
-            opacity: 0.7;
-        }
-
-        /* Insights Grid */
-        .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .insight-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 1rem;
-            padding: 2rem;
-            transition: all 0.3s;
-            text-decoration: none;
-            color: var(--white);
-            display: block;
-        }
-
-        .insight-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            background: rgba(139, 92, 246, 0.05);
-        }
-
-        .insight-category {
-            display: inline-block;
-            background: rgba(139, 92, 246, 0.1);
-            color: var(--accent);
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .ai-insight-category {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--ai-color);
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero {
@@ -813,9 +729,7 @@
             }
 
             .services-grid,
-            .portfolio-grid,
-            .testimonials-grid,
-            .insights-grid {
+            .portfolio-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -857,49 +771,6 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-
-        /* Form Styles */
-        .contact-form {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .form-group label {
-            font-weight: 500;
-            font-size: 0.9375rem;
-        }
-
-        .form-control {
-            padding: 0.875rem 1rem;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 0.5rem;
-            color: var(--white);
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
-        }
-
-        .form-control::placeholder {
-            color: var(--gray-400);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
     </style>
     
     <!-- Non-critical CSS loaded after rendering -->
@@ -931,7 +802,6 @@
         <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
-        <a href="#insights">Insights</a>
         <a href="#contact">Contact</a>
     </nav>
     
@@ -940,7 +810,6 @@
         <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
-        <a href="#insights">Insights</a>
         <a href="#contact">Contact</a>
     </nav>
 
@@ -1217,101 +1086,6 @@
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section style="padding: 6rem 0; background: var(--primary-dark);">
-            <div class="container">
-                <h2 class="section-title">Trusted by Industry Leaders</h2>
-                <p class="section-subtitle">See what our clients say about working with DOTxLabs</p>
-                
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            "DOTxLabs transformed our digital presence with their AI-powered solutions. Our lead generation increased by 450% in just 3 months. Their team's expertise in predictive analytics was game-changing."
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar"></div>
-                            <div class="author-info">
-                                <h4>Sarah Chen</h4>
-                                <p>CEO, TechGrowth Inc.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            "The AI marketing automation they implemented saved us 30+ hours per week and increased our campaign ROI by 280%. Their forward-thinking approach to digital strategy is exceptional."
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar"></div>
-                            <div class="author-info">
-                                <h4>Marcus Rodriguez</h4>
-                                <p>Marketing Director, InnovateCo</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            "Working with DOTxLabs was a revelation. Their AI-driven SEO strategy propelled us to #1 rankings for our most competitive keywords. The results have been transformative for our business."
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar"></div>
-                            <div class="author-info">
-                                <h4>Jennifer Park</h4>
-                                <p>Founder, CreativeLabs</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Insights Section -->
-        <section id="insights" aria-labelledby="insights-heading" style="padding: 6rem 0; background: var(--primary);">
-            <div class="container">
-                <h2 id="insights-heading" class="section-title">AI & Digital Insights</h2>
-                <p class="section-subtitle">Latest trends, strategies, and innovations in AI-powered digital growth</p>
-                
-                <div class="insights-grid">
-                    <a href="#" class="insight-card">
-                        <span class="insight-category ai-insight-category">AI Technology</span>
-                        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">How AI is Revolutionizing Customer Experience in 2024</h3>
-                        <p style="opacity: 0.7; margin-bottom: 1.5rem;">Explore the latest AI advancements that are transforming how businesses interact with customers and drive loyalty.</p>
-                        <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--accent);">
-                            <span>Read More</span>
-                            <span>→</span>
-                        </div>
-                    </a>
-                    
-                    <a href="#" class="insight-card">
-                        <span class="insight-category">Digital Strategy</span>
-                        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">The Future of SEO: AI-Powered Search Optimization</h3>
-                        <p style="opacity: 0.7; margin-bottom: 1.5rem;">Discover how artificial intelligence is changing the SEO landscape and what strategies will dominate in the coming years.</p>
-                        <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--accent);">
-                            <span>Read More</span>
-                            <span>→</span>
-                        </div>
-                    </a>
-                    
-                    <a href="#" class="insight-card">
-                        <span class="insight-category ai-insight-category">Machine Learning</span>
-                        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Predictive Analytics: Turning Data into Business Growth</h3>
-                        <p style="opacity: 0.7; margin-bottom: 1.5rem;">Learn how machine learning models can predict market trends and customer behavior to drive strategic decisions.</p>
-                        <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--accent);">
-                            <span>Read More</span>
-                            <span>→</span>
-                        </div>
-                    </a>
-                </div>
-                
-                <div style="text-align: center; margin-top: 4rem;">
-                    <a href="#" class="cta-button outline-button" style="padding: 1rem 3rem; font-size: 1.125rem;">
-                        View All Insights
-                    </a>
-                </div>
-            </div>
-        </section>
-
         <!-- CTA Banner -->
         <section class="cta-banner ai-cta-banner" aria-labelledby="cta-heading">
             <div class="container">
@@ -1336,78 +1110,47 @@
                 <div class="contact-container">
                     <div style="text-align: center; margin-bottom: 3rem;">
                         <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">Get in Touch</h3>
-                        <p style="opacity: 0.8;">Fill out the form below and our AI solutions team will contact you within 24 hours</p>
+                        <p style="opacity: 0.8;">Reach out directly to discuss your project and discover how AI can transform your business</p>
                     </div>
                     
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company">Company</label>
-                            <input type="text" id="company" class="form-control" placeholder="Enter your company name">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Service Interest</label>
-                            <select id="service" class="form-control">
-                                <option value="">Select a service</option>
-                                <option value="ai-solutions">AI Business Solutions</option>
-                                <option value="ai-marketing">AI Marketing & SEO</option>
-                                <option value="web-dev">Web Development</option>
-                                <option value="digital-marketing">Digital Marketing</option>
-                                <option value="seo">SEO & Content Strategy</option>
-                                <option value="consulting">Digital Consulting</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" class="form-control" placeholder="Tell us about your project and goals"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="cta-button ai-button" style="width: 100%; padding: 1rem; font-size: 1.125rem;">
-                            Submit Your Inquiry
-                        </button>
-                    </form>
-                    
-                    <div class="contact-grid" style="margin-top: 4rem;">
-                        <a href="mailto:hello@dotxlabs.com" class="contact-method ai-contact-method">
+                    <div class="contact-grid">
+                        <a href="mailto:otxdigital@yahoo.com" class="contact-method ai-contact-method">
                             <div class="contact-icon">
                                 ✉️
                             </div>
                             <div class="contact-text">
-                                <strong>AI Solutions Team</strong>
-                                <span>hello@dotxlabs.com</span>
+                                <strong>Email Us</strong>
+                                <span>otxdigital@yahoo.com</span>
                             </div>
                         </a>
                         
-                        <a href="tel:+15551234567" class="contact-method">
+                        <a href="tel:+16474603641" class="contact-method">
                             <div class="contact-icon">
                                 📞
                             </div>
                             <div class="contact-text">
-                                <strong>Schedule a Call</strong>
-                                <span>+1 (555) 123-4567</span>
+                                <strong>Call or WhatsApp</strong>
+                                <span>+1 647 460 3641</span>
                             </div>
                         </a>
                         
-                        <a href="#" class="contact-method">
+                        <a href="http://linkedin.com/in/david-ajai" target="_blank" class="contact-method">
                             <div class="contact-icon">
                                 💼
                             </div>
                             <div class="contact-text">
-                                <strong>Business Hours</strong>
-                                <span>Mon-Fri, 9AM-6PM EST</span>
+                                <strong>LinkedIn Profile</strong>
+                                <span>David Ajai</span>
                             </div>
                         </a>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <h4 style="margin-bottom: 1rem; font-size: 1.25rem;">Why Choose DOTxLabs?</h4>
+                        <p style="opacity: 0.8; max-width: 600px; margin: 0 auto; line-height: 1.7;">
+                            We combine cutting-edge AI technology with proven digital marketing strategies to deliver measurable results. 
+                            From concept to execution, we partner with you to build solutions that drive real business growth.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1439,25 +1182,30 @@
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Company</h4>
+                    <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#insights">Insights</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="https://linkedin.com/company/dotxlabs">LinkedIn</a></li>
-                        <li><a href="https://twitter.com/dotxlabs">Twitter</a></li>
-                        <li><a href="https://instagram.com/dotxlabs">Instagram</a></li>
-                        <li><a href="https://github.com/dotxlabs">GitHub</a></li>
-                        <li><a href="https://dribbble.com/dotxlabs">Dribbble</a></li>
+                    <h4>Contact Info</h4>
+                    <ul style="color: var(--gray-400);">
+                        <li style="margin-bottom: 0.75rem;">
+                            <strong>Email:</strong><br>
+                            otxdigital@yahoo.com
+                        </li>
+                        <li style="margin-bottom: 0.75rem;">
+                            <strong>Phone:</strong><br>
+                            +1 647 460 3641
+                        </li>
+                        <li style="margin-bottom: 0.75rem;">
+                            <strong>LinkedIn:</strong><br>
+                            David Ajai
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -1474,42 +1222,8 @@
         // Remove no-js class if JavaScript is enabled
         document.documentElement.classList.remove('no-js');
         
-        // Form submission handling
+        // Smooth scrolling for anchor links
         document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.querySelector('.contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Get form data
-                    const formData = new FormData(this);
-                    const submitButton = this.querySelector('button[type="submit"]');
-                    const originalText = submitButton.textContent;
-                    
-                    // Show loading state
-                    submitButton.innerHTML = '<span class="loading"></span> Sending...';
-                    submitButton.disabled = true;
-                    
-                    // Simulate API call
-                    setTimeout(() => {
-                        // Success simulation
-                        submitButton.textContent = 'Message Sent Successfully!';
-                        submitButton.style.background = 'linear-gradient(135deg, var(--success), var(--ai-color))';
-                        
-                        // Reset form
-                        contactForm.reset();
-                        
-                        // Reset button after 3 seconds
-                        setTimeout(() => {
-                            submitButton.textContent = originalText;
-                            submitButton.style.background = '';
-                            submitButton.disabled = false;
-                        }, 3000);
-                    }, 1500);
-                });
-            }
-            
-            // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
@@ -1565,7 +1279,7 @@
             }, observerOptions);
             
             // Observe elements for animation
-            document.querySelectorAll('.service-card, .portfolio-item, .testimonial-card, .insight-card').forEach(el => {
+            document.querySelectorAll('.service-card, .portfolio-item').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
