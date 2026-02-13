@@ -308,7 +308,17 @@
 
         .pricing-features li {
             padding: 0.75rem 0;
+            padding-left: 1.5rem;
             border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+
+        .pricing-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--ai-color);
+            font-weight: bold;
         }
 
         /* Quote Box */
@@ -462,8 +472,8 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1><span class="gradient-text">Transform Your Business</span><br>With Professional Digital Solutions</h1>
-                    <p class="hero-subtitle">Web Development • SEO • Marketing • AI Solutions<br>Helping businesses grow with cutting-edge technology and proven strategies</p>
+                    <h1><span class="gradient-text">Is Your Business Missing Out on Online Customers?</span></h1>
+                    <p class="hero-subtitle">Most businesses lose 70% of potential customers online. We fix that with professional web development, marketing and AI Powered SEO that actually drives results.</p>
                     <a href="#contact" class="cta-button">Get Started Today</a>
                 </div>
             </div>
