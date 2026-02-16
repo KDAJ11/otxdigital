@@ -1,24 +1,103 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="DOTxLabs - Professional Web Development, SEO Services, Digital Marketing & AI Solutions in Toronto. Helping businesses grow with cutting-edge technology and proven strategies.">
-    <meta name="keywords" content="web development Toronto, SEO services, digital marketing agency, AI business solutions, website design, search engine optimization, marketing automation, AI consulting">
+    <meta name="description" content="The complete local SEO guide for Toronto businesses in 2026. Learn Google Business Profile optimization, local citations, review strategies, on-page SEO, and schema markup to rank higher in local search.">
+    <meta name="keywords" content="local seo toronto, local seo services toronto, toronto seo, google business profile toronto, local search optimization, toronto business seo">
     <meta name="author" content="DOTxLabs">
-    <meta property="og:title" content="DOTxLabs | Web Development, SEO, Marketing & AI Solutions">
-    <meta property="og:description" content="Transform your business with professional web development, SEO services, digital marketing, and AI solutions. Toronto-based agency delivering measurable results.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dotxlabs.com">
-    <meta property="og:image" content="https://dotxlabs.com/og-image.jpg">
+    <meta property="og:title" content="The Complete Local SEO Guide for Toronto Businesses (2026) | DOTxLabs">
+    <meta property="og:description" content="Everything Toronto businesses need to know about local SEO in 2026. Actionable strategies for Google Business Profile, citations, reviews, and more.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dotxlabs.com/blog/local-seo-toronto-guide-2026/">
+    <meta property="article:published_time" content="2026-02-16">
+    <meta property="article:author" content="DOTxLabs">
+    <meta property="article:section" content="Local SEO">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#0f172a">
-    <link rel="canonical" href="https://dotxlabs.com">
+    <link rel="canonical" href="https://dotxlabs.com/blog/local-seo-toronto-guide-2026/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <title>DOTxLabs | Web Development, SEO, Marketing & AI Solutions Toronto</title>
-    
+    <title>The Complete Local SEO Guide for Toronto Businesses (2026) | DOTxLabs</title>
+
+    <!-- Article Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Complete Local SEO Guide for Toronto Businesses (2026)",
+        "description": "Everything Toronto businesses need to know about local SEO in 2026. Actionable strategies for Google Business Profile, citations, reviews, and more.",
+        "author": {
+            "@type": "Organization",
+            "name": "DOTxLabs",
+            "url": "https://dotxlabs.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "DOTxLabs",
+            "url": "https://dotxlabs.com"
+        },
+        "datePublished": "2026-02-16",
+        "dateModified": "2026-02-16",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://dotxlabs.com/blog/local-seo-toronto-guide-2026/"
+        }
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://dotxlabs.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://dotxlabs.com/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Local SEO Toronto Guide 2026",
+                "item": "https://dotxlabs.com/blog/local-seo-toronto-guide-2026/"
+            }
+        ]
+    }
+    </script>
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "DOTxLabs",
+        "url": "https://dotxlabs.com",
+        "telephone": "+16474603641",
+        "email": "david@dotxlabs.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Toronto",
+            "addressRegion": "ON",
+            "addressCountry": "CA"
+        },
+        "areaServed": {
+            "@type": "City",
+            "name": "Toronto"
+        },
+        "serviceType": ["Local SEO", "Web Development", "Digital Marketing", "AI Solutions"]
+    }
+    </script>
+
     <style>
         :root {
             --primary: #0f172a;
@@ -66,10 +145,6 @@
             line-height: 1.2;
         }
 
-        h1 { font-size: clamp(3rem, 8vw, 5rem); }
-        h2 { font-size: clamp(2.25rem, 6vw, 3.5rem); }
-        h3 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
-
         /* Navigation */
         .logo {
             position: fixed;
@@ -107,25 +182,9 @@
             transition: color 0.3s;
         }
 
-        .desktop-nav a:hover {
+        .desktop-nav a:hover,
+        .desktop-nav a.active {
             color: var(--accent);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 20px 60px;
-            position: relative;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
         }
 
         .gradient-text {
@@ -133,12 +192,6 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.125rem, 3vw, 1.5rem);
-            color: var(--gray-400);
-            margin: 1.5rem 0 3rem;
         }
 
         .cta-button {
@@ -157,313 +210,254 @@
             transform: translateY(-2px);
         }
 
-        /* Section Styles */
-        section {
-            padding: 6rem 0;
-        }
-
-        .section-title {
+        /* Article Header */
+        .article-header {
+            padding: 160px 0 60px;
             text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray-400);
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .service-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 1rem;
-            padding: 2rem;
-            transition: all 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card ul {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .service-card li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .service-card li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--ai-color);
-            font-weight: bold;
-        }
-
-        /* Collapsible Pricing */
-        .pricing-toggle {
-            background: var(--accent);
-            color: var(--white);
-            padding: 1.25rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.125rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin: 2rem auto;
-            display: block;
-        }
-
-        .pricing-toggle:hover {
-            background: var(--accent-dark);
-            transform: translateY(-2px);
-        }
-
-        .pricing-toggle:after {
-            content: " ▼";
-            font-size: 0.875rem;
-            margin-left: 0.5rem;
-        }
-
-        .pricing-toggle.active:after {
-            content: " ▲";
-        }
-
-        .pricing-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-
-        .pricing-content.active {
-            max-height: 5000px;
-        }
-
-        /* Swipe Hint (Mobile Only) */
-        .swipe-hint {
-            display: none;
-            text-align: center;
-            color: var(--gray-400);
-            font-size: 0.875rem;
-            margin-top: 1rem;
-            opacity: 0.7;
-        }
-
-        @media (max-width: 768px) {
-            .swipe-hint {
-                display: block;
-            }
-        }
-
-        /* Pricing Cards */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .pricing-card {
-            background: rgba(255,255,255,0.03);
-            border: 2px solid rgba(255,255,255,0.1);
-            border-radius: 1rem;
-            padding: 2.5rem;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .pricing-card.featured {
-            border-color: var(--accent);
-            background: rgba(139, 92, 246, 0.05);
-        }
-
-        .price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--accent);
-            margin: 1rem 0;
-        }
-
-        .pricing-features {
-            list-style: none;
-            text-align: left;
-            margin: 2rem 0;
-        }
-
-        .pricing-features li {
-            padding: 0.75rem 0;
-            padding-left: 1.5rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            position: relative;
-        }
-
-        .pricing-features li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--ai-color);
-            font-weight: bold;
-        }
-
-        /* Mobile Carousel for Pricing */
-        @media (max-width: 768px) {
-            .pricing-grid {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                gap: 1rem;
-                padding: 1rem 0;
-                margin: 2rem -1.5rem;
-                padding: 1rem 1.5rem;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-            }
-
-            .pricing-grid::-webkit-scrollbar {
-                display: none;
-            }
-
-            .pricing-card {
-                min-width: 85vw;
-                scroll-snap-align: center;
-                flex-shrink: 0;
-            }
-
-            .carousel-dots {
-                display: flex;
-                justify-content: center;
-                gap: 0.5rem;
-                margin-top: 1rem;
-            }
-
-            .carousel-dot {
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background: rgba(255,255,255,0.3);
-                transition: all 0.3s;
-            }
-
-            .carousel-dot.active {
-                background: var(--accent);
-                width: 24px;
-                border-radius: 4px;
-            }
-        }
-
-        /* Quote Box */
-        .quote-box {
-            background: rgba(16, 185, 129, 0.1);
-            border-left: 4px solid var(--ai-color);
-            padding: 2rem;
-            margin: 3rem 0;
-            border-radius: 0.5rem;
-        }
-
-        .quote-box p {
-            font-size: 1.25rem;
-            font-style: italic;
-            color: var(--gray-100);
-        }
-
-        .quote-author {
-            margin-top: 1rem;
-            font-weight: 600;
-            color: var(--ai-color);
-        }
-
-        /* Tips Section */
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .tip-card {
-            background: rgba(255,255,255,0.02);
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .tip-card h4 {
-            color: var(--accent);
-            margin-bottom: 0.75rem;
-        }
-
-        /* Contact */
-        .contact-container {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 1.5rem;
-            padding: 3rem;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
         }
 
-        .contact-method {
+        .article-meta {
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: rgba(255,255,255,0.02);
-            border-radius: 0.75rem;
+            justify-content: center;
+            gap: 2rem;
+            color: var(--gray-400);
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+
+        .article-tag {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.15);
+            color: var(--accent);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 120px 0 0;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--gray-400);
             text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumb span {
+            color: var(--gray-400);
+            margin: 0 0.5rem;
+        }
+
+        .breadcrumb .current {
             color: var(--white);
-            transition: all 0.3s;
         }
 
-        .contact-method:hover {
-            background: rgba(139, 92, 246, 0.1);
-            transform: translateX(5px);
+        /* Article Content */
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 4rem;
         }
 
-        .contact-icon {
+        .article-content h2 {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            margin: 3.5rem 0 1.25rem;
+            color: var(--white);
+        }
+
+        .article-content h3 {
+            font-size: clamp(1.35rem, 3vw, 1.65rem);
+            margin: 2.5rem 0 1rem;
+            color: var(--gray-100);
+        }
+
+        .article-content h4 {
+            font-size: 1.2rem;
+            margin: 2rem 0 0.75rem;
+            color: var(--gray-100);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            color: var(--gray-100);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.25rem 0 1.75rem 1.5rem;
+            color: var(--gray-100);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content strong {
+            color: var(--white);
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .toc h3 {
+            font-size: 1.25rem;
+            margin: 0 0 1rem;
+            color: var(--accent);
+        }
+
+        .toc ol {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--gray-100);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .toc a:hover {
+            color: var(--accent);
+        }
+
+        /* Tip Box */
+        .tip-box {
+            background: rgba(16, 185, 129, 0.08);
+            border-left: 4px solid var(--ai-color);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 0.75rem 0.75rem 0;
+        }
+
+        .tip-box p {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        .tip-box strong {
+            color: var(--ai-color);
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: rgba(236, 72, 153, 0.08);
+            border-left: 4px solid var(--accent2);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 0.75rem 0.75rem 0;
+        }
+
+        .warning-box p {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        .warning-box strong {
+            color: var(--accent2);
+        }
+
+        /* Key Takeaway Box */
+        .key-takeaway {
+            background: rgba(139, 92, 246, 0.08);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-radius: 1rem;
+        }
+
+        .key-takeaway h4 {
+            color: var(--accent);
+            margin: 0 0 1rem;
+            font-size: 1.1rem;
+        }
+
+        .key-takeaway p {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .key-takeaway p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .checklist li {
+            padding: 0.5rem 0 0.5rem 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            color: var(--gray-100);
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--ai-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Article CTA */
+        .article-cta {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.05));
+            border-radius: 1.5rem;
+            margin: 4rem 0;
+            border: 1px solid rgba(139, 92, 246, 0.15);
+        }
+
+        .article-cta h2 {
             font-size: 2rem;
+            margin: 0 0 1rem;
         }
 
-        .contact-icon {
-            font-size: 2rem;
+        .article-cta p {
+            color: var(--gray-400);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Footer */
@@ -508,498 +502,486 @@
             color: var(--gray-400);
         }
 
-        /* Mobile Menu */
         @media (max-width: 768px) {
             .desktop-nav {
                 display: none;
             }
-            
+
             .logo {
                 left: 50%;
                 transform: translateX(-50%);
+            }
+
+            .article-header {
+                padding: 140px 1rem 40px;
+            }
+
+            .article-content {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Logo -->
-    <a href="#home" class="logo">DOTxLabs</a>
+    <a href="/" class="logo">DOTxLabs</a>
 
     <!-- Desktop Navigation -->
     <nav class="desktop-nav">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#resources">Resources</a>
-        <a href="#contact">Contact</a>
+        <a href="/#services">Services</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog/" class="active">Blog</a>
+        <a href="/#contact">Contact</a>
     </nav>
 
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1><span class="gradient-text">Is Your Business Missing Out on Online Customers?</span></h1>
-                    <p class="hero-subtitle">Most businesses lose 70% of potential customers online. We fix that with professional web development, marketing and AI Powered SEO that actually drives results.</p>
-                    <a href="#contact" class="cta-button">Get Started Today</a>
+        <!-- Breadcrumb -->
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a>
+                <span>/</span>
+                <a href="/blog/">Blog</a>
+                <span>/</span>
+                <span class="current">Local SEO Toronto Guide 2026</span>
+            </div>
+        </div>
+
+        <!-- Article Header -->
+        <div class="container">
+            <div class="article-header">
+                <span class="article-tag">Local SEO</span>
+                <h1><span class="gradient-text">The Complete Local SEO Guide for Toronto Businesses (2026)</span></h1>
+                <div class="article-meta">
+                    <span>By DOTxLabs</span>
+                    <span>February 16, 2026</span>
+                    <span>15 min read</span>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Services Section -->
-        <section id="services" style="background: var(--primary-dark);">
-            <div class="container">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">Comprehensive digital solutions to help your business thrive online</p>
+        <!-- Article Content -->
+        <div class="container">
+            <div class="article-content">
 
-                <div class="services-grid">
-                    <!-- Web Development -->
-                    <div class="service-card">
-                        <h3>Web Development</h3>
-                        <p style="color: var(--gray-400);">Professional websites that convert visitors into customers</p>
-                        <ul>
-                            <li>Custom website design & development</li>
-                            <li>Mobile-responsive layouts</li>
-                            <li>E-commerce solutions</li>
-                            <li>Content management systems</li>
-                            <li>Website maintenance & support</li>
-                            <li>Fast loading speeds (SEO optimized)</li>
-                        </ul>
-                    </div>
+                <p>If you run a business in Toronto, local SEO isn't optional&mdash;it's the difference between showing up when someone searches for your services and being completely invisible. With millions of local searches happening across the GTA every single day, the businesses that invest in local SEO are the ones capturing the customers that everyone else is missing.</p>
 
-                    <!-- SEO -->
-                    <div class="service-card">
-                        <h3>SEO Services</h3>
-                        <p style="color: var(--gray-400);">Get found on Google and drive organic traffic to your website</p>
-                        <ul>
-                            <li>Local SEO optimization</li>
-                            <li>Keyword research & strategy</li>
-                            <li>On-page SEO optimization</li>
-                            <li>Technical SEO audits</li>
-                            <li>Link building campaigns</li>
-                            <li>Monthly performance reports</li>
-                        </ul>
-                    </div>
+                <p>This guide covers everything you need to know about local SEO for Toronto businesses in 2026. Whether you're a restaurant on Queen Street, a law firm in the Financial District, a plumber serving Scarborough, or a dental clinic in North York, the strategies here will help you rank higher in local search results and drive more customers through your door.</p>
 
-                    <!-- Marketing -->
-                    <div class="service-card">
-                        <h3>Digital Marketing</h3>
-                        <p style="color: var(--gray-400);">Reach your target audience and generate quality leads</p>
-                        <ul>
-                            <li>Social media marketing</li>
-                            <li>Google Ads & PPC campaigns</li>
-                            <li>Content marketing strategy</li>
-                            <li>Email marketing automation</li>
-                            <li>Brand strategy & positioning</li>
-                            <li>Analytics & conversion tracking</li>
-                        </ul>
-                    </div>
-
-                    <!-- AI Solutions -->
-                    <div class="service-card">
-                        <h3>AI Solutions</h3>
-                        <p style="color: var(--gray-400);">Automate tasks and gain competitive advantage with AI</p>
-                        <ul>
-                            <li>AI chatbots for customer service</li>
-                            <li>Marketing automation with AI</li>
-                            <li>Data analysis & insights</li>
-                            <li>AI-powered content generation</li>
-                            <li>Process automation</li>
-                            <li>Custom AI integrations</li>
-                        </ul>
-                    </div>
+                <!-- Table of Contents -->
+                <div class="toc" id="toc">
+                    <h3>Table of Contents</h3>
+                    <ol>
+                        <li><a href="#what-is-local-seo">What Is Local SEO and Why Does It Matter?</a></li>
+                        <li><a href="#google-business-profile">Google Business Profile Optimization</a></li>
+                        <li><a href="#local-citations">Building Local Citations for Toronto Businesses</a></li>
+                        <li><a href="#review-strategy">Review Strategy: Building Trust and Authority</a></li>
+                        <li><a href="#on-page-seo">On-Page SEO for Local Rankings</a></li>
+                        <li><a href="#schema-markup">Schema Markup for Local Businesses</a></li>
+                        <li><a href="#toronto-specific">Toronto-Specific SEO Strategies</a></li>
+                        <li><a href="#mobile-optimization">Mobile Optimization for Local Search</a></li>
+                        <li><a href="#tracking-results">Tracking Your Local SEO Results</a></li>
+                        <li><a href="#common-mistakes">Common Local SEO Mistakes to Avoid</a></li>
+                        <li><a href="#next-steps">Next Steps: Your Local SEO Action Plan</a></li>
+                    </ol>
                 </div>
 
-                <!-- CTA After Services -->
-                <div style="text-align: center; margin: 4rem 0;">
-                    <h3 style="margin-bottom: 1rem;">Ready to Get Started?</h3>
-                    <p style="color: var(--gray-400); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                        Let's discuss which solution is right for your business. Free consultation, no commitment required.
-                    </p>
+                <!-- Section 1 -->
+                <h2 id="what-is-local-seo">1. What Is Local SEO and Why Does It Matter?</h2>
+
+                <p>Local SEO is the process of optimizing your online presence to attract more customers from relevant local searches. When someone in Toronto searches "plumber near me" or "best restaurant in Yorkville," Google uses local SEO signals to decide which businesses to show.</p>
+
+                <p>There are two key areas where your business can appear in local search results:</p>
+
+                <ul>
+                    <li><strong>The Local Pack (Map Pack):</strong> The top 3 business listings that appear with a map at the top of search results. This is the most valuable real estate in local search.</li>
+                    <li><strong>Organic local results:</strong> The traditional blue-link results below the map pack that are influenced by local SEO signals.</li>
+                </ul>
+
+                <h3>Why Local SEO Matters for Toronto Businesses</h3>
+
+                <p>Toronto is one of the most competitive markets in Canada. The GTA has over 6 million residents and hundreds of thousands of businesses competing for attention. Here's why local SEO is critical:</p>
+
+                <ul>
+                    <li><strong>High purchase intent:</strong> People searching locally are usually ready to buy. Searches like "dentist near me" or "emergency plumber Toronto" signal immediate need.</li>
+                    <li><strong>Mobile dominance:</strong> Over 60% of local searches happen on mobile devices, and the majority of those searchers visit a business within 24 hours.</li>
+                    <li><strong>Competition:</strong> If you're not ranking in local results, your competitors are capturing those customers instead.</li>
+                    <li><strong>Trust signals:</strong> Appearing in Google's Local Pack communicates trust and authority to potential customers.</li>
+                </ul>
+
+                <div class="key-takeaway">
+                    <h4>Key Takeaway</h4>
+                    <p>Local SEO in Toronto is a competitive field, but the businesses that commit to a consistent strategy will see significant returns. The rest of this guide breaks down exactly how to do it.</p>
+                </div>
+
+                <!-- Section 2 -->
+                <h2 id="google-business-profile">2. Google Business Profile Optimization</h2>
+
+                <p>Your Google Business Profile (GBP) is the single most important factor for ranking in the Local Pack. Think of it as your business's homepage on Google&mdash;it's often the first thing potential customers see.</p>
+
+                <h3>Claiming and Verifying Your Profile</h3>
+
+                <p>If you haven't already, go to <strong>business.google.com</strong> and claim your business listing. Google will require verification, which usually involves receiving a postcard at your business address or verifying by phone.</p>
+
+                <h3>Optimizing Your GBP for Toronto</h3>
+
+                <p>Once claimed, optimize every section of your profile:</p>
+
+                <h4>Business Name</h4>
+                <p>Use your exact business name as it appears on your signage and legal documents. Don't stuff keywords into your business name&mdash;Google may penalize or suspend your listing for this.</p>
+
+                <h4>Categories</h4>
+                <p>Choose the most specific primary category for your business. For example, if you're a personal injury lawyer, select "Personal Injury Attorney" rather than just "Lawyer." Add secondary categories for other services you offer, but keep them relevant.</p>
+
+                <h4>Business Description</h4>
+                <p>Write a compelling 750-character description that naturally includes your target keywords and mentions Toronto. Focus on what makes your business unique, the services you offer, and the areas you serve within the GTA.</p>
+
+                <h4>Services and Products</h4>
+                <p>List every service or product you offer. Google uses this information to match your business with relevant searches. Be thorough and include pricing where possible.</p>
+
+                <h4>Photos and Videos</h4>
+                <p>Businesses with photos receive 42% more requests for directions and 35% more click-throughs to their websites. Upload high-quality photos of:</p>
+
+                <ul class="checklist">
+                    <li>Your storefront and exterior (helps Google verify your location)</li>
+                    <li>Interior photos showing your space</li>
+                    <li>Team photos to build trust</li>
+                    <li>Products or completed work</li>
+                    <li>Short videos showcasing your business</li>
+                </ul>
+
+                <h4>Business Hours and Attributes</h4>
+                <p>Keep your hours accurate, including holiday hours. Fill in all available attributes (wheelchair accessible, free Wi-Fi, outdoor seating, etc.) as these help you appear in filtered searches.</p>
+
+                <h4>Google Business Profile Posts</h4>
+                <p>Post regularly to your GBP. Share updates, offers, events, and new services. These posts appear in your listing and can influence your visibility. Aim for at least one post per week.</p>
+
+                <div class="tip-box">
+                    <p><strong>Pro Tip:</strong> Use Google Business Profile's Q&A feature proactively. Add common questions and answers about your business before customers ask them. This gives you control over the information and can include relevant keywords naturally.</p>
+                </div>
+
+                <!-- Section 3 -->
+                <h2 id="local-citations">3. Building Local Citations for Toronto Businesses</h2>
+
+                <p>A local citation is any mention of your business's name, address, and phone number (NAP) on the web. Citations help Google verify that your business is real, legitimate, and located where you say it is.</p>
+
+                <h3>Why NAP Consistency Matters</h3>
+
+                <p>Your business name, address, and phone number must be <strong>exactly the same</strong> everywhere it appears online. Even minor inconsistencies&mdash;like "St." vs. "Street" or a different phone number on one directory&mdash;can hurt your local rankings. Google cross-references your information across the web, and inconsistencies reduce trust.</p>
+
+                <h3>Essential Citation Sources for Toronto Businesses</h3>
+
+                <p>Start with the most authoritative directories first:</p>
+
+                <ul>
+                    <li><strong>Google Business Profile</strong> (your foundation)</li>
+                    <li><strong>Bing Places for Business</strong></li>
+                    <li><strong>Apple Maps Connect</strong></li>
+                    <li><strong>Yelp Canada</strong></li>
+                    <li><strong>Yellow Pages Canada (YP.ca)</strong></li>
+                    <li><strong>Canada411</strong></li>
+                    <li><strong>BlogTO</strong> (Toronto-specific, high authority)</li>
+                    <li><strong>Toronto.com</strong></li>
+                    <li><strong>Better Business Bureau (BBB)</strong></li>
+                    <li><strong>Industry-specific directories</strong> (HomeStars for contractors, OpenTable for restaurants, etc.)</li>
+                </ul>
+
+                <h3>Building Citations Strategically</h3>
+
+                <p>Don't rush and create 100 citations in a week. Build them gradually and focus on quality over quantity. A citation on BlogTO or the Toronto Star's business directory carries far more weight than a listing on an obscure, low-quality directory.</p>
+
+                <div class="warning-box">
+                    <p><strong>Warning:</strong> Avoid citation services that promise hundreds of listings overnight. Mass-submitted, low-quality citations on spammy directories can actually hurt your rankings. Focus on legitimate, relevant directories.</p>
+                </div>
+
+                <!-- Section 4 -->
+                <h2 id="review-strategy">4. Review Strategy: Building Trust and Authority</h2>
+
+                <p>Reviews are one of the top ranking factors for local SEO. They also directly influence whether a potential customer chooses you over a competitor. A business with 50 five-star reviews will almost always win over one with 3 reviews, even if both appear in search results.</p>
+
+                <h3>How to Get More Reviews</h3>
+
+                <ul>
+                    <li><strong>Ask at the right moment:</strong> Request reviews when customers are happiest&mdash;right after a successful project completion, positive interaction, or purchase.</li>
+                    <li><strong>Make it easy:</strong> Create a direct review link from your Google Business Profile and share it via email, text, or QR code at your business location.</li>
+                    <li><strong>Follow up:</strong> Send a follow-up email 24-48 hours after service with a friendly review request and direct link.</li>
+                    <li><strong>Train your team:</strong> Make review generation part of your standard customer service process. Every team member should know how to ask.</li>
+                </ul>
+
+                <h3>Responding to Reviews</h3>
+
+                <p>Respond to <strong>every single review</strong>&mdash;positive and negative. Google has confirmed that responding to reviews improves your local ranking. Here's how:</p>
+
+                <ul>
+                    <li><strong>Positive reviews:</strong> Thank the customer by name, reference something specific about their experience, and naturally mention your service or location.</li>
+                    <li><strong>Negative reviews:</strong> Respond professionally, acknowledge the issue, offer to make it right offline, and never argue publicly. A well-handled negative review can actually build more trust than a positive one.</li>
+                </ul>
+
+                <h3>Review Velocity and Diversity</h3>
+
+                <p>Google pays attention to how frequently you receive reviews. A steady stream of reviews over time signals an active, healthy business. Don't try to get 50 reviews in one week and then go quiet&mdash;consistent, ongoing review generation is the goal.</p>
+
+                <p>Encourage reviews on multiple platforms, not just Google. Yelp, Facebook, and industry-specific review sites all contribute to your overall online reputation and help diversify your review profile.</p>
+
+                <div class="tip-box">
+                    <p><strong>Pro Tip:</strong> Create a simple printed card or sticker with a QR code linking to your Google review page. Place it at checkout, on your front desk, or include it in packaging. Reducing friction makes it far more likely that customers will leave a review.</p>
+                </div>
+
+                <!-- Section 5 -->
+                <h2 id="on-page-seo">5. On-Page SEO for Local Rankings</h2>
+
+                <p>Your website needs to send strong local signals to Google. On-page SEO is about optimizing the content and HTML of your website pages so that both search engines and users understand exactly what you offer and where you serve.</p>
+
+                <h3>Title Tags and Meta Descriptions</h3>
+
+                <p>Your title tag is one of the strongest on-page ranking factors. For local SEO, include your target keyword and city:</p>
+
+                <ul>
+                    <li><strong>Example:</strong> "Emergency Plumbing Services in Toronto | YourBusiness"</li>
+                    <li><strong>Example:</strong> "Family Dentist in North York | YourBusiness Dental"</li>
+                </ul>
+
+                <p>Your meta description should be compelling and include your location. While it doesn't directly affect rankings, a well-written meta description improves click-through rates, which does.</p>
+
+                <h3>Heading Structure (H1, H2, H3)</h3>
+
+                <p>Use a clear heading hierarchy that includes local keywords naturally:</p>
+
+                <ul>
+                    <li><strong>H1:</strong> One per page, include your primary keyword and location</li>
+                    <li><strong>H2:</strong> Use for major sections, naturally incorporate local modifiers</li>
+                    <li><strong>H3/H4:</strong> Use for subsections and supporting details</li>
+                </ul>
+
+                <h3>Location-Specific Content</h3>
+
+                <p>Create content that is genuinely relevant to your Toronto audience:</p>
+
+                <ul>
+                    <li><strong>Service area pages:</strong> If you serve multiple neighbourhoods (Scarborough, Etobicoke, North York, Mississauga), create individual pages for each area with unique content.</li>
+                    <li><strong>Local landing pages:</strong> Build pages targeting "[service] + [neighbourhood]" keywords like "dentist in Yorkville" or "plumber in The Beaches."</li>
+                    <li><strong>Toronto-relevant content:</strong> Reference local landmarks, events, and community information. This builds relevance and provides genuine value.</li>
+                </ul>
+
+                <h3>Internal Linking</h3>
+
+                <p>Link between your service pages, location pages, and blog posts using descriptive anchor text. This helps Google understand your site structure and distributes ranking authority across your pages.</p>
+
+                <h3>NAP on Your Website</h3>
+
+                <p>Include your business name, address, and phone number on every page of your website, typically in the footer. Use the exact same format as your Google Business Profile and all citations. Mark it up with LocalBusiness schema (covered in the next section).</p>
+
+                <div class="key-takeaway">
+                    <h4>On-Page SEO Checklist for Toronto Businesses</h4>
+                    <p>Every page on your site should have: a unique title tag with location, a compelling meta description, proper heading hierarchy, naturally integrated local keywords, and consistent NAP information.</p>
+                </div>
+
+                <!-- Section 6 -->
+                <h2 id="schema-markup">6. Schema Markup for Local Businesses</h2>
+
+                <p>Schema markup is structured data code that you add to your website to help search engines understand your content better. For local businesses, schema is particularly powerful because it helps Google display rich results and can improve your visibility in local search.</p>
+
+                <h3>Essential Schema Types for Local SEO</h3>
+
+                <h4>LocalBusiness Schema</h4>
+                <p>This is the most important schema type for local SEO. It tells Google your business name, address, phone number, hours, services, and more in a format it can directly parse. Use the most specific subtype for your business (Restaurant, Dentist, Plumber, LegalService, etc.).</p>
+
+                <p>Your LocalBusiness schema should include:</p>
+
+                <ul class="checklist">
+                    <li>Business name, address, and phone number</li>
+                    <li>Opening hours for each day of the week</li>
+                    <li>Geographic coordinates (latitude and longitude)</li>
+                    <li>Service area (City: Toronto, Region: ON, Country: CA)</li>
+                    <li>Price range and payment methods accepted</li>
+                    <li>Your logo and business images</li>
+                </ul>
+
+                <h4>Review Schema</h4>
+                <p>If you display testimonials or reviews on your website, mark them up with Review schema. This can result in star ratings appearing in search results, which significantly improve click-through rates.</p>
+
+                <h4>FAQ Schema</h4>
+                <p>Add FAQ schema to pages where you answer common questions. This can earn you expanded listings in search results, pushing competitors further down the page.</p>
+
+                <h4>Service Schema</h4>
+                <p>Mark up your individual services with Service schema to help Google understand exactly what you offer and match you with relevant searches.</p>
+
+                <h3>Implementing Schema on Your Website</h3>
+
+                <p>Schema is implemented using JSON-LD format in your page's <strong>&lt;head&gt;</strong> section. While there are plugins that can help (Yoast, Rank Math for WordPress), custom implementation gives you the most control and accuracy.</p>
+
+                <div class="tip-box">
+                    <p><strong>Pro Tip:</strong> Use Google's Rich Results Test tool to validate your schema markup after implementation. Errors in your schema can prevent it from being processed, negating all your effort.</p>
+                </div>
+
+                <!-- Section 7 -->
+                <h2 id="toronto-specific">7. Toronto-Specific SEO Strategies</h2>
+
+                <p>Toronto has a unique digital landscape that requires tailored strategies. Here's what sets Toronto local SEO apart:</p>
+
+                <h3>Neighbourhood Targeting</h3>
+
+                <p>Toronto is a city of neighbourhoods, and people search by neighbourhood name. Target keywords like:</p>
+
+                <ul>
+                    <li>"[Service] in Kensington Market"</li>
+                    <li>"[Service] near Liberty Village"</li>
+                    <li>"Best [service] in The Annex"</li>
+                    <li>"[Service] Leslieville"</li>
+                    <li>"[Service] in Yorkville"</li>
+                </ul>
+
+                <p>Create dedicated pages for each neighbourhood you serve, with unique content about serving that specific area. Don't just swap out the neighbourhood name&mdash;include genuine local details.</p>
+
+                <h3>GTA Suburb Optimization</h3>
+
+                <p>Many Toronto businesses also serve Mississauga, Brampton, Vaughan, Markham, Richmond Hill, and other GTA cities. Each of these is a separate Google market. If these areas are important to your business, create unique landing pages for each.</p>
+
+                <h3>Multilingual SEO</h3>
+
+                <p>Toronto is one of the most diverse cities in the world. Consider creating content in languages spoken by your target customers. If a significant portion of your clientele speaks Mandarin, Cantonese, Punjabi, Tamil, or Tagalog, having service pages in those languages can capture searches that most competitors completely miss.</p>
+
+                <h3>Local Link Building</h3>
+
+                <p>Earn links from Toronto-based websites and organizations:</p>
+
+                <ul>
+                    <li><strong>Toronto business associations</strong> and BIAs (Business Improvement Areas)</li>
+                    <li><strong>Local media:</strong> BlogTO, Toronto Life, NOW Magazine, Toronto Star</li>
+                    <li><strong>Chamber of Commerce:</strong> Toronto Region Board of Trade</li>
+                    <li><strong>Community sponsorships:</strong> Local sports teams, events, and charities</li>
+                    <li><strong>Toronto-based blogs</strong> and community websites</li>
+                </ul>
+
+                <div class="key-takeaway">
+                    <h4>Toronto SEO Advantage</h4>
+                    <p>The businesses that win at local SEO in Toronto are the ones that go deep on neighbourhood-level targeting and build genuine local connections. Generic, city-wide content isn't enough in a market this competitive.</p>
+                </div>
+
+                <!-- Section 8 -->
+                <h2 id="mobile-optimization">8. Mobile Optimization for Local Search</h2>
+
+                <p>The majority of local searches happen on mobile devices. Google uses mobile-first indexing, meaning it primarily uses the mobile version of your website for ranking and indexing. If your site doesn't perform well on mobile, your local rankings will suffer.</p>
+
+                <h3>Critical Mobile Factors</h3>
+
+                <ul>
+                    <li><strong>Page speed:</strong> Your mobile pages should load in under 3 seconds. Use Google PageSpeed Insights to test and identify issues. Compress images, minimize code, and use efficient hosting.</li>
+                    <li><strong>Responsive design:</strong> Your website must adapt fluidly to any screen size. Test on multiple devices and browsers.</li>
+                    <li><strong>Click-to-call buttons:</strong> Make your phone number a tappable link so mobile users can call instantly.</li>
+                    <li><strong>Easy navigation:</strong> Mobile users should be able to find your key information (address, phone, hours, services) within one or two taps.</li>
+                    <li><strong>Google Maps integration:</strong> Embed a Google Map on your contact page so users can get directions with one tap.</li>
+                </ul>
+
+                <h3>Core Web Vitals</h3>
+
+                <p>Google's Core Web Vitals measure real user experience on your site. Focus on three metrics:</p>
+
+                <ul>
+                    <li><strong>Largest Contentful Paint (LCP):</strong> Your main content should load within 2.5 seconds.</li>
+                    <li><strong>Interaction to Next Paint (INP):</strong> Your site should respond to user interactions within 200 milliseconds.</li>
+                    <li><strong>Cumulative Layout Shift (CLS):</strong> Visible content shouldn't shift around unexpectedly as the page loads. Keep CLS below 0.1.</li>
+                </ul>
+
+                <div class="tip-box">
+                    <p><strong>Pro Tip:</strong> Run your website through Google's PageSpeed Insights and address every issue flagged as "red." Even small improvements in load time can noticeably improve your local search rankings and conversion rates.</p>
+                </div>
+
+                <!-- Section 9 -->
+                <h2 id="tracking-results">9. Tracking Your Local SEO Results</h2>
+
+                <p>You can't improve what you don't measure. Set up proper tracking from day one so you can see what's working and adjust your strategy accordingly.</p>
+
+                <h3>Essential Tracking Tools</h3>
+
+                <ul>
+                    <li><strong>Google Business Profile Insights:</strong> Tracks how customers find your listing, what actions they take (calls, directions, website visits), and how your photos and posts are performing.</li>
+                    <li><strong>Google Search Console:</strong> Shows which keywords are driving impressions and clicks to your website, your average position for each keyword, and any technical issues affecting your site.</li>
+                    <li><strong>Google Analytics:</strong> Tracks website traffic, user behaviour, conversion rates, and the effectiveness of your content.</li>
+                    <li><strong>Local rank tracking tools:</strong> Tools like BrightLocal, Whitespark, or SE Ranking can track your position in the Local Pack for specific keywords across different locations within Toronto.</li>
+                </ul>
+
+                <h3>Key Metrics to Monitor</h3>
+
+                <ul>
+                    <li><strong>Local Pack ranking position</strong> for your target keywords</li>
+                    <li><strong>Google Business Profile views and actions</strong> (calls, direction requests, website clicks)</li>
+                    <li><strong>Organic traffic</strong> from local keyword searches</li>
+                    <li><strong>Review count and average rating</strong> over time</li>
+                    <li><strong>Citation accuracy</strong> across all directories</li>
+                    <li><strong>Phone calls and form submissions</strong> from local search</li>
+                </ul>
+
+                <!-- Section 10 -->
+                <h2 id="common-mistakes">10. Common Local SEO Mistakes to Avoid</h2>
+
+                <p>Avoid these common mistakes that can undermine your local SEO efforts:</p>
+
+                <ul>
+                    <li><strong>Inconsistent NAP information:</strong> Even small differences in your business name, address, or phone number across directories confuse Google. Audit all your listings regularly.</li>
+                    <li><strong>Ignoring reviews:</strong> Not responding to reviews (especially negative ones) signals to both Google and customers that you don't care about feedback.</li>
+                    <li><strong>Keyword stuffing your business name:</strong> Adding keywords to your GBP business name violates Google's guidelines and can result in suspension.</li>
+                    <li><strong>Duplicate listings:</strong> Multiple Google Business Profile listings for the same business at the same address split your authority and confuse Google.</li>
+                    <li><strong>Neglecting your website:</strong> Your GBP drives initial visibility, but your website is where conversions happen. A slow, outdated website wastes the traffic local SEO generates.</li>
+                    <li><strong>No local content strategy:</strong> Publishing generic blog posts without local relevance won't help your local rankings. Create content that specifically serves your Toronto audience.</li>
+                    <li><strong>Ignoring mobile:</strong> With the majority of local searches on mobile, a poor mobile experience directly hurts your rankings and conversion rates.</li>
+                    <li><strong>Buying fake reviews:</strong> Google's algorithm detects fake reviews. Getting caught can result in review removal, ranking penalties, or complete listing suspension.</li>
+                </ul>
+
+                <div class="warning-box">
+                    <p><strong>Critical Warning:</strong> Google penalizes businesses that violate its guidelines. Don't use fake addresses, virtual offices (unless you meet there with clients), keyword-stuffed business names, or purchased reviews. The short-term gains are never worth the risk of suspension.</p>
+                </div>
+
+                <!-- Section 11 -->
+                <h2 id="next-steps">11. Next Steps: Your Local SEO Action Plan</h2>
+
+                <p>Local SEO isn't a one-time project&mdash;it's an ongoing process. Here's a prioritized action plan to get started:</p>
+
+                <h3>Month 1: Foundation</h3>
+                <ul class="checklist">
+                    <li>Claim and fully optimize your Google Business Profile</li>
+                    <li>Audit your NAP consistency across existing listings</li>
+                    <li>Fix any inconsistencies in your business information</li>
+                    <li>Set up Google Search Console and Google Analytics</li>
+                    <li>Ensure your website is mobile-friendly and fast-loading</li>
+                    <li>Add LocalBusiness schema markup to your website</li>
+                </ul>
+
+                <h3>Month 2: Growth</h3>
+                <ul class="checklist">
+                    <li>Build citations on the top 15-20 directories listed above</li>
+                    <li>Implement a review generation process</li>
+                    <li>Optimize your homepage and service pages with local keywords</li>
+                    <li>Start creating neighbourhood-specific landing pages</li>
+                    <li>Begin posting weekly updates to your Google Business Profile</li>
+                </ul>
+
+                <h3>Month 3 and Beyond: Domination</h3>
+                <ul class="checklist">
+                    <li>Create a local content strategy (blog posts, guides, local news)</li>
+                    <li>Build relationships with local websites for link opportunities</li>
+                    <li>Expand to additional citation sources and industry directories</li>
+                    <li>Monitor and respond to all reviews within 24 hours</li>
+                    <li>Track your rankings monthly and adjust strategy based on data</li>
+                    <li>Continuously optimize based on Google Business Profile Insights</li>
+                </ul>
+
+                <!-- Final CTA -->
+                <div class="article-cta">
+                    <h2>Need Help With Local SEO in Toronto?</h2>
+                    <p>DOTxLabs specializes in local SEO services for Toronto businesses. We handle everything&mdash;from Google Business Profile optimization to citation building, review strategy, and ongoing content creation.</p>
                     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="#pricing" class="cta-button">View Pricing</a>
-                        <a href="#contact" class="cta-button" style="background: transparent; border: 2px solid var(--accent);">Schedule Free Call</a>
+                        <a href="/#contact" class="cta-button">Get a Free SEO Consultation</a>
+                        <a href="/#pricing" class="cta-button" style="background: transparent; border: 2px solid var(--accent);">View SEO Packages</a>
                     </div>
                 </div>
 
-                <!-- Why These Services Matter - Quote Section -->
-                <div class="quote-box">
-                    <p>"Companies that invested in AI saw a 30% increase in operational efficiency and 25% growth in revenue within the first year."</p>
-                    <p class="quote-author">— McKinsey Global Institute, 2024</p>
-                </div>
+                <p>Local SEO is one of the highest-ROI marketing investments a Toronto business can make. The strategies in this guide work&mdash;but they require consistent execution over time. Start with the foundations, build momentum, and the results will compound.</p>
 
-                <div class="quote-box" style="background: rgba(139, 92, 246, 0.1); border-left-color: var(--accent);">
-                    <p>"61% of marketers say improving SEO and growing their organic presence is their top inbound marketing priority. Businesses with websites that rank on the first page of Google get 92% of all search traffic."</p>
-                    <p class="quote-author" style="color: var(--accent);">— HubSpot Research, 2024</p>
-                </div>
+                <p>If you'd rather have experts handle it, <a href="/#contact" style="color: var(--accent); text-decoration: underline;">reach out to DOTxLabs</a> for a free consultation. We'll audit your current local SEO presence and show you exactly where the opportunities are.</p>
+
             </div>
-        </section>
-
-        <!-- Pricing Section -->
-        <section id="pricing">
-            <div class="container">
-                <h2 class="section-title">Transparent Pricing</h2>
-                <p class="section-subtitle">Choose the package that fits your business needs</p>
-
-                <button class="pricing-toggle" onclick="togglePricing()">View All Pricing Options</button>
-
-                <div class="pricing-content" id="pricingContent">
-                    <!-- Web Development Pricing -->
-                    <h3 style="text-align: center; margin: 3rem 0 2rem; color: var(--accent);">Web Development Packages</h3>
-                    <p class="swipe-hint">← Swipe to see all packages →</p>
-                    <div class="pricing-grid">
-                        <div class="pricing-card">
-                            <h4>Basic Website</h4>
-                            <div class="price">$1,500</div>
-                            <ul class="pricing-features">
-                                <li>3-page website</li>
-                                <li>Mobile responsive design</li>
-                                <li>Contact form integration</li>
-                                <li>Basic SEO setup</li>
-                                <li>7-day delivery</li>
-                            </ul>
-                            <a href="#contact" class="cta-button">Get Started</a>
-                        </div>
-
-                        <div class="pricing-card featured">
-                            <h4>Professional Website</h4>
-                            <div class="price">$2,500</div>
-                            <p style="color: var(--accent); font-weight: 600; margin-top: -0.5rem;">MOST POPULAR</p>
-                            <ul class="pricing-features">
-                                <li>5-page custom website</li>
-                                <li>Advanced design & animations</li>
-                                <li>Lead capture forms</li>
-                                <li>Google Business setup</li>
-                                <li>SEO optimization</li>
-                                <li>Social media integration</li>
-                                <li>30-day support</li>
-                            </ul>
-                            <a href="#contact" class="cta-button">Get Started</a>
-                        </div>
-
-                        <div class="pricing-card">
-                            <h4>Premium Website</h4>
-                            <div class="price">$4,500</div>
-                            <ul class="pricing-features">
-                                <li>Unlimited pages</li>
-                                <li>Custom functionality</li>
-                                <li>E-commerce capabilities</li>
-                                <li>Advanced SEO strategy</li>
-                                <li>Blog setup + 5 posts</li>
-                                <li>Email marketing setup</li>
-                                <li>90-day support</li>
-                                <li>Monthly maintenance available</li>
-                            </ul>
-                            <a href="#contact" class="cta-button">Get Started</a>
-                        </div>
-                    </div>
-
-                    <!-- SEO Pricing -->
-                    <h3 style="text-align: center; margin: 4rem 0 2rem; color: var(--accent);">SEO Service Packages</h3>
-                    <p class="swipe-hint">← Swipe to see all packages →</p>
-                    <div class="pricing-grid">
-                        <div class="pricing-card">
-                            <h4>SEO Starter</h4>
-                            <div class="price">$800<span style="font-size: 1rem;">/mo</span></div>
-                            <ul class="pricing-features">
-                                <li>10 target keywords</li>
-                                <li>On-page optimization</li>
-                                <li>Technical SEO audit</li>
-                                <li>Google Business optimization</li>
-                                <li>Monthly progress report</li>
-                            </ul>
-                            <a href="#contact" class="cta-button">Get Started</a>
-                        </div>
-
-                        <div class="pricing-card featured">
-                            <h4>SEO Growth</h4>
-                            <div class="price">$1,500<span style="font-size: 1rem;">/mo</span></div>
-                            <p style="color: var(--accent); font-weight: 600; margin-top: -0.5rem;">RECOMMENDED</p>
-                            <ul class="pricing-features">
-                                <li>25 target keywords</li>
-                                <li>Complete on-page SEO</li>
-                                <li>Monthly content creation (4 posts)</li>
-                                <li>Link building campaign</li>
-                                <li>Competitor analysis</li>
-                                <li>Detailed analytics dashboard</li>
-                            </ul>
-                            <a href="#contact" class="cta-button">Get Started</a>
-                        </div>
-
-                        <div class="pricing-card">
-                            <h4>SEO Enterprise</h4>
-                            <div class="price">$3,000<span style="font-size: 1rem;">/mo</span></div>
-                            <ul class="pricing-features">
-                                <li>Unlimited keywords</li>
-                                <li>Weekly content publishing</li>
-                                <li>Advanced link building</li>
-                                <li>Local SEO domination</li>
-                                <li>Quarterly strategy sessions</li>
-                                <li>Priority support</li>
-                            </ul>
-                            <a href="#contact" class="cta-button">Get Started</a>
-                        </div>
-                    </div>
-
-                    <!-- Marketing Pricing -->
-                    <h3 style="text-align: center; margin: 4rem 0 2rem; color: var(--accent);">Digital Marketing Packages</h3>
-                    <p class="swipe-hint">← Swipe to see all packages →</p>
-                    <div class="pricing-grid">
-                        <div class="pricing-card">
-                            <h4>Marketing Essentials</h4>
-                            <div class="price">$1,200<span style="font-size: 1rem;">/mo</span></div>
-                            <ul class="pricing-features">
-                                <li>Social media management (2 platforms)</li>
-                                <li>12 posts per month</li>
-                                <li>Basic email campaigns</li>
-                                <li>Monthly analytics report</li>
-                            </ul>
-                            <a href="#contact" class="cta-button">Get Started</a>
-                        </div>
-
-                        <div class="pricing-card featured">
-                            <h4>Marketing Pro</h4>
-                            <div class="price">$2,500<span style="font-size: 1rem;">/mo</span></div>
-                            <p style="color: var(--accent); font-weight: 600; margin-top: -0.5rem;">BEST VALUE</p>
-                            <ul class="pricing-features">
-                                <li>Multi-platform management</li>
-                                <li>20 posts + content calendar</li>
-                                <li>Google Ads management</li>
-                                <li>Email automation sequences</li>
-                                <li>A/B testing & optimization</li>
-                                <li>Bi-weekly strategy calls</li>
-                            </ul>
-                            <a href="#contact" class="cta-button">Get Started</a>
-                        </div>
-
-                        <div class="pricing-card">
-                            <h4>Marketing Elite</h4>
-                            <div class="price">$5,000<span style="font-size: 1rem;">/mo</span></div>
-                            <ul class="pricing-features">
-                                <li>Full-service marketing</li>
-                                <li>Daily content publishing</li>
-                                <li>Multi-channel ad campaigns</li>
-                                <li>Advanced marketing automation</li>
-                                <li>Influencer partnerships</li>
-                                <li>Dedicated account manager</li>
-                            </ul>
-                            <a href="#contact" class="cta-button">Get Started</a>
-                        </div>
-                    </div>
-
-                    <!-- AI Solutions Pricing -->
-                    <h3 style="text-align: center; margin: 4rem 0 2rem; color: var(--ai-color);">AI Solutions Pricing</h3>
-                    <p class="swipe-hint">← Swipe to see all packages →</p>
-                    <div class="pricing-grid">
-                        <div class="pricing-card">
-                            <h4>AI Chatbot</h4>
-                            <div class="price">$1,500<span style="font-size: 1rem;"> setup</span></div>
-                            <p style="opacity: 0.7; margin-top: 0.5rem;">+ $150/mo maintenance</p>
-                            <ul class="pricing-features">
-                                <li>Custom AI chatbot</li>
-                                <li>24/7 customer support</li>
-                                <li>Lead capture integration</li>
-                                <li>Analytics dashboard</li>
-                            </ul>
-                            <a href="#contact" class="cta-button">Get Started</a>
-                        </div>
-
-                        <div class="pricing-card featured">
-                            <h4>AI Automation</h4>
-                            <div class="price">$3,000<span style="font-size: 1rem;"> setup</span></div>
-                            <p style="opacity: 0.7; margin-top: 0.5rem;">+ $300/mo maintenance</p>
-                            <p style="color: var(--ai-color); font-weight: 600;">SAVE TIME & MONEY</p>
-                            <ul class="pricing-features">
-                                <li>Process automation</li>
-                                <li>AI content generation</li>
-                                <li>Email automation</li>
-                                <li>Data analysis tools</li>
-                                <li>Custom integrations</li>
-                            </ul>
-                            <a href="#contact" class="cta-button">Get Started</a>
-                        </div>
-
-                        <div class="pricing-card">
-                            <h4>Custom AI Solution</h4>
-                            <div class="price">Custom</div>
-                            <ul class="pricing-features">
-                                <li>Fully custom AI development</li>
-                                <li>Machine learning models</li>
-                                <li>Predictive analytics</li>
-                                <li>API integrations</li>
-                                <li>Dedicated support</li>
-                                <li>ROI-focused solutions</li>
-                            </ul>
-                            <a href="#contact" class="cta-button">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Resources / Tips Section -->
-        <section id="resources" style="background: var(--primary-dark);">
-            <div class="container">
-                <h2 class="section-title">Why Your Business Needs These Services</h2>
-                <p class="section-subtitle">Expert insights and proven strategies for digital growth</p>
-
-                <!-- AI Importance -->
-                <div style="margin: 4rem 0;">
-                    <h3 style="color: var(--ai-color); margin-bottom: 1.5rem;">Why AI Matters for Your Business</h3>
-                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">Artificial Intelligence is no longer optional—it's essential for staying competitive. Here's why:</p>
-                    
-                    <div class="tips-grid">
-                        <div class="tip-card">
-                            <h4>Save Time</h4>
-                            <p>AI automates repetitive tasks, freeing your team to focus on high-value work. Businesses report saving 20-30 hours per week with AI automation.</p>
-                        </div>
-                        <div class="tip-card">
-                            <h4>Reduce Costs</h4>
-                            <p>AI reduces operational costs by up to 40% by handling customer service, data entry, and content creation automatically.</p>
-                        </div>
-                        <div class="tip-card">
-                            <h4>Better Decisions</h4>
-                            <p>AI analyzes data faster than humans, uncovering insights that help you make smarter business decisions backed by data.</p>
-                        </div>
-                        <div class="tip-card">
-                            <h4>24/7 Availability</h4>
-                            <p>AI chatbots never sleep. Capture leads and answer customer questions around the clock, even when your office is closed.</p>
-                        </div>
-                    </div>
-
-                    <div class="quote-box">
-                        <p>"By 2025, 75% of enterprises will shift from piloting to operationalizing AI, driving a 5x increase in streaming data and analytics infrastructures."</p>
-                        <p class="quote-author">— Gartner Research</p>
-                    </div>
-                </div>
-
-                <!-- CTA After AI Section -->
-                <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: rgba(16, 185, 129, 0.05); border-radius: 1rem; border: 1px solid rgba(16, 185, 129, 0.2);">
-                    <h3 style="color: var(--ai-color); margin-bottom: 1rem;">Ready to Automate Your Business?</h3>
-                    <p style="color: var(--gray-400); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                        Stop wasting time on repetitive tasks. Let AI handle the busywork while you focus on growth.
-                    </p>
-                    <a href="#contact" class="cta-button" style="background: var(--ai-color);">Get AI Solutions</a>
-                </div>
-
-                <!-- SEO Importance -->
-                <div style="margin: 4rem 0;">
-                    <h3 style="color: var(--accent); margin-bottom: 1.5rem;">Why SEO is Critical for Business Growth</h3>
-                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">If your customers can't find you on Google, they're finding your competitors instead. SEO ensures you show up when it matters most.</p>
-                    
-                    <div class="tips-grid">
-                        <div class="tip-card">
-                            <h4>92% of Traffic Goes to Page 1</h4>
-                            <p>The first page of Google captures 92% of all search traffic. If you're not there, you're invisible to potential customers.</p>
-                        </div>
-                        <div class="tip-card">
-                            <h4>SEO Drives Qualified Leads</h4>
-                            <p>People searching Google have intent. SEO brings visitors who are actively looking for what you offer—not cold traffic.</p>
-                        </div>
-                        <div class="tip-card">
-                            <h4>Long-Term ROI</h4>
-                            <p>Unlike paid ads that stop when you stop paying, SEO builds lasting visibility. Good rankings keep bringing traffic for years.</p>
-                        </div>
-                        <div class="tip-card">
-                            <h4>Builds Trust & Credibility</h4>
-                            <p>Ranking high on Google signals authority and trustworthiness. Customers trust organic results more than paid ads.</p>
-                        </div>
-                    </div>
-
-                    <div class="quote-box" style="background: rgba(139, 92, 246, 0.1); border-left-color: var(--accent);">
-                        <p>"70% of marketers see SEO as more effective than PPC for generating sales. Organic search drives 53% of all website traffic—more than any other channel."</p>
-                        <p class="quote-author" style="color: var(--accent);">— BrightEdge Research</p>
-                    </div>
-                </div>
-
-                <!-- CTA After SEO Section -->
-                <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: rgba(139, 92, 246, 0.05); border-radius: 1rem; border: 1px solid rgba(139, 92, 246, 0.2);">
-                    <h3 style="color: var(--accent); margin-bottom: 1rem;">Want to Dominate Google Search?</h3>
-                    <p style="color: var(--gray-400); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                        Get found by customers actively searching for what you offer. Our SEO strategies get you to page 1.
-                    </p>
-                    <a href="#contact" class="cta-button">Start Ranking Higher</a>
-                </div>
-
-                <!-- Quick Tips -->
-                <div style="margin: 4rem 0;">
-                    <h3 style="margin-bottom: 1.5rem;">Quick Tips for Digital Success</h3>
-                    <div class="tips-grid">
-                        <div class="tip-card">
-                            <h4>Mobile-First is Essential</h4>
-                            <p>Over 60% of searches happen on mobile. If your website isn't mobile-friendly, you're losing half your potential customers.</p>
-                        </div>
-                        <div class="tip-card">
-                            <h4>Speed Matters</h4>
-                            <p>40% of visitors abandon websites that take more than 3 seconds to load. Fast websites rank better and convert more.</p>
-                        </div>
-                        <div class="tip-card">
-                            <h4>Content is Still King</h4>
-                            <p>Businesses that blog get 67% more leads than those that don't. Consistent, valuable content attracts and converts customers.</p>
-                        </div>
-                        <div class="tip-card">
-                            <h4>Track Everything</h4>
-                            <p>You can't improve what you don't measure. Use analytics to understand what's working and double down on it.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CTA After Tips Section -->
-                <div style="text-align: center; margin: 4rem 0; padding: 4rem 2rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1)); border-radius: 1rem;">
-                    <h2 style="margin-bottom: 1rem;">Let's Transform Your Digital Presence</h2>
-                    <p style="color: var(--gray-400); font-size: 1.125rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-                        Stop losing customers to competitors. Get a website that works 24/7, ranks on Google, and turns visitors into paying customers.
-                    </p>
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="#contact" class="cta-button" style="font-size: 1.125rem; padding: 1.25rem 2.5rem;">Get Your Free Consultation</a>
-                        <a href="#pricing" class="cta-button" style="background: transparent; border: 2px solid var(--accent); font-size: 1.125rem; padding: 1.25rem 2.5rem;">See Pricing</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <div class="container">
-                <h2 class="section-title">Let's Grow Your Business Together</h2>
-                <p class="section-subtitle">Ready to transform your digital presence? Get in touch today for a free consultation</p>
-                
-                <div class="contact-container">
-                    <div class="contact-grid">
-                        <a href="mailto:david@dotxlabs.com" class="contact-method">
-                            <div class="contact-icon">✉️</div>
-                            <div class="contact-text">
-                                <strong>Email Us</strong>
-                                <span>david@dotxlabs.com</span>
-                            </div>
-                        </a>
-                        
-                        <a href="tel:+16474603641" class="contact-method">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-text">
-                                <strong>Call Us</strong>
-                                <span>647-460-3641</span>
-                            </div>
-                        </a>
-                        
-                        <a href="http://linkedin.com/in/david-ajai" target="_blank" class="contact-method">
-                            <div class="contact-icon">💼</div>
-                            <div class="contact-text">
-                                <strong>LinkedIn</strong>
-                                <span>David Ajai</span>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                        <h4 style="margin-bottom: 1rem;">Why Choose DOTxLabs?</h4>
-                        <p style="opacity: 0.8; max-width: 600px; margin: 0 auto;">
-                            We combine cutting-edge AI technology with proven digital marketing strategies to deliver measurable results. 
-                            From websites that convert to SEO that drives traffic, we partner with you to build solutions that grow your business.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -1012,28 +994,28 @@
                         Professional web development, SEO, marketing, and AI solutions helping businesses grow online.
                     </p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#services">Web Development</a></li>
-                        <li><a href="#services">SEO Services</a></li>
-                        <li><a href="#services">Digital Marketing</a></li>
-                        <li><a href="#services">AI Solutions</a></li>
+                        <li><a href="/#services">Web Development</a></li>
+                        <li><a href="/#services">SEO Services</a></li>
+                        <li><a href="/#services">Digital Marketing</a></li>
+                        <li><a href="/#services">AI Solutions</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#resources">Resources</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/#contact">Contact</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul>
@@ -1043,42 +1025,11 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="copyright">
                 <p>&copy; 2026 DOTxLabs. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Toggle pricing section
-        function togglePricing() {
-            const content = document.getElementById('pricingContent');
-            const button = document.querySelector('.pricing-toggle');
-            
-            content.classList.toggle('active');
-            button.classList.toggle('active');
-            
-            if (content.classList.contains('active')) {
-                button.textContent = 'Hide Pricing Options';
-            } else {
-                button.textContent = 'View All Pricing Options';
-            }
-        }
-    </script>
 </body>
 </html>
