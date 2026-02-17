@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="We Help Businesses Get More Customers Online. Professional web development, local SEO, digital marketing & AI solutions. Free consultation available.">
     <meta name="keywords" content="web development Toronto, SEO services, digital marketing agency, AI business solutions, website design, local seo toronto, website development toronto">
     <meta name="author" content="DOTxLabs">
@@ -41,6 +41,32 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            cursor: none !important;
+        }
+
+        /* Custom cursor styles - disabled on mobile */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: var(--accent2);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            mix-blend-mode: difference;
         }
 
         html {
@@ -52,6 +78,7 @@
             background: var(--primary);
             color: var(--white);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
@@ -59,6 +86,8 @@
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 1.5rem;
+            position: relative;
+            z-index: 2;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -69,6 +98,29 @@
         h1 { font-size: clamp(3rem, 8vw, 5rem); }
         h2 { font-size: clamp(2.25rem, 6vw, 3.5rem); }
         h3 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+
+        /* Animated Gradient Text */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                135deg,
+                var(--accent) 0%,
+                var(--accent2) 25%,
+                var(--accent3) 50%,
+                var(--ai-color) 75%,
+                var(--accent) 100%
+            );
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 8s ease infinite;
+        }
 
         /* Navigation */
         .logo {
@@ -83,6 +135,12 @@
             color: transparent;
             z-index: 1002;
             text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px var(--accent));
         }
 
         .desktop-nav {
@@ -104,7 +162,23 @@
             color: var(--white);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            transition: width 0.3s ease;
+        }
+
+        .desktop-nav a:hover::after {
+            width: 100%;
         }
 
         .desktop-nav a:hover {
@@ -188,19 +262,15 @@
             color: var(--accent);
         }
 
-        @media (max-width: 768px) {
-            .desktop-nav {
-                display: none;
-            }
-
-            .mobile-menu-button {
-                display: flex;
-            }
-            
-            .logo {
-                left: 50%;
-                transform: translateX(-50%);
-            }
+        /* Particle Canvas */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
         }
 
         /* Hero Section */
@@ -210,6 +280,50 @@
             align-items: center;
             padding: 120px 20px 60px;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.5;
+            pointer-events: none;
         }
 
         .hero-content {
@@ -218,13 +332,6 @@
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, var(--white) 0%, var(--accent) 30%, var(--accent2) 50%, var(--ai-color) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
         }
 
         .hero-subtitle {
@@ -241,17 +348,42 @@
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: none;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .cta-button:hover {
             background: var(--accent-dark);
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
         }
 
         /* Section Styles */
         section {
             padding: 6rem 0;
+            position: relative;
+            z-index: 2;
         }
 
         .section-title {
@@ -267,7 +399,7 @@
             margin: 0 auto 4rem;
         }
 
-        /* Services Grid */
+        /* Glassmorphism Cards */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -276,17 +408,40 @@
         }
 
         .service-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1.5rem;
             padding: 2rem;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--accent), var(--accent2), var(--accent3), var(--ai-color));
+            border-radius: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.3;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3),
+                        0 0 0 2px rgba(139, 92, 246, 0.1);
         }
 
         .service-icon {
@@ -321,19 +476,23 @@
         /* Blog Preview Card */
         .blog-preview-card {
             background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 1.5rem;
             padding: 2rem;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
             color: var(--white);
             display: block;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .blog-preview-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.02);
             border-color: var(--accent);
-            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3),
+                        0 0 0 2px rgba(139, 92, 246, 0.1);
         }
 
         .blog-tag {
@@ -379,7 +538,8 @@
 
         .pricing-toggle:hover {
             background: var(--accent-dark);
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
         }
 
         .pricing-toggle:after {
@@ -412,12 +572,6 @@
             opacity: 0.7;
         }
 
-        @media (max-width: 768px) {
-            .swipe-hint {
-                display: block;
-            }
-        }
-
         /* Pricing Cards */
         .pricing-grid {
             display: grid;
@@ -428,21 +582,25 @@
 
         .pricing-card {
             background: rgba(255,255,255,0.03);
-            border: 2px solid rgba(255,255,255,0.1);
-            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 1.5rem;
             padding: 2.5rem;
             text-align: center;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .pricing-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.02);
             border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
         }
 
         .pricing-card.featured {
-            border-color: var(--accent);
-            background: rgba(139, 92, 246, 0.05);
+            border: 2px solid var(--accent);
+            background: rgba(139, 92, 246, 0.1);
         }
 
         .price {
@@ -505,6 +663,7 @@
             padding: 2rem;
             margin: 3rem 0;
             border-radius: 0.5rem;
+            backdrop-filter: blur(10px);
         }
 
         .quote-box p {
@@ -519,30 +678,83 @@
             color: var(--ai-color);
         }
 
-        /* Tips Section */
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .tip-card {
-            background: rgba(255,255,255,0.02);
-            padding: 1.5rem;
-            border-radius: 0.75rem;
+        /* ROI Calculator */
+        .roi-calculator {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 2rem;
+            padding: 3rem;
+            margin: 4rem 0;
         }
 
-        .tip-card h4 {
+        .roi-calculator input[type=range] {
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            border-radius: 4px;
+            -webkit-appearance: none;
+            margin: 1rem 0;
+        }
+
+        .roi-calculator input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: var(--white);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .roi-calculator input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            background: var(--accent);
+        }
+
+        .roi-result {
+            font-size: 3rem;
+            font-weight: 800;
             color: var(--accent);
-            margin-bottom: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        /* Market Ticker */
+        .market-ticker {
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            padding: 0.75rem 0;
+            overflow: hidden;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            white-space: nowrap;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+            font-weight: 600;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .ticker-content span {
+            margin-right: 3rem;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
         /* Contact */
         .contact-container {
             background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.05);
             border-radius: 1.5rem;
             padding: 3rem;
             max-width: 800px;
@@ -565,12 +777,13 @@
             border-radius: 0.75rem;
             text-decoration: none;
             color: var(--white);
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .contact-method:hover {
             background: rgba(139, 92, 246, 0.1);
-            transform: translateX(5px);
+            transform: translateX(5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
         }
 
         .contact-icon {
@@ -580,7 +793,9 @@
         /* Footer */
         footer {
             background: var(--primary-light);
-            padding: 4rem 0 2rem;
+            padding: 4rem 0 6rem;
+            position: relative;
+            z-index: 2;
         }
 
         .footer-grid {
@@ -618,9 +833,60 @@
             border-top: 1px solid rgba(255,255,255,0.1);
             color: var(--gray-400);
         }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            * {
+                cursor: auto !important;
+            }
+            
+            .cursor, .cursor-follower {
+                display: none;
+            }
+            
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-menu-button {
+                display: flex;
+            }
+            
+            .logo {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .swipe-hint {
+                display: block;
+            }
+
+            .market-ticker {
+                display: none; /* Hide on mobile to save space */
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
     <!-- Logo -->
     <a href="#home" class="logo">DOTxLabs</a>
 
@@ -646,6 +912,9 @@
         <a href="/blog.html" onclick="closeMobileMenu()">Blog</a>
         <a href="#contact" onclick="closeMobileMenu()">Contact</a>
     </nav>
+
+    <!-- Hero Canvas for Three.js -->
+    <div id="hero-canvas"></div>
 
     <main>
         <!-- Hero Section -->
@@ -973,6 +1242,37 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- ROI Calculator -->
+                <div class="roi-calculator">
+                    <h3 style="text-align: center; margin-bottom: 2rem;">📈 Calculate Your Potential ROI</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem;">Monthly Website Visitors</label>
+                            <input type="range" id="visitors" min="0" max="10000" step="100" value="1000" style="width: 100%;">
+                            <span id="visitors-value">1,000</span>
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem;">Current Conversion Rate (%)</label>
+                            <input type="range" id="conversion" min="0" max="5" step="0.1" value="1.5" style="width: 100%;">
+                            <span id="conversion-value">1.5%</span>
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem;">Average Customer Value ($)</label>
+                            <input type="range" id="value" min="0" max="1000" step="10" value="200" style="width: 100%;">
+                            <span id="value-value">$200</span>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(139, 92, 246, 0.1); border-radius: 1rem;">
+                        <h4 style="margin-bottom: 1rem;">Estimated Monthly Revenue</h4>
+                        <div class="roi-result" id="roi-result">$3,000</div>
+                        <p style="opacity: 0.7;">With our SEO optimization, you could see 2-3x improvement</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1020,6 +1320,23 @@
             </div>
         </section>
     </main>
+
+    <!-- Market Ticker -->
+    <div class="market-ticker">
+        <div class="ticker-content">
+            <span>🔥 AI adoption up 270% in 2024</span>
+            <span>•</span>
+            <span>🎯 Google updates favor local SEO</span>
+            <span>•</span>
+            <span>🎤 Voice search growing 40% YoY</span>
+            <span>•</span>
+            <span>📱 Mobile traffic exceeds 60%</span>
+            <span>•</span>
+            <span>⭐ Featured snippets drive 35% more clicks</span>
+            <span>•</span>
+            <span>🚀 93% of online experiences begin with search</span>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -1069,20 +1386,307 @@
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    closeMobileMenu();
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+    <!-- Scripts -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
+            }
+        }
+    </script>
+
+    <script type="module">
+        // Three.js 3D Elements
+        import * as THREE from 'three';
+        
+        function initThreeJS() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            
+            const container = document.getElementById('hero-canvas');
+            if (!container) return;
+            
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.innerHTML = '';
+            container.appendChild(renderer.domElement);
+
+            // Create floating geometric shapes
+            const geometries = [
+                new THREE.TorusKnotGeometry(0.8, 0.2, 100, 16),
+                new THREE.IcosahedronGeometry(0.8, 0),
+                new THREE.OctahedronGeometry(0.8)
+            ];
+            
+            const colors = [0x8b5cf6, 0xec4899, 0x06b6d4];
+            const meshes = [];
+            
+            geometries.forEach((geo, i) => {
+                const material = new THREE.MeshPhongMaterial({
+                    color: colors[i],
+                    emissive: colors[i],
+                    emissiveIntensity: 0.2,
+                    wireframe: true,
+                    transparent: true,
+                    opacity: 0.15
+                });
+                
+                const mesh = new THREE.Mesh(geo, material);
+                mesh.position.x = (i - 1) * 3.5;
+                mesh.position.y = Math.sin(i) * 2;
+                mesh.position.z = -8 - (i * 2);
+                mesh.rotation.x = i * 0.5;
+                mesh.rotation.y = i * 0.3;
+                scene.add(mesh);
+                meshes.push(mesh);
             });
+
+            // Add floating particles
+            const particleGeometry = new THREE.BufferGeometry();
+            const particleCount = 1000;
+            const positions = new Float32Array(particleCount * 3);
+            
+            for (let i = 0; i < particleCount * 3; i += 3) {
+                positions[i] = (Math.random() - 0.5) * 40;
+                positions[i + 1] = (Math.random() - 0.5) * 40;
+                positions[i + 2] = (Math.random() - 0.5) * 40;
+            }
+            
+            particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            
+            const particleMaterial = new THREE.PointsMaterial({
+                color: 0x8b5cf6,
+                size: 0.05,
+                transparent: true,
+                opacity: 0.3
+            });
+            
+            const particles = new THREE.Points(particleGeometry, particleMaterial);
+            scene.add(particles);
+
+            // Lights
+            const light1 = new THREE.PointLight(0x8b5cf6, 1, 20);
+            light1.position.set(3, 2, 2);
+            scene.add(light1);
+            
+            const light2 = new THREE.PointLight(0xec4899, 1, 20);
+            light2.position.set(-3, -1, 2);
+            scene.add(light2);
+            
+            const light3 = new THREE.PointLight(0x06b6d4, 1, 20);
+            light3.position.set(0, 3, 3);
+            scene.add(light3);
+
+            camera.position.z = 5;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                meshes.forEach((mesh, i) => {
+                    mesh.rotation.x += 0.001;
+                    mesh.rotation.y += 0.002 + (i * 0.0005);
+                });
+                
+                particles.rotation.y += 0.0002;
+                
+                renderer.render(scene, camera);
+            }
+            
+            animate();
+
+            // Handle resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        // Initialize Three.js
+        try {
+            initThreeJS();
+        } catch (error) {
+            console.log('Three.js initialization failed:', error);
+        }
+
+        // Particle System
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let particles = [];
+        let animationFrame;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2;
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.speedY = (Math.random() - 0.5) * 0.3;
+                this.color = `rgba(139, 92, 246, ${Math.random() * 0.2})`;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 80; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            // Draw connections
+            particles.forEach((p1, i) => {
+                particles.slice(i + 1).forEach(p2 => {
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 120) {
+                        ctx.strokeStyle = `rgba(139, 92, 246, ${0.05 * (1 - distance/120)})`;
+                        ctx.lineWidth = 0.3;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                });
+            });
+            
+            animationFrame = requestAnimationFrame(animateParticles);
+        }
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        }
+        
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        animateParticles();
+    </script>
+
+    <script>
+        // Main JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Custom cursor
+            const cursor = document.querySelector('.cursor');
+            const follower = document.querySelector('.cursor-follower');
+            
+            if (cursor && follower && window.innerWidth > 768) {
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+                    follower.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+                });
+                
+                document.addEventListener('mousedown', () => {
+                    cursor.style.transform += ' scale(0.8)';
+                    follower.style.transform += ' scale(1.5)';
+                });
+                
+                document.addEventListener('mouseup', () => {
+                    cursor.style.transform = cursor.style.transform.replace(' scale(0.8)', '');
+                    follower.style.transform = follower.style.transform.replace(' scale(1.5)', '');
+                });
+            }
+
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        closeMobileMenu();
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Magnetic buttons effect
+            document.querySelectorAll('.cta-button').forEach(button => {
+                button.addEventListener('mousemove', (e) => {
+                    if (window.innerWidth > 768) {
+                        const rect = button.getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+                        
+                        button.style.transform = `translate(${x * 0.2}px, ${y * 0.1}px) scale(1.05)`;
+                    }
+                });
+                
+                button.addEventListener('mouseleave', () => {
+                    button.style.transform = 'translate(0, 0) scale(1)';
+                });
+            });
+
+            // Scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            document.querySelectorAll('.service-card, .pricing-card, .blog-preview-card').forEach(el => {
+                el.classList.add('fade-in');
+                observer.observe(el);
+            });
+
+            // ROI Calculator
+            function calculateROI() {
+                const visitors = parseFloat(document.getElementById('visitors').value) || 0;
+                const conversion = parseFloat(document.getElementById('conversion').value) || 0;
+                const value = parseFloat(document.getElementById('value').value) || 0;
+                
+                const revenue = visitors * (conversion / 100) * value;
+                document.getElementById('roi-result').textContent = '$' + Math.round(revenue).toLocaleString();
+                
+                document.getElementById('visitors-value').textContent = Number(visitors).toLocaleString();
+                document.getElementById('conversion-value').textContent = conversion + '%';
+                document.getElementById('value-value').textContent = '$' + value;
+            }
+            
+            const visitorsInput = document.getElementById('visitors');
+            const conversionInput = document.getElementById('conversion');
+            const valueInput = document.getElementById('value');
+            
+            if (visitorsInput && conversionInput && valueInput) {
+                visitorsInput.addEventListener('input', calculateROI);
+                conversionInput.addEventListener('input', calculateROI);
+                valueInput.addEventListener('input', calculateROI);
+                calculateROI();
+            }
         });
 
         // Toggle pricing section
@@ -1090,13 +1694,12 @@
             const content = document.getElementById('pricingContent');
             const button = document.querySelector('.pricing-toggle');
             
-            content.classList.toggle('active');
-            button.classList.toggle('active');
-            
-            if (content.classList.contains('active')) {
-                button.textContent = 'Hide Pricing Options';
-            } else {
-                button.textContent = 'View All Pricing Options';
+            if (content && button) {
+                content.classList.toggle('active');
+                button.classList.toggle('active');
+                
+                button.textContent = content.classList.contains('active') ? 
+                    'Hide Pricing Options' : 'View All Pricing Options';
             }
         }
 
@@ -1105,17 +1708,19 @@
             const mobileNav = document.getElementById('mobileNav');
             const menuButton = document.querySelector('.mobile-menu-button');
             
-            mobileNav.classList.toggle('active');
-            menuButton.classList.toggle('active');
-            
-            if (mobileNav.classList.contains('active')) {
-                mobileNav.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            } else {
-                setTimeout(() => {
-                    mobileNav.style.display = 'none';
-                }, 300);
-                document.body.style.overflow = '';
+            if (mobileNav && menuButton) {
+                mobileNav.classList.toggle('active');
+                menuButton.classList.toggle('active');
+                
+                if (mobileNav.classList.contains('active')) {
+                    mobileNav.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    setTimeout(() => {
+                        mobileNav.style.display = 'none';
+                    }, 300);
+                    document.body.style.overflow = '';
+                }
             }
         }
 
@@ -1123,14 +1728,24 @@
             const mobileNav = document.getElementById('mobileNav');
             const menuButton = document.querySelector('.mobile-menu-button');
             
-            mobileNav.classList.remove('active');
-            menuButton.classList.remove('active');
-            
-            setTimeout(() => {
-                mobileNav.style.display = 'none';
-            }, 300);
-            document.body.style.overflow = '';
+            if (mobileNav && menuButton) {
+                mobileNav.classList.remove('active');
+                menuButton.classList.remove('active');
+                
+                setTimeout(() => {
+                    mobileNav.style.display = 'none';
+                }, 300);
+                document.body.style.overflow = '';
+            }
         }
+
+        // Handle blog links properly
+        document.querySelectorAll('a[href="/blog.html"], a[href="blog.html"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Let the browser handle navigation normally
+                return true;
+            });
+        });
     </script>
 </body>
 </html>
