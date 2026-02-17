@@ -318,62 +318,6 @@
             font-weight: bold;
         }
 
-        /* University Partners Section */
-        .universities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .country-section {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 1rem;
-            padding: 1.5rem;
-        }
-
-        .country-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--accent);
-        }
-
-        .country-flag {
-            font-size: 2rem;
-        }
-
-        .country-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .universities-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 0.75rem;
-        }
-
-        .universities-list li {
-            padding: 0.5rem;
-            background: rgba(139, 92, 246, 0.1);
-            border-radius: 0.5rem;
-            color: var(--gray-100);
-            font-size: 0.95rem;
-            border-left: 3px solid var(--accent2);
-            transition: transform 0.2s;
-        }
-
-        .universities-list li:hover {
-            transform: translateX(5px);
-            background: rgba(139, 92, 246, 0.2);
-        }
-
         /* Blog Preview Card */
         .blog-preview-card {
             background: rgba(255,255,255,0.03);
@@ -684,9 +628,8 @@
     <nav class="desktop-nav">
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
-        <a href="blog.html">Blog</a>
+        <a href="/blog.html">Blog</a>
         <a href="#contact">Contact</a>
-        <a href="#universities">University Partners</a>
     </nav>
 
     <!-- Mobile Menu Button -->
@@ -700,9 +643,8 @@
     <nav class="mobile-nav" id="mobileNav">
         <a href="#services" onclick="closeMobileMenu()">Services</a>
         <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
-        <a href="blog.html" onclick="closeMobileMenu()">Blog</a>
+        <a href="/blog.html" onclick="closeMobileMenu()">Blog</a>
         <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-        <a href="#universities" onclick="closeMobileMenu()">University Partners</a>
     </nav>
 
     <main>
@@ -806,118 +748,8 @@
             </div>
         </section>
 
-        <!-- University Partners Section -->
-        <section id="universities">
-            <div class="container">
-                <h2 class="section-title">Our University Partners</h2>
-                <p class="section-subtitle">Collaborating with leading institutions worldwide to drive innovation and excellence</p>
-
-                <div class="universities-grid">
-                    <!-- Canada -->
-                    <div class="country-section">
-                        <div class="country-header">
-                            <span class="country-flag">🇨🇦</span>
-                            <span class="country-name">Canada</span>
-                        </div>
-                        <ul class="universities-list">
-                            <li>University of Prince Edward Island</li>
-                            <li>University of Manitoba</li>
-                            <li>University of Regina</li>
-                            <li>University of Saskatchewan</li>
-                            <li>Lakehead University</li>
-                            <li>University of Waterloo</li>
-                        </ul>
-                    </div>
-
-                    <!-- United States -->
-                    <div class="country-section">
-                        <div class="country-header">
-                            <span class="country-flag">🇺🇸</span>
-                            <span class="country-name">United States</span>
-                        </div>
-                        <ul class="universities-list">
-                            <li>Cleveland State University</li>
-                            <li>University of Central Missouri</li>
-                            <li>California State University</li>
-                            <li>Arizona State University</li>
-                            <li>Towson University</li>
-                        </ul>
-                    </div>
-
-                    <!-- United Kingdom -->
-                    <div class="country-section">
-                        <div class="country-header">
-                            <span class="country-flag">🇬🇧</span>
-                            <span class="country-name">United Kingdom</span>
-                        </div>
-                        <ul class="universities-list">
-                            <li>University of Lancaster</li>
-                            <li>University of East Anglia</li>
-                            <li>London South Bank University</li>
-                            <li>Nottingham Trent University</li>
-                            <li>Glasgow Caledonian University</li>
-                            <li>University of Essex</li>
-                        </ul>
-                    </div>
-
-                    <!-- Australia -->
-                    <div class="country-section">
-                        <div class="country-header">
-                            <span class="country-flag">🇦🇺</span>
-                            <span class="country-name">Australia</span>
-                        </div>
-                        <ul class="universities-list">
-                            <li>Deakin University</li>
-                            <li>Griffith University</li>
-                            <li>University of Tasmania</li>
-                            <li>Charles Sturt University</li>
-                            <li>University of Notre Dame</li>
-                            <li>Federation University</li>
-                        </ul>
-                    </div>
-
-                    <!-- Ireland -->
-                    <div class="country-section">
-                        <div class="country-header">
-                            <span class="country-flag">🇮🇪</span>
-                            <span class="country-name">Ireland</span>
-                        </div>
-                        <ul class="universities-list">
-                            <li>University of Limerick</li>
-                            <li>University College</li>
-                            <li>Trinity College</li>
-                            <li>Dublin City University</li>
-                            <li>Maynooth University</li>
-                        </ul>
-                    </div>
-
-                    <!-- Germany -->
-                    <div class="country-section">
-                        <div class="country-header">
-                            <span class="country-flag">🇩🇪</span>
-                            <span class="country-name">Germany</span>
-                        </div>
-                        <ul class="universities-list">
-                            <li>Lancaster University (Leipzig)</li>
-                            <li>Munich Business School</li>
-                            <li>SRH University</li>
-                            <li>EBS Universität</li>
-                            <li>Schiller International University</li>
-                            <li>Constructor University</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 3rem;">
-                    <p style="color: var(--gray-400); max-width: 800px; margin: 0 auto;">
-                        We're proud to collaborate with these prestigious institutions, combining academic excellence with practical industry expertise to deliver cutting-edge digital solutions.
-                    </p>
-                </div>
-            </div>
-        </section>
-
         <!-- Blog Section -->
-        <section id="blog" style="background: var(--primary-dark);">
+        <section id="blog">
             <div class="container">
                 <h2 class="section-title">Latest Insights</h2>
                 <p class="section-subtitle">Expert guides to help your Toronto business grow online</p>
@@ -943,7 +775,7 @@
         </section>
 
         <!-- Pricing Section -->
-        <section id="pricing">
+        <section id="pricing" style="background: var(--primary-dark);">
             <div class="container">
                 <h2 class="section-title">Transparent Pricing</h2>
                 <p class="section-subtitle">Choose the package that fits your business needs</p>
@@ -1145,7 +977,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" style="background: var(--primary-dark);">
+        <section id="contact">
             <div class="container">
                 <h2 class="section-title">Let's Grow Your Business Together</h2>
                 <p class="section-subtitle">Ready to transform your digital presence? Get in touch today for a free consultation</p>
@@ -1216,8 +1048,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="#universities">University Partners</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
