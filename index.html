@@ -95,11 +95,6 @@
             --white: #ffffff;
             --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            
-            /* Mobile 3D variables */
-            --orb-size: 300px;
-            --orb-blur: 60px;
-            --depth-intensity: 0.15;
         }
 
         /* Light theme class */
@@ -144,8 +139,6 @@
             line-height: 1.6;
             overflow-x: hidden;
             transition: background-color 0.3s ease, color 0.3s ease;
-            position: relative;
-            min-height: 100vh;
         }
 
         .container {
@@ -180,22 +173,6 @@
             z-index: 1002;
             text-decoration: none;
             transition: transform 0.3s ease;
-        }
-
-        .logo-3d-container {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            width: 60px;
-            height: 60px;
-            z-index: 1001;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .logo-3d-container.visible {
-            opacity: 1;
         }
 
         .theme-toggle {
@@ -383,136 +360,6 @@
             box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
         }
 
-        /* Mobile 3D elements */
-        .mobile-3d-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .gradient-orb {
-            position: absolute;
-            width: var(--orb-size);
-            height: var(--orb-size);
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, 
-                rgba(139, 92, 246, 0.4), 
-                rgba(236, 72, 153, 0.3), 
-                rgba(6, 182, 212, 0.2));
-            filter: blur(var(--orb-blur));
-            transform: translate(-50%, -50%);
-            will-change: transform;
-            pointer-events: none;
-            mix-blend-mode: screen;
-        }
-
-        .depth-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(139, 92, 246, var(--depth-intensity)) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(139, 92, 246, var(--depth-intensity)) 1px, transparent 1px);
-            background-size: 30px 30px;
-            transform-style: preserve-3d;
-            transform: perspective(500px) rotateX(60deg) translateZ(-50px);
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.3;
-        }
-
-        .floating-shape {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            filter: blur(40px);
-            opacity: 0.15;
-            will-change: transform;
-            pointer-events: none;
-        }
-
-        /* 3D card effects */
-        .service-card {
-            transform-style: preserve-3d;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-        }
-
-        .service-card.flipped {
-            transform: rotateY(180deg) scale(1.05);
-        }
-
-        .service-card .card-front,
-        .service-card .card-back {
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-        }
-
-        .service-card .card-back {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transform: rotateY(180deg);
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        /* Depth blur on scroll */
-        .blur-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            backdrop-filter: blur(0px);
-            pointer-events: none;
-            z-index: 999;
-            transition: backdrop-filter 0.1s ease;
-        }
-
-        /* Performance optimizations */
-        .will-change-transform {
-            will-change: transform;
-        }
-
-        .will-change-opacity {
-            will-change: opacity;
-        }
-
-        /* Reduced motion preferences */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-            
-            .gradient-orb,
-            .floating-shape,
-            .depth-grid {
-                display: none;
-            }
-        }
-
         /* ===== MOBILE OPTIMIZATIONS ===== */
         @media (max-width: 768px) {
             .desktop-nav {
@@ -524,13 +371,8 @@
             }
 
             .logo {
-                left: 80px;
+                left: 20px;
                 font-size: 1.5rem;
-                z-index: 1003;
-            }
-
-            .logo-3d-container {
-                display: block;
             }
 
             .theme-toggle {
@@ -588,29 +430,21 @@
                 display: none !important;
             }
 
-            /* Mobile-specific 3D adjustments */
-            :root {
-                --orb-size: 200px;
-                --orb-blur: 40px;
-                --depth-intensity: 0.1;
-            }
-
-            .depth-grid {
-                background-size: 20px 20px;
-                transform: perspective(300px) rotateX(60deg) translateZ(-30px);
-            }
-
-            .floating-shape {
-                width: 60px;
-                height: 60px;
-                filter: blur(30px);
+            /* Respect user motion preferences */
+            @media (prefers-reduced-motion: reduce) {
+                * {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                    scroll-behavior: auto !important;
+                }
             }
         }
 
         @media (max-width: 480px) {
             .logo {
                 font-size: 1.3rem;
-                left: 70px;
+                left: 15px;
             }
 
             .theme-toggle {
@@ -633,11 +467,6 @@
 
             .hero-subtitle {
                 font-size: 0.85rem;
-            }
-
-            .logo-3d-container {
-                width: 50px;
-                height: 50px;
             }
         }
 
@@ -673,49 +502,6 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
-        }
-
-        .service-card {
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-
-        .service-card .card-front,
-        .service-card .card-back {
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .service-card .card-back {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transform: rotateY(180deg);
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border-radius: 1.5rem;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .service-card.flipped .card-front {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .service-card.flipped .card-back {
-            opacity: 1;
-            pointer-events: auto;
-            transform: rotateY(0);
         }
 
         .service-card:hover, .pricing-card:hover, .blog-preview-card:hover {
@@ -918,13 +704,6 @@
                 0% { transform: translateY(0); }
                 100% { transform: translateY(50px); }
             }
-
-            .mobile-3d-container,
-            .depth-grid,
-            .blur-overlay,
-            .logo-3d-container {
-                display: none;
-            }
         }
 
         .roi-calculator input[type=range] {
@@ -1082,52 +861,11 @@
                 transform: none;
             }
         }
-
-        /* Performance metrics display */
-        .performance-metrics {
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            color: #0f0;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-family: monospace;
-            font-size: 12px;
-            z-index: 9999;
-            display: none;
-        }
-
-        .performance-metrics.visible {
-            display: block;
-        }
-
-        .reduce-motion-toggle {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 8px 16px;
-            font-size: 12px;
-            cursor: pointer;
-            z-index: 9999;
-            display: none;
-        }
-
-        .reduce-motion-toggle.visible {
-            display: block;
-        }
     </style>
 </head>
 <body>
     <!-- ===== CRITICAL ELEMENTS ===== -->
     <a href="#home" class="logo">DOTxLabs</a>
-    
-    <!-- Mobile 3D Logo Container -->
-    <div class="logo-3d-container" id="logo3D"></div>
 
     <div class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" role="button" tabindex="0">
         <span class="theme-icon sun">☀️</span>
@@ -1154,28 +892,11 @@
         <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Mobile 3D Elements Container -->
-    <div class="mobile-3d-container" id="mobile3DContainer">
-        <div class="gradient-orb" id="gradientOrb"></div>
-        <div class="floating-shape" id="floatingShape1"></div>
-        <div class="floating-shape" id="floatingShape2"></div>
-        <div class="floating-shape" id="floatingShape3"></div>
-    </div>
-    
-    <div class="depth-grid" id="depthGrid"></div>
-    <div class="blur-overlay" id="blurOverlay"></div>
-
     <!-- Desktop-only 3D elements -->
     <canvas id="particle-canvas"></canvas>
     <div id="hero-canvas"></div>
     <div class="parallax-layer parallax-layer-1" data-speed="-0.2"></div>
     <div class="parallax-layer parallax-layer-2" data-speed="-0.4"></div>
-
-    <!-- Performance Metrics (hidden by default) -->
-    <div class="performance-metrics" id="performanceMetrics"></div>
-    
-    <!-- Reduce Motion Toggle -->
-    <div class="reduce-motion-toggle" id="reduceMotionToggle">⚡ Reduce Motion</div>
 
     <main>
         <!-- ===== HERO SECTION ===== -->
@@ -1203,100 +924,60 @@
                 <p class="section-subtitle">Comprehensive digital solutions to help your business thrive online</p>
 
                 <div class="services-grid">
-                    <div class="service-card" id="serviceCard1">
-                        <div class="card-front">
-                            <div class="service-icon">💻</div>
-                            <h3>Web Development</h3>
-                            <p style="color: var(--text-secondary);">Professional websites that convert visitors into customers</p>
-                            <ul>
-                                <li>Custom website design & development</li>
-                                <li>Mobile-responsive layouts</li>
-                                <li>E-commerce solutions</li>
-                                <li>Content management systems</li>
-                                <li>Website maintenance & support</li>
-                                <li>Fast loading speeds (SEO optimized)</li>
-                            </ul>
-                        </div>
-                        <div class="card-back">
-                            <h3>Why Choose Us?</h3>
-                            <p style="margin-top: 1rem;">✓ 50% faster load times</p>
-                            <p>✓ 3x higher conversion rates</p>
-                            <p>✓ SEO-optimized structure</p>
-                            <p>✓ Mobile-first approach</p>
-                            <p style="margin-top: 1.5rem; color: var(--accent);">Tap to flip back</p>
-                        </div>
+                    <div class="service-card">
+                        <div class="service-icon">💻</div>
+                        <h3>Web Development</h3>
+                        <p style="color: var(--text-secondary);">Professional websites that convert visitors into customers</p>
+                        <ul>
+                            <li>Custom website design & development</li>
+                            <li>Mobile-responsive layouts</li>
+                            <li>E-commerce solutions</li>
+                            <li>Content management systems</li>
+                            <li>Website maintenance & support</li>
+                            <li>Fast loading speeds (SEO optimized)</li>
+                        </ul>
                     </div>
 
-                    <div class="service-card" id="serviceCard2">
-                        <div class="card-front">
-                            <div class="service-icon">🎯</div>
-                            <h3>SEO Services</h3>
-                            <p style="color: var(--text-secondary);">Get found on Google and drive organic traffic to your website</p>
-                            <ul>
-                                <li>Local SEO optimization</li>
-                                <li>Keyword research & strategy</li>
-                                <li>On-page SEO optimization</li>
-                                <li>Technical SEO audits</li>
-                                <li>Link building campaigns</li>
-                                <li>Monthly performance reports</li>
-                            </ul>
-                        </div>
-                        <div class="card-back">
-                            <h3>SEO Results</h3>
-                            <p style="margin-top: 1rem;">✓ #1 rankings for 80% clients</p>
-                            <p>✓ 200% traffic increase avg</p>
-                            <p>✓ Local map pack domination</p>
-                            <p>✓ Monthly ranking reports</p>
-                            <p style="margin-top: 1.5rem; color: var(--accent);">Tap to flip back</p>
-                        </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎯</div>
+                        <h3>SEO Services</h3>
+                        <p style="color: var(--text-secondary);">Get found on Google and drive organic traffic to your website</p>
+                        <ul>
+                            <li>Local SEO optimization</li>
+                            <li>Keyword research & strategy</li>
+                            <li>On-page SEO optimization</li>
+                            <li>Technical SEO audits</li>
+                            <li>Link building campaigns</li>
+                            <li>Monthly performance reports</li>
+                        </ul>
                     </div>
 
-                    <div class="service-card" id="serviceCard3">
-                        <div class="card-front">
-                            <div class="service-icon">📈</div>
-                            <h3>Digital Marketing</h3>
-                            <p style="color: var(--text-secondary);">Reach your target audience and generate quality leads</p>
-                            <ul>
-                                <li>Social media marketing</li>
-                                <li>Google Ads & PPC campaigns</li>
-                                <li>Content marketing strategy</li>
-                                <li>Email marketing automation</li>
-                                <li>Brand strategy & positioning</li>
-                                <li>Analytics & conversion tracking</li>
-                            </ul>
-                        </div>
-                        <div class="card-back">
-                            <h3>Marketing Impact</h3>
-                            <p style="margin-top: 1rem;">✓ 3x ROAS average</p>
-                            <p>✓ 50% lower CAC</p>
-                            <p>✓ Multi-channel strategy</p>
-                            <p>✓ Real-time optimization</p>
-                            <p style="margin-top: 1.5rem; color: var(--accent);">Tap to flip back</p>
-                        </div>
+                    <div class="service-card">
+                        <div class="service-icon">📈</div>
+                        <h3>Digital Marketing</h3>
+                        <p style="color: var(--text-secondary);">Reach your target audience and generate quality leads</p>
+                        <ul>
+                            <li>Social media marketing</li>
+                            <li>Google Ads & PPC campaigns</li>
+                            <li>Content marketing strategy</li>
+                            <li>Email marketing automation</li>
+                            <li>Brand strategy & positioning</li>
+                            <li>Analytics & conversion tracking</li>
+                        </ul>
                     </div>
 
-                    <div class="service-card" id="serviceCard4">
-                        <div class="card-front">
-                            <div class="service-icon">🤖</div>
-                            <h3>AI Solutions</h3>
-                            <p style="color: var(--text-secondary);">Automate tasks and gain competitive advantage with AI</p>
-                            <ul>
-                                <li>AI chatbots for customer service</li>
-                                <li>Marketing automation with AI</li>
-                                <li>Data analysis & insights</li>
-                                <li>AI-powered content generation</li>
-                                <li>Process automation</li>
-                                <li>Custom AI integrations</li>
-                            </ul>
-                        </div>
-                        <div class="card-back">
-                            <h3>AI Benefits</h3>
-                            <p style="margin-top: 1rem;">✓ 70% time saved on tasks</p>
-                            <p>✓ 24/7 automated support</p>
-                            <p>✓ Predictive analytics</p>
-                            <p>✓ Custom AI models</p>
-                            <p style="margin-top: 1.5rem; color: var(--accent);">Tap to flip back</p>
-                        </div>
+                    <div class="service-card">
+                        <div class="service-icon">🤖</div>
+                        <h3>AI Solutions</h3>
+                        <p style="color: var(--text-secondary);">Automate tasks and gain competitive advantage with AI</p>
+                        <ul>
+                            <li>AI chatbots for customer service</li>
+                            <li>Marketing automation with AI</li>
+                            <li>Data analysis & insights</li>
+                            <li>AI-powered content generation</li>
+                            <li>Process automation</li>
+                            <li>Custom AI integrations</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -1710,70 +1391,12 @@
                     });
                 });
             }
-
-            // Reduce motion preference check
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (prefersReducedMotion) {
-                document.body.classList.add('reduced-motion');
-            }
         })();
     </script>
 
     <script defer>
-        // Deferred JavaScript with Mobile 3D Enhancements
+        // Deferred JavaScript
         document.addEventListener('DOMContentLoaded', function() {
-            // Device capability detection
-            const deviceCapabilities = {
-                isMobile: window.innerWidth <= 768,
-                pixelRatio: window.devicePixelRatio || 1,
-                deviceMemory: navigator.deviceMemory || 4,
-                hardwareConcurrency: navigator.hardwareConcurrency || 2,
-                webGLSupported: (() => {
-                    try {
-                        const canvas = document.createElement('canvas');
-                        return !!(window.WebGLRenderingContext && 
-                            (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
-                    } catch(e) {
-                        return false;
-                    }
-                })(),
-                reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-                batteryOptimized: false,
-                frameRate: 60
-            };
-
-            // Performance metrics
-            let frameCount = 0;
-            let lastTime = performance.now();
-            let fps = 60;
-            
-            function updatePerformanceMetrics() {
-                frameCount++;
-                const now = performance.now();
-                const delta = now - lastTime;
-                
-                if (delta >= 1000) {
-                    fps = frameCount;
-                    frameCount = 0;
-                    lastTime = now;
-                    
-                    const metricsEl = document.getElementById('performanceMetrics');
-                    if (metricsEl && metricsEl.classList.contains('visible')) {
-                        metricsEl.innerHTML = `FPS: ${fps} | Memory: ${deviceCapabilities.deviceMemory}GB | Cores: ${deviceCapabilities.hardwareConcurrency}`;
-                    }
-                    
-                    // Adjust quality based on performance
-                    if (fps < 30 && !deviceCapabilities.batteryOptimized) {
-                        deviceCapabilities.batteryOptimized = true;
-                        document.querySelectorAll('.gradient-orb, .floating-shape').forEach(el => {
-                            el.style.opacity = '0.3';
-                        });
-                    }
-                }
-                
-                requestAnimationFrame(updatePerformanceMetrics);
-            }
-
             // Theme toggle
             const themeToggle = document.getElementById('themeToggle');
             const sunIcon = document.querySelector('.theme-icon.sun');
@@ -1868,236 +1491,6 @@
                         'Hide Pricing Options' : 'View All Pricing Options';
                 }
             };
-
-            // ===== MOBILE 3D ENHANCEMENTS =====
-            if (deviceCapabilities.isMobile && !deviceCapabilities.reducedMotion) {
-                
-                // Initialize 3D elements
-                const logoContainer = document.getElementById('logo3D');
-                const mobile3DContainer = document.getElementById('mobile3DContainer');
-                const depthGrid = document.getElementById('depthGrid');
-                const blurOverlay = document.getElementById('blurOverlay');
-                
-                if (logoContainer) logoContainer.classList.add('visible');
-                
-                // Touch-reactive gradient orb
-                const gradientOrb = document.getElementById('gradientOrb');
-                let orbX = 50, orbY = 50;
-                let targetX = 50, targetY = 50;
-                
-                if (gradientOrb) {
-                    document.addEventListener('touchmove', (e) => {
-                        if (e.touches.length > 0) {
-                            const touch = e.touches[0];
-                            targetX = (touch.clientX / window.innerWidth) * 100;
-                            targetY = (touch.clientY / window.innerHeight) * 100;
-                            
-                            // Haptic feedback on important elements
-                            const element = document.elementFromPoint(touch.clientX, touch.clientY);
-                            if (element && (element.classList.contains('cta-button') || element.classList.contains('service-card'))) {
-                                if (window.navigator && window.navigator.vibrate) {
-                                    window.navigator.vibrate(10);
-                                }
-                            }
-                        }
-                    }, { passive: true });
-                    
-                    // Smooth follow animation
-                    function animateOrb() {
-                        orbX += (targetX - orbX) * 0.1;
-                        orbY += (targetY - orbY) * 0.1;
-                        gradientOrb.style.left = orbX + '%';
-                        gradientOrb.style.top = orbY + '%';
-                        requestAnimationFrame(animateOrb);
-                    }
-                    animateOrb();
-                }
-                
-                // Floating shapes with parallax effect
-                const shapes = [
-                    document.getElementById('floatingShape1'),
-                    document.getElementById('floatingShape2'),
-                    document.getElementById('floatingShape3')
-                ];
-                
-                shapes.forEach((shape, index) => {
-                    if (shape) {
-                        const speed = 0.05 + (index * 0.02);
-                        let posX = Math.random() * 100;
-                        let posY = Math.random() * 100;
-                        let dirX = (Math.random() - 0.5) * 2;
-                        let dirY = (Math.random() - 0.5) * 2;
-                        
-                        function animateShape() {
-                            posX += dirX * speed;
-                            posY += dirY * speed;
-                            
-                            if (posX < 0 || posX > 100) dirX *= -1;
-                            if (posY < 0 || posY > 100) dirY *= -1;
-                            
-                            shape.style.left = posX + '%';
-                            shape.style.top = posY + '%';
-                            
-                            requestAnimationFrame(animateShape);
-                        }
-                        animateShape();
-                    }
-                });
-                
-                // Gyroscope parallax for depth grid
-                if (window.DeviceOrientationEvent) {
-                    window.addEventListener('deviceorientation', (event) => {
-                        if (depthGrid && event.beta && event.gamma) {
-                            const beta = Math.min(Math.max(event.beta, -30), 30);
-                            const gamma = Math.min(Math.max(event.gamma, -30), 30);
-                            
-                            const rotateX = beta * 0.5;
-                            const rotateY = gamma * 0.5;
-                            
-                            depthGrid.style.transform = `perspective(500px) rotateX(${60 + rotateX}deg) rotateY(${rotateY}deg) translateZ(-50px)`;
-                        }
-                    }, { passive: true });
-                }
-                
-                // Scroll-based blur effect
-                let lastScrollY = window.scrollY;
-                let rafId = null;
-                
-                function updateBlur() {
-                    const scrollY = window.scrollY;
-                    const maxBlur = 5;
-                    const blurAmount = Math.min((scrollY / 500) * maxBlur, maxBlur);
-                    
-                    if (blurOverlay) {
-                        blurOverlay.style.backdropFilter = `blur(${blurAmount}px)`;
-                    }
-                    
-                    rafId = null;
-                }
-                
-                window.addEventListener('scroll', () => {
-                    if (!rafId) {
-                        rafId = requestAnimationFrame(updateBlur);
-                    }
-                }, { passive: true });
-                
-                // 3D card flip on tap
-                const serviceCards = document.querySelectorAll('.service-card');
-                serviceCards.forEach((card, index) => {
-                    card.addEventListener('touchstart', (e) => {
-                        e.preventDefault();
-                        
-                        // Add haptic feedback
-                        if (window.navigator && window.navigator.vibrate) {
-                            window.navigator.vibrate(20);
-                        }
-                        
-                        // Flip card
-                        card.classList.toggle('flipped');
-                        
-                        // Auto-flip back after 3 seconds
-                        if (card.classList.contains('flipped')) {
-                            setTimeout(() => {
-                                card.classList.remove('flipped');
-                            }, 3000);
-                        }
-                    }, { passive: false });
-                });
-                
-                // 3D swipe effect for pricing cards
-                const pricingGrid = document.querySelector('.pricing-grid');
-                if (pricingGrid) {
-                    let startX, scrollLeft;
-                    
-                    pricingGrid.addEventListener('touchstart', (e) => {
-                        startX = e.touches[0].pageX - pricingGrid.offsetLeft;
-                        scrollLeft = pricingGrid.scrollLeft;
-                        
-                        // Add slight 3D rotation on swipe
-                        pricingGrid.style.transition = 'transform 0.1s ease';
-                    }, { passive: true });
-                    
-                    pricingGrid.addEventListener('touchmove', (e) => {
-                        if (!startX) return;
-                        const x = e.touches[0].pageX - pricingGrid.offsetLeft;
-                        const walk = (x - startX) * 2;
-                        const rotateAmount = walk * 0.05;
-                        
-                        pricingGrid.style.transform = `perspective(500px) rotateY(${rotateAmount}deg)`;
-                    }, { passive: true });
-                    
-                    pricingGrid.addEventListener('touchend', () => {
-                        pricingGrid.style.transform = '';
-                        startX = null;
-                    });
-                }
-                
-                // Battery optimization
-                if ('getBattery' in navigator) {
-                    navigator.getBattery().then(battery => {
-                        const updateBatteryOptimization = () => {
-                            if (battery.level < 0.2 && !battery.charging) {
-                                deviceCapabilities.batteryOptimized = true;
-                                // Reduce effects
-                                document.querySelectorAll('.gradient-orb, .floating-shape, .depth-grid').forEach(el => {
-                                    el.style.opacity = '0.2';
-                                });
-                                // Lower frame rate
-                                setTimeout(() => {
-                                    deviceCapabilities.frameRate = 30;
-                                }, 1000);
-                            }
-                        };
-                        
-                        battery.addEventListener('levelchange', updateBatteryOptimization);
-                        battery.addEventListener('chargingchange', updateBatteryOptimization);
-                        updateBatteryOptimization();
-                    });
-                }
-                
-                // Page visibility API - pause animations when tab is inactive
-                document.addEventListener('visibilitychange', () => {
-                    if (document.hidden) {
-                        // Pause animations
-                        document.body.classList.add('page-hidden');
-                    } else {
-                        // Resume animations
-                        document.body.classList.remove('page-hidden');
-                    }
-                });
-                
-                // Start performance monitoring
-                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                    const metricsEl = document.getElementById('performanceMetrics');
-                    if (metricsEl) {
-                        metricsEl.classList.add('visible');
-                        updatePerformanceMetrics();
-                    }
-                }
-                
-                // Reduce motion toggle
-                const reduceMotionToggle = document.getElementById('reduceMotionToggle');
-                if (reduceMotionToggle) {
-                    reduceMotionToggle.classList.add('visible');
-                    
-                    reduceMotionToggle.addEventListener('click', () => {
-                        document.body.classList.toggle('reduced-motion');
-                        if (document.body.classList.contains('reduced-motion')) {
-                            // Disable all 3D effects
-                            document.querySelectorAll('.gradient-orb, .floating-shape, .depth-grid').forEach(el => {
-                                el.style.display = 'none';
-                            });
-                            reduceMotionToggle.innerHTML = '⚡ Enable Motion';
-                        } else {
-                            // Re-enable 3D effects
-                            document.querySelectorAll('.gradient-orb, .floating-shape, .depth-grid').forEach(el => {
-                                el.style.display = '';
-                            });
-                            reduceMotionToggle.innerHTML = '⚡ Reduce Motion';
-                        }
-                    });
-                }
-            }
 
             // Desktop-only 3D features
             if (window.innerWidth > 768) {
@@ -2247,28 +1640,6 @@
             if (video) {
                 video.play().catch(() => {});
             }
-            
-            // Handle orientation changes
-            window.addEventListener('orientationchange', () => {
-                setTimeout(() => {
-                    // Recalculate positions for 3D elements
-                    if (deviceCapabilities.isMobile) {
-                        const gradientOrb = document.getElementById('gradientOrb');
-                        if (gradientOrb) {
-                            targetX = 50;
-                            targetY = 50;
-                        }
-                    }
-                }, 200);
-            });
-
-            // Memory leak prevention - cleanup on page unload
-            window.addEventListener('beforeunload', () => {
-                // Clean up animations
-                if (window.rafId) {
-                    cancelAnimationFrame(window.rafId);
-                }
-            });
         });
     </script>
 </body>
