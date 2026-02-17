@@ -127,14 +127,12 @@
             color: var(--white);
         }
 
-        /* ===== FIXED SCROLLING ISSUES ===== */
+        /* Critical path styles */
         html {
             scroll-behavior: smooth;
             overflow-x: hidden;
-            overflow-y: auto; /* Ensure vertical scrolling is enabled */
             width: 100%;
-            height: auto; /* Remove fixed height constraint */
-            min-height: 100%;
+            min-height: 100vh;
         }
 
         body {
@@ -143,10 +141,8 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
-            overflow-y: auto; /* Enable natural scrolling */
             width: 100%;
-            min-height: 100vh; /* Use min-height instead of fixed height */
-            height: auto; /* Allow body to expand with content */
+            min-height: 100vh;
             position: relative;
             transition: background-color 0.3s ease, color 0.3s ease;
             display: flex;
@@ -154,49 +150,17 @@
         }
 
         main {
-            flex: 1 0 auto;
-            width: 100%;
+            flex: 1 0 auto; /* push footer down */
         }
 
         footer {
-            flex-shrink: 0;
+            flex-shrink: 0; /* prevent footer from shrinking */
             background: var(--footer-bg);
             padding: 4rem 0;
             position: relative;
             z-index: 2;
             width: 100%;
-            margin-top: 0;
-        }
-
-        /* Critical path styles */
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            width: 100%;
-            height: auto; /* Override previous height: 100% */
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--primary);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-            overflow-y: auto; /* Enable scrolling */
-            width: 100%;
-            min-height: 100vh;
-            height: auto; /* Allow natural expansion */
-            position: relative;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Remove any potential scroll-blocking from sections */
-        section {
-            width: 100%;
-            position: relative;
-            clear: both;
+            margin-top: 0; /* ensure no extra space */
         }
 
         .container {
@@ -483,12 +447,12 @@
 
             /* BIGGER HERO FONT ON MOBILE */
             .hero-content h1 {
-                font-size: clamp(2.2rem, 8vw, 2.8rem);
+                font-size: clamp(2.2rem, 8vw, 2.8rem); /* increased from 1.8rem */
                 line-height: 1.2;
             }
 
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: 1.1rem; /* slightly larger */
                 margin: 1rem 0 1.5rem;
             }
 
@@ -508,6 +472,7 @@
                 padding: 3rem 0;
                 width: 100%;
                 overflow-x: hidden;
+                /* Ensure sections don't create scroll blockers */
                 position: relative;
                 clear: both;
             }
@@ -524,16 +489,15 @@
 
             body, html {
                 overflow-x: hidden;
-                overflow-y: auto; /* Ensure scrolling works on mobile */
-                height: auto; /* Remove height constraints */
-                min-height: 100%;
+                /* Ensure proper scrolling */
+                height: auto;
+                min-height: 100vh;
             }
 
             body {
+                /* Fix for infinite scroll - prevent overflow beyond footer */
                 overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-                height: auto;
-                min-height: 100vh;
+                -webkit-overflow-scrolling: touch; /* smooth iOS scrolling */
             }
 
             .mobile-nav a {
@@ -541,13 +505,16 @@
                 padding: 0.7rem 1.2rem;
             }
 
+            /* ensure footer is always reachable and final */
             footer {
                 padding: 3rem 0;
                 margin-top: 0;
+                /* Ensure footer doesn't allow scroll-through */
                 position: relative;
                 z-index: 5;
             }
 
+            /* Extra insurance: last element should not have margin-bottom pushing past footer */
             #contact .contact-container {
                 margin-bottom: 0;
                 padding-bottom: 0;
@@ -580,7 +547,7 @@
             }
 
             .hero-content h1 {
-                font-size: clamp(2rem, 7vw, 2.4rem);
+                font-size: clamp(2rem, 7vw, 2.4rem); /* even bigger on small screens */
             }
 
             .hero-subtitle {
@@ -830,201 +797,7 @@
             width: 100%;
             height: 8px;
             background: linear-gradient(90deg, var(--accent), var(--accent2));
-            border-radius: 4px;
-            -webkit-appearance: none;
-            margin: 1rem 0;
-        }
-
-        .roi-calculator input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 24px;
-            height: 24px;
-            background: var(--white);
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .roi-result {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--accent);
-            margin-top: 1rem;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: rgba(139, 92, 246, 0.02);
-            border-radius: 0.75rem;
-            text-decoration: none;
-            color: var(--text);
-            transition: var(--transition);
-        }
-
-        .contact-method:hover {
-            background: rgba(139, 92, 246, 0.1);
-            transform: translateX(5px) scale(1.05);
-        }
-
-        .contact-icon {
-            font-size: 2rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: var(--text);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--card-border);
-            color: var(--text-secondary);
-        }
-
-        .swipe-hint {
-            display: none;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            margin-top: 1rem;
-            opacity: 0.7;
-        }
-
-        @media (max-width: 768px) {
-            .pricing-grid {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                gap: 1rem;
-                margin: 2rem -1rem;
-                padding: 0.5rem 1rem;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-            }
-
-            .pricing-grid::-webkit-scrollbar {
-                display: none;
-            }
-
-            .pricing-card {
-                min-width: 80vw;
-                scroll-snap-align: center;
-                flex-shrink: 0;
-            }
-
-            .swipe-hint {
-                display: block;
-            }
-
-            .service-card:hover, .pricing-card:hover, .blog-preview-card:hover {
-                transform: translateY(-3px) scale(1.01);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            .fade-in {
-                opacity: 1;
-                transform: none;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- ===== CRITICAL ELEMENTS ===== -->
-    <a href="#home" class="logo">DOTxLabs</a>
-
-    <div class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" role="button" tabindex="0">
-        <span class="theme-icon sun">☀️</span>
-        <span class="theme-icon moon active">🌙</span>
-    </div>
-
-    <nav class="desktop-nav">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="/blog.html">Blog</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <nav class="mobile-nav" id="mobileNav">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="/blog.html">Blog</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <!-- Animated canvases for all devices -->
-    <canvas id="particle-canvas"></canvas>
-    <div id="hero-canvas"></div>
-    <div class="parallax-layer parallax-layer-1" data-speed="-0.2"></div>
-    <div class="parallax-layer parallax-layer-2" data-speed="-0.4"></div>
-
-    <main>
-        <!-- ===== HERO SECTION ===== -->
-        <section id="home" class="hero">
-            <div class="hero-video-container">
-                <video class="hero-video" autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%230f172a'/%3E%3C/svg%3E" preload="none">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-digital-network-11147-large.mp4" type="video/mp4">
-                </video>
-                <div class="hero-video-fallback"></div>
-            </div>
-
-            <div class="container">
-                <div class="hero-content">
-                    <h1><span class="gradient-text">We Help Businesses Get More Customers Online</span></h1>
-                    <p class="hero-subtitle">AI-powered websites, local SEO, and automation that actually drives growth. Stop losing customers to competitors.</p>
+            bor...(truncated 5730 characters)...sites, local SEO, and automation that actually drives growth. Stop losing customers to competitors.</p>
                     <a href="#contact" class="cta-button">Get Your Free Consultation</a>
                 </div>
             </div>
