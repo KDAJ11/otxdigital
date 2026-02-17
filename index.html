@@ -160,6 +160,7 @@
             position: relative;
             z-index: 2;
             width: 100%;
+            margin-top: 0; /* ensure no extra space */
         }
 
         .container {
@@ -471,6 +472,9 @@
                 padding: 3rem 0;
                 width: 100%;
                 overflow-x: hidden;
+                /* Ensure sections don't create scroll blockers */
+                position: relative;
+                clear: both;
             }
 
             .section-title {
@@ -485,6 +489,15 @@
 
             body, html {
                 overflow-x: hidden;
+                /* Ensure proper scrolling */
+                height: 100%;
+                min-height: 100%;
+            }
+
+            body {
+                /* Fix for infinite scroll - prevent overflow beyond footer */
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch; /* smooth iOS scrolling */
             }
 
             .mobile-nav a {
@@ -492,9 +505,19 @@
                 padding: 0.7rem 1.2rem;
             }
 
-            /* ensure footer is always reachable */
+            /* ensure footer is always reachable and final */
             footer {
                 padding: 3rem 0;
+                margin-top: 0;
+                /* Ensure footer doesn't allow scroll-through */
+                position: relative;
+                z-index: 5;
+            }
+
+            /* Extra insurance: last element should not have margin-bottom pushing past footer */
+            #contact .contact-container {
+                margin-bottom: 0;
+                padding-bottom: 0;
             }
 
             @media (prefers-reduced-motion: reduce) {
