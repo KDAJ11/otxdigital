@@ -20,9 +20,9 @@
     <title>DOTxLabs | Toronto Digital Growth Agency - Get More Customers Online</title>
     
     <style>
-        /* ===== 3D ENHANCED CSS VARIABLES & THEMING ===== */
+        /* ===== CSS VARIABLES & THEMING ===== */
         :root {
-            /* Light theme */
+            /* Light theme (default) */
             --primary-light: #f8fafc;
             --primary-dark-light: #f1f5f9;
             --primary-light-light: #ffffff;
@@ -36,11 +36,12 @@
             --gray-100-light: #1e293b;
             --gray-400-light: #475569;
             --gray-700-light: #94a3b8;
-            --card-bg-light: rgba(255, 255, 255, 0.7);
-            --card-border-light: rgba(139, 92, 246, 0.2);
+            --card-bg-light: rgba(15, 23, 42, 0.03);
+            --card-border-light: rgba(15, 23, 42, 0.08);
             --footer-bg-light: #e2e8f0;
-            --shadow-light: 0 20px 40px -15px rgba(0,0,0,0.2);
-            --glow-light: 0 0 30px rgba(139, 92, 246, 0.2);
+            --gradient-1-light: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(236, 72, 153, 0.05) 50%, rgba(6, 182, 212, 0.05) 100%);
+            --gradient-2-light: radial-gradient(circle at 30% 50%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+            --gradient-3-light: linear-gradient(45deg, rgba(16, 185, 129, 0.02) 0%, rgba(139, 92, 246, 0.02) 100%);
             
             /* Dark theme */
             --primary-dark: #0f172a;
@@ -55,11 +56,12 @@
             --gray-100-dark: #f1f5f9;
             --gray-400-dark: #94a3b8;
             --gray-700-dark: #334155;
-            --card-bg-dark: rgba(15, 23, 42, 0.7);
-            --card-border-dark: rgba(139, 92, 246, 0.3);
+            --card-bg-dark: rgba(255, 255, 255, 0.02);
+            --card-border-dark: rgba(255, 255, 255, 0.05);
             --footer-bg-dark: #020617;
-            --shadow-dark: 0 20px 40px -15px rgba(0,0,0,0.5);
-            --glow-dark: 0 0 40px rgba(139, 92, 246, 0.3);
+            --gradient-1-dark: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 153, 0.1) 50%, rgba(6, 182, 212, 0.1) 100%);
+            --gradient-2-dark: radial-gradient(circle at 30% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+            --gradient-3-dark: linear-gradient(45deg, rgba(16, 185, 129, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
             
             /* Default theme (dark) */
             --primary: var(--primary-dark);
@@ -77,25 +79,19 @@
             --card-bg: var(--card-bg-dark);
             --card-border: var(--card-border-dark);
             --footer-bg: var(--footer-bg-dark);
-            --shadow: var(--shadow-dark);
-            --glow: var(--glow-dark);
+            --gradient-1: var(--gradient-1-dark);
+            --gradient-2: var(--gradient-2-dark);
+            --gradient-3: var(--gradient-3-dark);
             
-            /* 3D Transform Variables */
-            --perspective: 1200px;
-            --rotate-x: 0deg;
-            --rotate-y: 0deg;
-            --translate-z: 0px;
-            --card-lift: -10px;
-            
-            /* Common */
+            /* Common variables */
             --success: #10b981;
             --white: #ffffff;
             --black: #000000;
-            --transition-3d: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            --transition-bounce: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition-smooth: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Light theme */
+        /* Light theme class with enhanced design */
         body.light-theme {
             --primary: var(--primary-light);
             --primary-dark: var(--primary-light);
@@ -112,507 +108,127 @@
             --card-bg: var(--card-bg-light);
             --card-border: var(--card-border-light);
             --footer-bg: var(--footer-bg-light);
-            --shadow: var(--shadow-light);
-            --glow: var(--glow-light);
+            --gradient-1: var(--gradient-1-light);
+            --gradient-2: var(--gradient-2-light);
+            --gradient-3: var(--gradient-3-light);
+            
+            /* Enhanced light mode specific styles */
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
         }
 
-        /* ===== 3D LAYERED BACKGROUND SYSTEM ===== */
-        .depth-layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            transform-style: preserve-3d;
-            will-change: transform;
-        }
-
-        /* Layer 5 - Farthest (stars/dots) */
-        .layer-5 {
-            background: radial-gradient(circle at 20% 30%, var(--accent) 0%, transparent 2%),
-                        radial-gradient(circle at 80% 70%, var(--accent2) 0%, transparent 2%),
-                        radial-gradient(circle at 40% 20%, var(--accent3) 0%, transparent 2%);
-            background-size: 200px 200px;
-            opacity: 0.1;
-            transform: translateZ(-50px) scale(1.5);
-            animation: rotateLayer 120s linear infinite;
-        }
-
-        /* Layer 4 - Far (geometric shapes) */
-        .layer-4 {
-            background: repeating-linear-gradient(45deg, 
-                        var(--accent) 0px, 
-                        transparent 20px,
-                        transparent 40px,
-                        var(--accent2) 40px,
-                        transparent 60px);
-            opacity: 0.03;
-            transform: translateZ(-30px) scale(1.4);
-            animation: driftLayer 80s ease-in-out infinite;
-        }
-
-        /* Layer 3 - Mid (floating orbs) */
-        .layer-3 {
-            background: radial-gradient(circle at 30% 40%, rgba(139, 92, 246, 0.1) 0%, transparent 30%),
-                        radial-gradient(circle at 70% 60%, rgba(236, 72, 153, 0.1) 0%, transparent 30%),
-                        radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 40%);
-            filter: blur(40px);
-            transform: translateZ(-20px) scale(1.3);
-            animation: pulseLayer 15s ease-in-out infinite;
-        }
-
-        /* Layer 2 - Near-mid (grid) */
-        .layer-2 {
-            background-image: 
-                linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            transform: translateZ(-10px) scale(1.2) rotateX(5deg);
-            opacity: 0.5;
-            animation: gridMove 20s linear infinite;
-        }
-
-        /* Layer 1 - Near (floating particles container) */
-        .layer-1 {
-            transform: translateZ(-5px) scale(1.1);
-        }
-
-        @keyframes rotateLayer {
-            0% { transform: translateZ(-50px) scale(1.5) rotate(0deg); }
-            100% { transform: translateZ(-50px) scale(1.5) rotate(360deg); }
-        }
-
-        @keyframes driftLayer {
-            0%, 100% { transform: translateZ(-30px) scale(1.4) translate(0, 0); }
-            25% { transform: translateZ(-30px) scale(1.4) translate(2%, 1%); }
-            50% { transform: translateZ(-30px) scale(1.4) translate(0, 2%); }
-            75% { transform: translateZ(-30px) scale(1.4) translate(-2%, 1%); }
-        }
-
-        @keyframes pulseLayer {
-            0%, 100% { opacity: 0.3; filter: blur(40px); }
-            50% { opacity: 0.5; filter: blur(50px); }
-        }
-
-        @keyframes gridMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 50px 50px; }
-        }
-
-        /* ===== FLOATING GEOMETRIC SHAPES ===== */
-        .floating-shape {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            filter: blur(50px);
-            opacity: 0.1;
-            pointer-events: none;
-            z-index: 0;
-            animation: floatShape 20s ease-in-out infinite;
-        }
-
-        .shape-1 { top: 10%; left: 5%; animation-delay: 0s; }
-        .shape-2 { bottom: 20%; right: 5%; width: 150px; height: 150px; animation-delay: -5s; }
-        .shape-3 { top: 40%; right: 15%; width: 80px; height: 80px; animation-delay: -10s; }
-        .shape-4 { bottom: 30%; left: 10%; width: 200px; height: 200px; animation-delay: -15s; }
-
-        @keyframes floatShape {
-            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-            33% { transform: translate(3%, 5%) rotate(120deg) scale(1.1); }
-            66% { transform: translate(-3%, -5%) rotate(240deg) scale(0.9); }
-        }
-
-        /* ===== 3D CARD TRANSFORMATIONS ===== */
-        .card-3d-container {
-            perspective: var(--perspective);
-            transform-style: preserve-3d;
-        }
-
-        .service-card, .pricing-card, .blog-preview-card, .contact-container, .roi-calculator {
-            background: var(--card-bg);
+        body.light-theme .service-card,
+        body.light-theme .pricing-card,
+        body.light-theme .blog-preview-card,
+        body.light-theme .contact-container,
+        body.light-theme .roi-calculator {
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
-            border: 1px solid var(--card-border);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            transition: var(--transition-3d);
-            position: relative;
-            overflow: hidden;
-            transform-style: preserve-3d;
-            box-shadow: var(--shadow);
-            will-change: transform;
+            border: 1px solid rgba(139, 92, 246, 0.1);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
         }
 
-        /* 3D Hover Effect with Tilt */
-        .service-card:hover, .pricing-card:hover, .blog-preview-card:hover {
-            transform: translateY(var(--card-lift)) rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) scale(1.02);
-            box-shadow: var(--glow), var(--shadow);
-            border-color: var(--accent);
+        body.light-theme .cta-button {
+            color: var(--white);
+            background: var(--accent);
+            border: none;
         }
 
-        /* Inner Content 3D Lift */
-        .service-card > *,
-        .pricing-card > *,
-        .blog-preview-card > * {
-            transition: transform 0.3s ease;
-            transform: translateZ(0px);
+        body.light-theme .cta-button[style*="transparent"] {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
         }
 
-        .service-card:hover > *,
-        .pricing-card:hover > *,
-        .blog-preview-card:hover > * {
-            transform: translateZ(15px);
-        }
-
-        /* Card Glow Effect */
-        .service-card::before,
-        .pricing-card::before,
-        .blog-preview-card::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: linear-gradient(45deg, var(--accent), var(--accent2), var(--accent3), var(--accent));
-            border-radius: inherit;
-            opacity: 0;
-            transition: opacity 0.4s;
-            z-index: -1;
-            filter: blur(5px);
-        }
-
-        .service-card:hover::before,
-        .pricing-card:hover::before,
-        .blog-preview-card:hover::before {
-            opacity: 0.3;
-        }
-
-        /* Icon Animation */
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            transition: var(--transition-bounce);
-            transform: translateZ(5px);
-        }
-
-        .service-card:hover .service-icon {
-            transform: translateZ(25px) scale(1.1) rotate(5deg);
-            filter: drop-shadow(0 0 10px var(--accent));
-        }
-
-        /* ===== FLOATING ANIMATION FOR CARDS (when not hovered) ===== */
-        @keyframes floatCard {
-            0%, 100% { transform: translateY(0px) translateZ(0px); }
-            50% { transform: translateY(-5px) translateZ(5px); }
-        }
-
-        .service-card:not(:hover),
-        .pricing-card:not(:hover),
-        .blog-preview-card:not(:hover) {
-            animation: floatCard 6s ease-in-out infinite;
-            animation-delay: calc(var(--card-index, 0) * 0.5s);
-        }
-
-        /* ===== 3D TEXT EFFECTS ===== */
-        h1, h2, h3, .gradient-text {
-            text-shadow: 
-                0 1px 0 rgba(255,255,255,0.1),
-                0 2px 3px rgba(0,0,0,0.2),
-                0 5px 10px rgba(139, 92, 246, 0.2);
-            transform: translateZ(10px);
-        }
-
-        .gradient-text {
-            animation: gradientShift 8s ease infinite, textFloat 5s ease-in-out infinite;
-        }
-
-        @keyframes textFloat {
-            0%, 100% { transform: translateZ(10px) translateY(0); }
-            50% { transform: translateZ(15px) translateY(-5px); }
-        }
-
-        /* ===== DEPTH OF FIELD BLUR ===== */
-        .depth-blur {
-            transition: filter 0.5s ease;
-        }
-
-        section:hover .depth-blur {
-            filter: blur(1px);
-        }
-
-        /* ===== 3D BUTTON EFFECTS ===== */
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
+        body.light-theme .cta-button[style*="transparent"]:hover {
             background: var(--accent);
             color: var(--white);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: var(--transition-3d);
-            position: relative;
-            overflow: hidden;
-            border: none;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
-            transform-style: preserve-3d;
-            transform: translateZ(0);
         }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+        body.light-theme .desktop-nav {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(139, 92, 246, 0.2);
         }
 
-        .cta-button:hover {
-            transform: translateZ(10px) translateY(-2px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4), 0 0 20px var(--accent);
+        body.light-theme .desktop-nav a {
+            color: var(--text);
         }
 
-        .cta-button:hover::before {
-            width: 300px;
-            height: 300px;
+        body.light-theme .theme-toggle {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(139, 92, 246, 0.2);
         }
 
-        /* ===== HERO 3D ENHANCEMENTS ===== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 20px 60px;
-            position: relative;
-            overflow: hidden;
-            perspective: 1000px;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-            transform-style: preserve-3d;
-            animation: heroEntrance 1.5s ease-out;
-        }
-
-        @keyframes heroEntrance {
-            0% {
-                opacity: 0;
-                transform: translateZ(-100px) rotateX(10deg) translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateZ(0) rotateX(0) translateY(0);
+        /* System preference */
+        @media (prefers-color-scheme: light) {
+            body:not(.light-theme):not(.dark-theme) {
+                --primary: var(--primary-light);
+                --primary-dark: var(--primary-light);
+                --primary-light: var(--primary-light-light);
+                --text: var(--text-light);
+                --text-secondary: var(--text-secondary-light);
+                --accent: var(--accent-light);
+                --accent2: var(--accent2-light);
+                --accent3: var(--accent3-light);
+                --ai-color: var(--ai-color-light);
+                --gray-100: var(--gray-100-light);
+                --gray-400: var(--gray-400-light);
+                --gray-700: var(--gray-700-light);
+                --card-bg: var(--card-bg-light);
+                --card-border: var(--card-border-light);
+                --footer-bg: var(--footer-bg-light);
+                --gradient-1: var(--gradient-1-light);
+                --gradient-2: var(--gradient-2-light);
+                --gradient-3: var(--gradient-3-light);
             }
         }
 
-        .hero-video-container {
-            transform: translateZ(-20px) scale(1.2);
-            filter: blur(2px);
-        }
-
-        /* ===== 3D AI ICON - ENHANCED ===== */
-        .ai-3d-container {
-            position: absolute;
-            top: 50%;
-            right: 5%;
-            width: 300px;
-            height: 300px;
-            z-index: 3;
-            pointer-events: none;
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-
-        .ai-3d-icon {
-            width: 100%;
-            height: 100%;
-            animation: float3dAdvanced 8s ease-in-out infinite;
-            filter: drop-shadow(0 0 30px var(--accent));
-            transform-style: preserve-3d;
-        }
-
-        .ai-3d-icon circle,
-        .ai-3d-icon path {
-            animation: pulse3d 4s ease-in-out infinite;
-        }
-
-        @keyframes float3dAdvanced {
-            0%, 100% { 
-                transform: translateZ(0) rotateY(0deg) rotateX(0deg) scale(1);
-            }
-            25% { 
-                transform: translateZ(50px) rotateY(20deg) rotateX(10deg) scale(1.1);
-            }
-            50% { 
-                transform: translateZ(100px) rotateY(0deg) rotateX(20deg) scale(1.2);
-            }
-            75% { 
-                transform: translateZ(50px) rotateY(-20deg) rotateX(10deg) scale(1.1);
-            }
-        }
-
-        @keyframes pulse3d {
-            0%, 100% { opacity: 0.8; r: 40; }
-            50% { opacity: 1; r: 45; }
-        }
-
-        /* ===== FLOATING ORBS (added dynamically) ===== */
-        .floating-orb {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, var(--accent), transparent);
-            filter: blur(30px);
-            opacity: 0.3;
-            pointer-events: none;
-            animation: orbFloat 20s ease-in-out infinite;
-            transform-style: preserve-3d;
-        }
-
-        @keyframes orbFloat {
-            0%, 100% { transform: translateZ(0) translate(0, 0) scale(1); }
-            25% { transform: translateZ(50px) translate(5%, 5%) scale(1.2); }
-            50% { transform: translateZ(100px) translate(-5%, -5%) scale(0.8); }
-            75% { transform: translateZ(50px) translate(5%, -5%) scale(1.1); }
-        }
-
-        /* ===== 3D NAVIGATION ===== */
-        .desktop-nav {
-            transform-style: preserve-3d;
-            transform: translateX(-50%) translateZ(20px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2), 0 0 20px var(--accent);
-        }
-
-        .desktop-nav a {
-            transform: translateZ(0);
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .desktop-nav a:hover {
-            transform: translateZ(10px);
-        }
-
-        .logo {
-            transform-style: preserve-3d;
-            transform: translateZ(30px);
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: translateZ(50px) scale(1.1);
-        }
-
-        /* ===== SCROLL REVEAL 3D EFFECTS ===== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px) translateZ(-20px) rotateX(5deg);
-            transition: var(--transition-3d);
-            transform-style: preserve-3d;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0) translateZ(0) rotateX(0);
-        }
-
-        /* ===== PARALLAX LAYERS ===== */
-        .parallax-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            transform-style: preserve-3d;
-            will-change: transform;
-        }
-
-        /* ===== RESPONSIVE 3D (mobile optimizations) ===== */
-        @media (max-width: 768px) {
-            :root {
-                --perspective: 800px;
-                --card-lift: -5px;
-            }
-            
-            .service-card:hover, .pricing-card:hover, .blog-preview-card:hover {
-                transform: translateY(-5px) scale(1.01);
-            }
-            
-            .service-card > *,
-            .pricing-card > *,
-            .blog-preview-card > * {
-                transform: translateZ(0) !important;
-            }
-            
-            .service-card:hover > *,
-            .pricing-card:hover > *,
-            .blog-preview-card:hover > * {
-                transform: translateZ(5px) !important;
-            }
-            
-            .ai-3d-container {
-                display: none;
-            }
-            
-            .layer-5, .layer-4 {
-                opacity: 0.05;
-            }
-            
-            .layer-3 {
-                filter: blur(20px);
-            }
-            
-            .desktop-nav {
-                transform: translateX(-50%) translateZ(10px);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .layer-5, .layer-4, .layer-3 {
-                display: none;
-            }
-            
-            .service-card:not(:hover),
-            .pricing-card:not(:hover),
-            .blog-preview-card:not(:hover) {
-                animation: none;
-            }
-        }
-
-        /* ===== REDUCED MOTION ===== */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-            
-            .service-card:not(:hover),
-            .pricing-card:not(:hover),
-            .blog-preview-card:not(:hover) {
-                animation: none;
-            }
-            
-            .layer-5, .layer-4, .layer-3, .layer-2 {
-                animation: none;
-            }
-        }
-
-        /* ===== REST OF EXISTING STYLES ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        /* Custom cursor styles - disabled on mobile */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease;
+            mix-blend-mode: difference;
+            opacity: 0.7;
+        }
+
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: var(--accent2);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            mix-blend-mode: difference;
+            opacity: 0.7;
+        }
+
+        .cursor-trail {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.3;
+            transition: all 0.1s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -623,6 +239,22 @@
             overflow-x: hidden;
             transition: background-color 0.3s ease, color 0.3s ease;
             position: relative;
+        }
+
+        /* Background gradients for light mode */
+        body.light-theme::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.05) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
@@ -643,12 +275,30 @@
         h2 { font-size: clamp(2rem, 6vw, 3.5rem); }
         h3 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
 
+        /* Animated Gradient Text */
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
+        .gradient-text {
+            background: linear-gradient(
+                135deg,
+                var(--accent) 0%,
+                var(--accent2) 25%,
+                var(--accent3) 50%,
+                var(--ai-color) 75%,
+                var(--accent) 100%
+            );
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        /* ===== THEME TOGGLE BUTTON ===== */
         .theme-toggle {
             position: fixed;
             top: 25px;
@@ -662,26 +312,27 @@
             display: flex;
             gap: 8px;
             cursor: pointer;
-            transition: var(--transition-3d);
-            box-shadow: var(--shadow);
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .theme-toggle:hover {
-            transform: translateY(-2px) translateZ(10px);
-            box-shadow: var(--glow);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(139, 92, 246, 0.3);
         }
 
         .theme-toggle span {
             font-size: 1.2rem;
-            transition: var(--transition-3d);
+            transition: var(--transition);
             opacity: 0.5;
         }
 
         .theme-toggle span.active {
             opacity: 1;
-            transform: scale(1.2) translateZ(5px);
+            transform: scale(1.2);
         }
 
+        /* Navigation */
         .logo {
             position: fixed;
             top: 25px;
@@ -694,7 +345,12 @@
             color: transparent;
             z-index: 1002;
             text-decoration: none;
-            transition: var(--transition-3d);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px var(--accent));
         }
 
         .desktop-nav {
@@ -716,7 +372,7 @@
             color: var(--text);
             text-decoration: none;
             font-weight: 500;
-            transition: var(--transition-3d);
+            transition: var(--transition);
             position: relative;
         }
 
@@ -731,6 +387,16 @@
             transition: width 0.3s ease;
         }
 
+        .desktop-nav a:hover::after {
+            width: 100%;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
         .mobile-menu-button {
             display: none;
             position: fixed;
@@ -749,6 +415,26 @@
             justify-content: center;
             align-items: center;
             gap: 6px;
+        }
+
+        .mobile-menu-button span {
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-button.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(8px);
+        }
+
+        .mobile-menu-button.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-button.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-8px);
         }
 
         .mobile-nav {
@@ -773,6 +459,21 @@
             transform: translateY(0);
         }
 
+        .mobile-nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 1rem;
+            border-bottom: 1px solid var(--card-border);
+            transition: color 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Particle Canvas */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -781,6 +482,16 @@
             height: 100%;
             z-index: 0;
             pointer-events: none;
+        }
+
+        /* ===== VIDEO HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 20px 60px;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-video-container {
@@ -803,6 +514,26 @@
             transition: transform 0.1s ease-out;
         }
 
+        .hero-video-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            display: none;
+        }
+
+        /* Mobile fallback */
+        @media (max-width: 768px) {
+            .hero-video {
+                display: none;
+            }
+            .hero-video-fallback {
+                display: block;
+            }
+        }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -815,12 +546,111 @@
             z-index: 1;
         }
 
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @media (min-width: 769px) {
+            .hero-content {
+                text-align: center;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .hero-subtitle {
             font-size: clamp(1rem, 3vw, 1.5rem);
             color: var(--text-secondary);
             margin: 1.5rem 0 3rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        /* Section Styles */
         section {
             padding: 6rem 0;
             position: relative;
@@ -840,11 +670,69 @@
             margin: 0 auto 4rem;
         }
 
+        /* Glassmorphism Cards with enhanced hover effects */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--accent), var(--accent2), var(--accent3), var(--ai-color));
+            border-radius: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+
+        .service-card:hover::before {
+            opacity: 0.3;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            color: var(--accent2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover h3 {
+            color: var(--accent);
         }
 
         .service-card ul {
@@ -856,7 +744,12 @@
             padding: 0.5rem 0;
             padding-left: 1.5rem;
             position: relative;
-            transition: var(--transition-3d);
+            transition: var(--transition);
+        }
+
+        .service-card li:hover {
+            transform: translateX(5px);
+            color: var(--accent2);
         }
 
         .service-card li:before {
@@ -865,18 +758,37 @@
             left: 0;
             color: var(--ai-color);
             font-weight: bold;
+            transition: var(--transition);
         }
 
+        .service-card li:hover:before {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+
+        /* Blog Preview Card */
         .blog-preview-card {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
             border: 1px solid var(--card-border);
             border-radius: 1.5rem;
             padding: 2rem;
-            transition: var(--transition-3d);
+            transition: var(--transition);
             text-decoration: none;
             color: var(--text);
             display: block;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .blog-preview-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+
+        .blog-preview-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .blog-tag {
@@ -888,8 +800,37 @@
             font-size: 0.875rem;
             display: inline-block;
             margin-bottom: 1rem;
+            transition: var(--transition);
         }
 
+        .blog-preview-card:hover .blog-tag {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .blog-preview-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-preview-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--accent);
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .blog-preview-card:hover .read-more {
+            transform: translateX(5px);
+            color: var(--accent2);
+        }
+
+        /* Collapsible Pricing */
         .pricing-toggle {
             background: var(--accent);
             color: var(--white);
@@ -899,10 +840,26 @@
             font-size: 1.125rem;
             font-weight: 600;
             cursor: pointer;
-            transition: var(--transition-3d);
+            transition: var(--transition);
             margin: 2rem auto;
             display: block;
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .pricing-toggle:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .pricing-toggle:after {
+            content: " ▼";
+            font-size: 0.875rem;
+            margin-left: 0.5rem;
+        }
+
+        .pricing-toggle.active:after {
+            content: " ▲";
         }
 
         .pricing-content {
@@ -915,11 +872,40 @@
             max-height: 5000px;
         }
 
+        /* Swipe Hint (Mobile Only) */
+        .swipe-hint {
+            display: none;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-top: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Pricing Cards */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin: 4rem 0;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
         }
 
         .pricing-card.featured {
@@ -945,6 +931,12 @@
             padding-left: 1.5rem;
             border-bottom: 1px solid var(--card-border);
             position: relative;
+            transition: var(--transition);
+        }
+
+        .pricing-features li:hover {
+            transform: translateX(5px);
+            color: var(--accent);
         }
 
         .pricing-features li:before {
@@ -953,8 +945,15 @@
             left: 0;
             color: var(--ai-color);
             font-weight: bold;
+            transition: var(--transition);
         }
 
+        .pricing-features li:hover:before {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+
+        /* Mobile Carousel for Pricing */
         @media (max-width: 768px) {
             .pricing-grid {
                 display: flex;
@@ -968,6 +967,10 @@
                 scrollbar-width: none;
             }
 
+            .pricing-grid::-webkit-scrollbar {
+                display: none;
+            }
+
             .pricing-card {
                 min-width: 85vw;
                 scroll-snap-align: center;
@@ -975,6 +978,7 @@
             }
         }
 
+        /* Quote Box */
         .quote-box {
             background: rgba(16, 185, 129, 0.1);
             border-left: 4px solid var(--ai-color);
@@ -982,8 +986,84 @@
             margin: 3rem 0;
             border-radius: 0.5rem;
             backdrop-filter: blur(10px);
+            transition: var(--transition);
         }
 
+        .quote-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+        }
+
+        .quote-box p {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        .quote-author {
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--ai-color);
+        }
+
+        /* ===== 3D AI ICON - FIXED FOR MOBILE ===== */
+        .ai-3d-container {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            width: 200px;
+            height: 200px;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .ai-3d-icon {
+            width: 100%;
+            height: 100%;
+            animation: float3d 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px var(--accent));
+        }
+
+        @keyframes float3d {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            33% { transform: translateY(-20px) rotate(5deg) scale(1.1); }
+            66% { transform: translateY(10px) rotate(-5deg) scale(0.95); }
+        }
+
+        /* Hide 3D icon on mobile to prevent text overlap */
+        @media (max-width: 768px) {
+            .ai-3d-container {
+                display: none;
+            }
+            
+            .hero-content {
+                text-align: left;
+                max-width: 100%;
+            }
+        }
+
+        /* Parallax layers */
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .parallax-layer-1 {
+            background: radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 30%);
+            transform: translateZ(-1px) scale(1.5);
+        }
+
+        .parallax-layer-2 {
+            background: radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.1) 0%, transparent 30%);
+            transform: translateZ(-2px) scale(2);
+        }
+
+        /* ROI Calculator */
         .roi-calculator {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
@@ -991,6 +1071,12 @@
             border-radius: 2rem;
             padding: 3rem;
             margin: 4rem 0;
+            transition: var(--transition);
+        }
+
+        .roi-calculator:hover {
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+            border-color: var(--accent);
         }
 
         .roi-calculator input[type=range] {
@@ -1013,6 +1099,11 @@
             transition: all 0.3s;
         }
 
+        .roi-calculator input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            background: var(--accent);
+        }
+
         .roi-result {
             font-size: 3rem;
             font-weight: 800;
@@ -1020,6 +1111,37 @@
             margin-top: 1rem;
         }
 
+        /* Market Ticker */
+        .market-ticker {
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            padding: 0.75rem 0;
+            overflow: hidden;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            white-space: nowrap;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+            font-weight: 600;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .ticker-content span {
+            margin-right: 3rem;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Contact */
         .contact-container {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
@@ -1046,12 +1168,28 @@
             border-radius: 0.75rem;
             text-decoration: none;
             color: var(--text);
-            transition: var(--transition-3d);
+            transition: var(--transition);
         }
 
+        .contact-method:hover {
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateX(5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .contact-method:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Footer */
         footer {
             background: var(--footer-bg);
-            padding: 4rem 0;
+            padding: 4rem 0 6rem;
             position: relative;
             z-index: 2;
         }
@@ -1063,6 +1201,30 @@
             margin-bottom: 3rem;
         }
 
+        .footer-section h4 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--text);
+            transform: translateX(5px);
+            display: inline-block;
+        }
+
         .copyright {
             text-align: center;
             padding-top: 2rem;
@@ -1070,7 +1232,16 @@
             color: var(--text-secondary);
         }
 
+        /* Mobile Responsive */
         @media (max-width: 768px) {
+            * {
+                cursor: auto !important;
+            }
+            
+            .cursor, .cursor-follower, .cursor-trail {
+                display: none;
+            }
+            
             .desktop-nav {
                 display: none;
             }
@@ -1079,62 +1250,95 @@
                 display: flex;
             }
             
+            .logo {
+                left: 20px;
+                transform: none;
+                font-size: 1.5rem;
+            }
+
             .theme-toggle {
+                top: 25px;
                 right: 80px;
             }
-        }
 
-        /* Custom cursor styles */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.2s ease;
-            mix-blend-mode: difference;
-            opacity: 0.7;
-            transform: translateZ(50px);
-        }
+            .swipe-hint {
+                display: block;
+            }
 
-        .cursor-follower {
-            width: 8px;
-            height: 8px;
-            background: var(--accent2);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: all 0.1s ease;
-            mix-blend-mode: difference;
-            opacity: 0.7;
-            transform: translateZ(50px);
-        }
-
-        @media (max-width: 768px) {
-            .cursor, .cursor-follower {
+            .market-ticker {
                 display: none;
             }
+
+            h1 {
+                font-size: clamp(2rem, 10vw, 3rem);
+                line-height: 1.1;
+            }
+
+            .hero-content {
+                padding: 0 0.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                margin: 1rem 0 2rem;
+            }
+
+            .cta-button {
+                padding: 0.875rem 1.75rem;
+                font-size: 0.95rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .logo {
+                left: 15px;
+                font-size: 1.3rem;
+            }
+
+            .theme-toggle {
+                right: 70px;
+                padding: 6px 12px;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(1.8rem, 8vw, 2.5rem);
+            }
+
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-smooth);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Parallax scroll effect */
+        .parallax {
+            transition: transform 0.1s ease-out;
         }
     </style>
 </head>
 <body>
-    <!-- ===== 3D DEPTH LAYERS ===== -->
-    <div class="depth-layer layer-5"></div>
-    <div class="depth-layer layer-4"></div>
-    <div class="depth-layer layer-3"></div>
-    <div class="depth-layer layer-2"></div>
-    <div class="depth-layer layer-1"></div>
-
-    <!-- ===== FLOATING GEOMETRIC SHAPES ===== -->
-    <div class="floating-shape shape-1"></div>
-    <div class="floating-shape shape-2"></div>
-    <div class="floating-shape shape-3"></div>
-    <div class="floating-shape shape-4"></div>
-
-    <!-- ===== CUSTOM CURSOR ===== -->
+    <!-- ===== CUSTOM CURSOR WITH TRAIL ===== -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
@@ -1183,15 +1387,18 @@
     <main>
         <!-- ===== VIDEO HERO SECTION ===== -->
         <section id="home" class="hero">
+            <!-- Video Background -->
             <div class="hero-video-container">
                 <video class="hero-video" autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%230f172a'/%3E%3C/svg%3E">
+                    <!-- Placeholder video - replace with actual video URL -->
                     <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-digital-network-11147-large.mp4" type="video/mp4">
+                    <!-- Fallback for browsers that don't support video -->
                     <div class="hero-video-fallback"></div>
                 </video>
                 <div class="hero-video-fallback"></div>
             </div>
 
-            <!-- 3D AI Icon -->
+            <!-- 3D AI Icon - Hidden on mobile to prevent text overlap -->
             <div class="ai-3d-container">
                 <svg class="ai-3d-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <defs>
@@ -1230,7 +1437,7 @@
 
                 <div class="services-grid">
                     <!-- Web Development -->
-                    <div class="service-card" style="--card-index:0">
+                    <div class="service-card">
                         <div class="service-icon">💻</div>
                         <h3>Web Development</h3>
                         <p style="color: var(--text-secondary);">Professional websites that convert visitors into customers</p>
@@ -1245,7 +1452,7 @@
                     </div>
 
                     <!-- SEO -->
-                    <div class="service-card" style="--card-index:1">
+                    <div class="service-card">
                         <div class="service-icon">🎯</div>
                         <h3>SEO Services</h3>
                         <p style="color: var(--text-secondary);">Get found on Google and drive organic traffic to your website</p>
@@ -1260,7 +1467,7 @@
                     </div>
 
                     <!-- Marketing -->
-                    <div class="service-card" style="--card-index:2">
+                    <div class="service-card">
                         <div class="service-icon">📈</div>
                         <h3>Digital Marketing</h3>
                         <p style="color: var(--text-secondary);">Reach your target audience and generate quality leads</p>
@@ -1275,7 +1482,7 @@
                     </div>
 
                     <!-- AI Solutions -->
-                    <div class="service-card" style="--card-index:3">
+                    <div class="service-card">
                         <div class="service-icon">🤖</div>
                         <h3>AI Solutions</h3>
                         <p style="color: var(--text-secondary);">Automate tasks and gain competitive advantage with AI</p>
@@ -1322,7 +1529,7 @@
                 <p class="section-subtitle">Expert guides to help your Toronto business grow online</p>
 
                 <div class="services-grid" style="max-width: 900px; margin: 0 auto;">
-                    <a href="local-seo-guide-toronto.html" class="blog-preview-card" style="--card-index:0">
+                    <a href="local-seo-guide-toronto.html" class="blog-preview-card">
                         <span class="blog-tag">Local SEO</span>
                         <div class="service-icon">🎯</div>
                         <h3>The Complete Local SEO Guide for Toronto Businesses (2026)</h3>
@@ -1354,7 +1561,7 @@
                     <h3 style="text-align: center; margin: 3rem 0 2rem; color: var(--accent);">Web Development Packages</h3>
                     <p class="swipe-hint">← Swipe to see all packages →</p>
                     <div class="pricing-grid">
-                        <div class="pricing-card" style="--card-index:0">
+                        <div class="pricing-card">
                             <h4>Basic Website</h4>
                             <div class="price">$1,500</div>
                             <ul class="pricing-features">
@@ -1367,7 +1574,7 @@
                             <a href="#contact" class="cta-button">Get Started</a>
                         </div>
 
-                        <div class="pricing-card featured" style="--card-index:1">
+                        <div class="pricing-card featured">
                             <h4>Professional Website</h4>
                             <div class="price">$2,500</div>
                             <p style="color: var(--accent); font-weight: 600; margin-top: -0.5rem;">MOST POPULAR</p>
@@ -1383,7 +1590,7 @@
                             <a href="#contact" class="cta-button">Get Started</a>
                         </div>
 
-                        <div class="pricing-card" style="--card-index:2">
+                        <div class="pricing-card">
                             <h4>Premium Website</h4>
                             <div class="price">$4,500</div>
                             <ul class="pricing-features">
@@ -1404,7 +1611,7 @@
                     <h3 style="text-align: center; margin: 4rem 0 2rem; color: var(--accent);">SEO Service Packages</h3>
                     <p class="swipe-hint">← Swipe to see all packages →</p>
                     <div class="pricing-grid">
-                        <div class="pricing-card" style="--card-index:3">
+                        <div class="pricing-card">
                             <h4>SEO Starter</h4>
                             <div class="price">$800<span style="font-size: 1rem;">/mo</span></div>
                             <ul class="pricing-features">
@@ -1417,7 +1624,7 @@
                             <a href="#contact" class="cta-button">Get Started</a>
                         </div>
 
-                        <div class="pricing-card featured" style="--card-index:4">
+                        <div class="pricing-card featured">
                             <h4>SEO Growth</h4>
                             <div class="price">$1,500<span style="font-size: 1rem;">/mo</span></div>
                             <p style="color: var(--accent); font-weight: 600; margin-top: -0.5rem;">RECOMMENDED</p>
@@ -1432,7 +1639,7 @@
                             <a href="#contact" class="cta-button">Get Started</a>
                         </div>
 
-                        <div class="pricing-card" style="--card-index:5">
+                        <div class="pricing-card">
                             <h4>SEO Enterprise</h4>
                             <div class="price">$3,000<span style="font-size: 1rem;">/mo</span></div>
                             <ul class="pricing-features">
@@ -1451,7 +1658,7 @@
                     <h3 style="text-align: center; margin: 4rem 0 2rem; color: var(--accent);">Digital Marketing Packages</h3>
                     <p class="swipe-hint">← Swipe to see all packages →</p>
                     <div class="pricing-grid">
-                        <div class="pricing-card" style="--card-index:6">
+                        <div class="pricing-card">
                             <h4>Marketing Essentials</h4>
                             <div class="price">$1,200<span style="font-size: 1rem;">/mo</span></div>
                             <ul class="pricing-features">
@@ -1463,7 +1670,7 @@
                             <a href="#contact" class="cta-button">Get Started</a>
                         </div>
 
-                        <div class="pricing-card featured" style="--card-index:7">
+                        <div class="pricing-card featured">
                             <h4>Marketing Pro</h4>
                             <div class="price">$2,500<span style="font-size: 1rem;">/mo</span></div>
                             <p style="color: var(--accent); font-weight: 600; margin-top: -0.5rem;">BEST VALUE</p>
@@ -1478,7 +1685,7 @@
                             <a href="#contact" class="cta-button">Get Started</a>
                         </div>
 
-                        <div class="pricing-card" style="--card-index:8">
+                        <div class="pricing-card">
                             <h4>Marketing Elite</h4>
                             <div class="price">$5,000<span style="font-size: 1rem;">/mo</span></div>
                             <ul class="pricing-features">
@@ -1497,7 +1704,7 @@
                     <h3 style="text-align: center; margin: 4rem 0 2rem; color: var(--ai-color);">AI Solutions Pricing</h3>
                     <p class="swipe-hint">← Swipe to see all packages →</p>
                     <div class="pricing-grid">
-                        <div class="pricing-card" style="--card-index:9">
+                        <div class="pricing-card">
                             <h4>AI Chatbot</h4>
                             <div class="price">$1,500<span style="font-size: 1rem;"> setup</span></div>
                             <p style="opacity: 0.7; margin-top: 0.5rem;">+ $150/mo maintenance</p>
@@ -1510,7 +1717,7 @@
                             <a href="#contact" class="cta-button">Get Started</a>
                         </div>
 
-                        <div class="pricing-card featured" style="--card-index:10">
+                        <div class="pricing-card featured">
                             <h4>AI Automation</h4>
                             <div class="price">$3,000<span style="font-size: 1rem;"> setup</span></div>
                             <p style="opacity: 0.7; margin-top: 0.5rem;">+ $300/mo maintenance</p>
@@ -1525,7 +1732,7 @@
                             <a href="#contact" class="cta-button">Get Started</a>
                         </div>
 
-                        <div class="pricing-card" style="--card-index:11">
+                        <div class="pricing-card">
                             <h4>Custom AI Solution</h4>
                             <div class="price">Custom</div>
                             <ul class="pricing-features">
@@ -1619,6 +1826,23 @@
         </section>
     </main>
 
+    <!-- ===== MARKET TICKER ===== -->
+    <div class="market-ticker">
+        <div class="ticker-content">
+            <span>🔥 AI adoption up 270% in 2024</span>
+            <span>•</span>
+            <span>🎯 Google updates favor local SEO</span>
+            <span>•</span>
+            <span>🎤 Voice search growing 40% YoY</span>
+            <span>•</span>
+            <span>📱 Mobile traffic exceeds 60%</span>
+            <span>•</span>
+            <span>⭐ Featured snippets drive 35% more clicks</span>
+            <span>•</span>
+            <span>🚀 93% of online experiences begin with search</span>
+        </div>
+    </div>
+
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
@@ -1690,7 +1914,7 @@
             
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setClearColor(0x000000, 0);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.setPixelRatio(window.devicePixelRatio);
             container.innerHTML = '';
             container.appendChild(renderer.domElement);
 
@@ -1698,27 +1922,26 @@
             const geometries = [
                 new THREE.TorusKnotGeometry(0.8, 0.2, 100, 16),
                 new THREE.IcosahedronGeometry(0.8, 0),
-                new THREE.OctahedronGeometry(0.8),
-                new THREE.DodecahedronGeometry(0.8)
+                new THREE.OctahedronGeometry(0.8)
             ];
             
-            const colors = [0x8b5cf6, 0xec4899, 0x06b6d4, 0x10b981];
+            const colors = [0x8b5cf6, 0xec4899, 0x06b6d4];
             const meshes = [];
             
             geometries.forEach((geo, i) => {
                 const material = new THREE.MeshPhongMaterial({
-                    color: colors[i % colors.length],
-                    emissive: colors[i % colors.length],
+                    color: colors[i],
+                    emissive: colors[i],
                     emissiveIntensity: 0.2,
                     wireframe: true,
                     transparent: true,
-                    opacity: 0.1
+                    opacity: 0.15
                 });
                 
                 const mesh = new THREE.Mesh(geo, material);
-                mesh.position.x = (i - 1.5) * 3.5;
+                mesh.position.x = (i - 1) * 3.5;
                 mesh.position.y = Math.sin(i) * 2;
-                mesh.position.z = -10 - (i * 1.5);
+                mesh.position.z = -8 - (i * 2);
                 mesh.rotation.x = i * 0.5;
                 mesh.rotation.y = i * 0.3;
                 scene.add(mesh);
@@ -1727,12 +1950,12 @@
 
             // Add floating particles
             const particleGeometry = new THREE.BufferGeometry();
-            const particleCount = window.innerWidth < 768 ? 300 : 800;
+            const particleCount = 1000;
             const positions = new Float32Array(particleCount * 3);
             
             for (let i = 0; i < particleCount * 3; i += 3) {
-                positions[i] = (Math.random() - 0.5) * 50;
-                positions[i + 1] = (Math.random() - 0.5) * 50;
+                positions[i] = (Math.random() - 0.5) * 40;
+                positions[i + 1] = (Math.random() - 0.5) * 40;
                 positions[i + 2] = (Math.random() - 0.5) * 40;
             }
             
@@ -1740,56 +1963,38 @@
             
             const particleMaterial = new THREE.PointsMaterial({
                 color: 0x8b5cf6,
-                size: 0.1,
+                size: 0.05,
                 transparent: true,
-                opacity: 0.2
+                opacity: 0.3
             });
             
             const particles = new THREE.Points(particleGeometry, particleMaterial);
             scene.add(particles);
 
             // Lights
-            const light1 = new THREE.PointLight(0x8b5cf6, 1, 30);
-            light1.position.set(5, 3, 5);
+            const light1 = new THREE.PointLight(0x8b5cf6, 1, 20);
+            light1.position.set(3, 2, 2);
             scene.add(light1);
             
-            const light2 = new THREE.PointLight(0xec4899, 1, 30);
-            light2.position.set(-5, -2, 5);
+            const light2 = new THREE.PointLight(0xec4899, 1, 20);
+            light2.position.set(-3, -1, 2);
             scene.add(light2);
             
-            const light3 = new THREE.PointLight(0x06b6d4, 1, 30);
-            light3.position.set(0, 5, 5);
+            const light3 = new THREE.PointLight(0x06b6d4, 1, 20);
+            light3.position.set(0, 3, 3);
             scene.add(light3);
-            
-            const ambientLight = new THREE.AmbientLight(0x404060);
-            scene.add(ambientLight);
 
-            camera.position.z = 8;
-
-            // Mouse interaction for 3D scene
-            let mouseX = 0, mouseY = 0;
-            document.addEventListener('mousemove', (e) => {
-                mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-                mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-            });
+            camera.position.z = 5;
 
             function animate() {
                 requestAnimationFrame(animate);
                 
-                // Rotate meshes based on mouse position
                 meshes.forEach((mesh, i) => {
-                    mesh.rotation.x += 0.001 + (mouseY * 0.0005);
-                    mesh.rotation.y += 0.002 + (mouseX * 0.0005) + (i * 0.0005);
+                    mesh.rotation.x += 0.001;
+                    mesh.rotation.y += 0.002 + (i * 0.0005);
                 });
                 
-                // Rotate particles
                 particles.rotation.y += 0.0002;
-                particles.rotation.x += 0.0001;
-                
-                // Slight camera movement based on mouse
-                camera.position.x += (mouseX * 2 - camera.position.x) * 0.01;
-                camera.position.y += (-mouseY * 2 - camera.position.y) * 0.01;
-                camera.lookAt(scene.position);
                 
                 renderer.render(scene, camera);
             }
@@ -1804,16 +2009,14 @@
             });
         }
 
-        // Initialize Three.js with performance check
-        if (window.innerWidth > 768 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            try {
-                initThreeJS();
-            } catch (error) {
-                console.log('Three.js initialization failed:', error);
-            }
+        // Initialize Three.js
+        try {
+            initThreeJS();
+        } catch (error) {
+            console.log('Three.js initialization failed:', error);
         }
 
-        // ===== PARTICLE SYSTEM (2D fallback) =====
+        // ===== PARTICLE SYSTEM =====
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         
@@ -1824,10 +2027,10 @@
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = (Math.random() - 0.5) * 0.2;
-                this.speedY = (Math.random() - 0.5) * 0.2;
-                this.color = `rgba(139, 92, 246, ${Math.random() * 0.15})`;
+                this.size = Math.random() * 2;
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.speedY = (Math.random() - 0.5) * 0.3;
+                this.color = `rgba(139, 92, 246, ${Math.random() * 0.2})`;
             }
             
             update() {
@@ -1849,9 +2052,8 @@
         }
         
         function initParticles() {
-            const count = window.innerWidth < 768 ? 30 : 80;
             particles = [];
-            for (let i = 0; i < count; i++) {
+            for (let i = 0; i < 80; i++) {
                 particles.push(new Particle());
             }
         }
@@ -1871,9 +2073,9 @@
                     const dy = p1.y - p2.y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
                     
-                    if (distance < 100) {
-                        ctx.strokeStyle = `rgba(139, 92, 246, ${0.03 * (1 - distance/100)})`;
-                        ctx.lineWidth = 0.5;
+                    if (distance < 120) {
+                        ctx.strokeStyle = `rgba(139, 92, 246, ${0.05 * (1 - distance/120)})`;
+                        ctx.lineWidth = 0.3;
                         ctx.beginPath();
                         ctx.moveTo(p1.x, p1.y);
                         ctx.lineTo(p2.x, p2.y);
@@ -1893,39 +2095,51 @@
         
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
-        
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            animateParticles();
-        }
+        animateParticles();
     </script>
 
     <script>
         // ===== MAIN JAVASCRIPT =====
         document.addEventListener('DOMContentLoaded', function() {
-            // ===== CUSTOM CURSOR WITH 3D EFFECT =====
+            // ===== CUSTOM CURSOR WITH TRAIL =====
             const cursor = document.querySelector('.cursor');
             const follower = document.querySelector('.cursor-follower');
             
             if (cursor && follower && window.innerWidth > 768) {
+                // Create trail elements
+                const trailCount = 10;
+                const trails = [];
+                
+                for (let i = 0; i < trailCount; i++) {
+                    const trail = document.createElement('div');
+                    trail.className = 'cursor-trail';
+                    trail.style.opacity = 0.3 - (i * 0.03);
+                    trail.style.width = `${6 - i * 0.4}px`;
+                    trail.style.height = `${6 - i * 0.4}px`;
+                    document.body.appendChild(trail);
+                    trails.push({
+                        element: trail,
+                        x: 0,
+                        y: 0
+                    });
+                }
+                
                 let mouseX = 0, mouseY = 0;
-                let cursorX = 0, cursorY = 0;
                 
                 document.addEventListener('mousemove', (e) => {
                     mouseX = e.clientX;
                     mouseY = e.clientY;
+                    
+                    cursor.style.transform = `translate(${mouseX - 10}px, ${mouseY - 10}px)`;
+                    follower.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
+                    
+                    // Update trail positions
+                    trails.forEach((trail, index) => {
+                        setTimeout(() => {
+                            trail.element.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
+                        }, index * 20);
+                    });
                 });
-                
-                function animateCursor() {
-                    cursorX += (mouseX - cursorX) * 0.2;
-                    cursorY += (mouseY - cursorY) * 0.2;
-                    
-                    cursor.style.transform = `translate(${cursorX - 10}px, ${cursorY - 10}px) translateZ(20px)`;
-                    follower.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px) translateZ(30px)`;
-                    
-                    requestAnimationFrame(animateCursor);
-                }
-                
-                animateCursor();
                 
                 document.addEventListener('mousedown', () => {
                     cursor.style.transform += ' scale(0.8)';
@@ -1937,33 +2151,6 @@
                     follower.style.transform = follower.style.transform.replace(' scale(1.5)', '');
                 });
             }
-
-            // ===== 3D TILT EFFECT FOR CARDS =====
-            const cards = document.querySelectorAll('.service-card, .pricing-card, .blog-preview-card');
-            
-            cards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    if (window.innerWidth <= 768) return;
-                    
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    
-                    const rotateX = ((y - centerY) / centerY) * 5;
-                    const rotateY = ((centerX - x) / centerX) * 5;
-                    
-                    card.style.setProperty('--rotate-x', rotateX + 'deg');
-                    card.style.setProperty('--rotate-y', rotateY + 'deg');
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    card.style.setProperty('--rotate-x', '0deg');
-                    card.style.setProperty('--rotate-y', '0deg');
-                });
-            });
 
             // ===== SMOOTH SCROLLING =====
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1977,6 +2164,23 @@
                             behavior: 'smooth'
                         });
                     }
+                });
+            });
+
+            // ===== MAGNETIC BUTTONS EFFECT =====
+            document.querySelectorAll('.cta-button').forEach(button => {
+                button.addEventListener('mousemove', (e) => {
+                    if (window.innerWidth > 768) {
+                        const rect = button.getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+                        
+                        button.style.transform = `translate(${x * 0.2}px, ${y * 0.1}px) scale(1.05)`;
+                    }
+                });
+                
+                button.addEventListener('mouseleave', () => {
+                    button.style.transform = 'translate(0, 0) scale(1)';
                 });
             });
 
@@ -1997,12 +2201,9 @@
             // ===== PARALLAX SCROLL EFFECT =====
             const heroVideo = document.querySelector('.hero-video');
             const parallaxLayers = document.querySelectorAll('.parallax-layer');
-            const depthLayers = document.querySelectorAll('.depth-layer');
             
             window.addEventListener('scroll', () => {
                 const scrollY = window.scrollY;
-                const maxScroll = document.body.scrollHeight - window.innerHeight;
-                const scrollPercent = scrollY / maxScroll;
                 
                 // Parallax video
                 if (heroVideo) {
@@ -2010,16 +2211,9 @@
                 }
                 
                 // Parallax layers
-                parallaxLayers.forEach((layer, index) => {
+                parallaxLayers.forEach(layer => {
                     const speed = layer.dataset.speed || -0.2;
-                    layer.style.transform = `translateY(${scrollY * speed}px) translateZ(${index * -10}px)`;
-                });
-                
-                // Depth layers
-                depthLayers.forEach((layer, index) => {
-                    const depth = (index + 1) * -10;
-                    const moveY = scrollY * (0.1 + index * 0.05);
-                    layer.style.transform = `translateZ(${depth}px) translateY(${moveY}px)`;
+                    layer.style.transform = `translateY(${scrollY * speed}px)`;
                 });
             });
 
@@ -2036,55 +2230,47 @@
                 document.body.classList.remove('dark-theme');
                 sunIcon.classList.add('active');
                 moonIcon.classList.remove('active');
-                if (themeColor) themeColor.setAttribute('content', '#f8fafc');
+                themeColor.setAttribute('content', '#f8fafc');
             } else if (savedTheme === 'dark') {
                 document.body.classList.add('dark-theme');
                 document.body.classList.remove('light-theme');
                 moonIcon.classList.add('active');
                 sunIcon.classList.remove('active');
-                if (themeColor) themeColor.setAttribute('content', '#0f172a');
+                themeColor.setAttribute('content', '#0f172a');
             }
             
-            if (themeToggle) {
-                themeToggle.addEventListener('click', () => {
-                    if (document.body.classList.contains('light-theme')) {
-                        // Switch to dark
-                        document.body.classList.remove('light-theme');
-                        document.body.classList.add('dark-theme');
-                        sunIcon.classList.remove('active');
-                        moonIcon.classList.add('active');
-                        localStorage.setItem('theme', 'dark');
-                        if (themeColor) themeColor.setAttribute('content', '#0f172a');
-                    } else {
-                        // Switch to light
-                        document.body.classList.add('light-theme');
-                        document.body.classList.remove('dark-theme');
-                        sunIcon.classList.add('active');
-                        moonIcon.classList.remove('active');
-                        localStorage.setItem('theme', 'light');
-                        if (themeColor) themeColor.setAttribute('content', '#f8fafc');
-                    }
-                });
-            }
+            themeToggle.addEventListener('click', () => {
+                if (document.body.classList.contains('light-theme')) {
+                    // Switch to dark
+                    document.body.classList.remove('light-theme');
+                    document.body.classList.add('dark-theme');
+                    sunIcon.classList.remove('active');
+                    moonIcon.classList.add('active');
+                    localStorage.setItem('theme', 'dark');
+                    themeColor.setAttribute('content', '#0f172a');
+                } else {
+                    // Switch to light
+                    document.body.classList.add('light-theme');
+                    document.body.classList.remove('dark-theme');
+                    sunIcon.classList.add('active');
+                    moonIcon.classList.remove('active');
+                    localStorage.setItem('theme', 'light');
+                    themeColor.setAttribute('content', '#f8fafc');
+                }
+            });
 
             // ===== ROI CALCULATOR =====
             function calculateROI() {
-                const visitors = parseFloat(document.getElementById('visitors')?.value) || 0;
-                const conversion = parseFloat(document.getElementById('conversion')?.value) || 0;
-                const value = parseFloat(document.getElementById('value')?.value) || 0;
+                const visitors = parseFloat(document.getElementById('visitors').value) || 0;
+                const conversion = parseFloat(document.getElementById('conversion').value) || 0;
+                const value = parseFloat(document.getElementById('value').value) || 0;
                 
                 const revenue = visitors * (conversion / 100) * value;
-                const resultEl = document.getElementById('roi-result');
-                if (resultEl) resultEl.textContent = '$' + Math.round(revenue).toLocaleString();
+                document.getElementById('roi-result').textContent = '$' + Math.round(revenue).toLocaleString();
                 
-                const visitorsVal = document.getElementById('visitors-value');
-                if (visitorsVal) visitorsVal.textContent = Number(visitors).toLocaleString();
-                
-                const conversionVal = document.getElementById('conversion-value');
-                if (conversionVal) conversionVal.textContent = conversion + '%';
-                
-                const valueVal = document.getElementById('value-value');
-                if (valueVal) valueVal.textContent = '$' + value;
+                document.getElementById('visitors-value').textContent = Number(visitors).toLocaleString();
+                document.getElementById('conversion-value').textContent = conversion + '%';
+                document.getElementById('value-value').textContent = '$' + value;
             }
             
             const visitorsInput = document.getElementById('visitors');
@@ -2158,6 +2344,7 @@
         // Handle blog links properly
         document.querySelectorAll('a[href="/blog.html"], a[href="blog.html"]').forEach(link => {
             link.addEventListener('click', function(e) {
+                // Let the browser handle navigation normally
                 return true;
             });
         });
