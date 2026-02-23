@@ -525,7 +525,7 @@
             margin-bottom: 4rem;
         }
 
-        .service-card, .pricing-card, .blog-preview-card, .contact-container, .roi-calculator, .insight-card, .featured-card {
+        .service-card, .pricing-card, .blog-preview-card, .contact-container, .roi-calculator {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
             border: 1px solid var(--card-border);
@@ -536,16 +536,10 @@
             overflow: hidden;
         }
 
-        .service-card:hover, .pricing-card:hover, .blog-preview-card:hover, .insight-card:hover {
+        .service-card:hover, .pricing-card:hover, .blog-preview-card:hover {
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
             border-color: var(--accent);
-        }
-
-        .featured-card {
-            background: linear-gradient(145deg, var(--card-bg), rgba(139, 92, 246, 0.15));
-            border: 2px solid var(--accent);
-            padding: 2.5rem;
         }
 
         .service-icon {
@@ -572,7 +566,7 @@
             font-weight: bold;
         }
 
-        .blog-tag, .pillar-tag {
+        .blog-tag {
             background: rgba(139, 92, 246, 0.2);
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
@@ -588,7 +582,6 @@
             font-weight: 600;
             transition: var(--transition);
             display: inline-block;
-            margin-top: 1rem;
         }
 
         .blog-preview-card:hover .read-more {
@@ -900,25 +893,6 @@
                 transform: none;
             }
         }
-
-        /* Insights grid styles */
-        .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0 3rem;
-        }
-
-        .pillar-title {
-            font-size: 2rem;
-            margin: 2rem 0 1.5rem;
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .featured-card .read-more {
-            font-size: 1.2rem;
-        }
     </style>
 </head>
 <body>
@@ -931,8 +905,6 @@
     </div>
 
     <nav class="desktop-nav">
-        <a href="#insights">Insights</a>
-        <a href="#vlog">Vlog</a>
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
         <a href="/blog.html">Blog</a>
@@ -946,8 +918,6 @@
     </button>
 
     <nav class="mobile-nav" id="mobileNav">
-        <a href="#insights">Insights</a>
-        <a href="#vlog">Vlog</a>
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
         <a href="/blog.html">Blog</a>
@@ -961,7 +931,7 @@
     <div class="parallax-layer parallax-layer-2" data-speed="-0.4"></div>
 
     <main>
-        <!-- ===== HERO SECTION (UPDATED CTA) ===== -->
+        <!-- ===== HERO SECTION ===== -->
         <section id="home" class="hero">
             <div class="hero-video-container">
                 <video class="hero-video" autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%230f172a'/%3E%3C/svg%3E" preload="none">
@@ -974,158 +944,13 @@
                 <div class="hero-content">
                     <h1><span class="gradient-text">We Help Businesses Get More Customers Online</span></h1>
                     <p class="hero-subtitle">AI-powered websites, local SEO, and automation that actually drives growth. Stop losing customers to competitors.</p>
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="#contact" class="cta-button">Get Your Free Consultation</a>
-                        <a href="#insights" class="cta-button" style="background: transparent; border: 2px solid var(--accent);">Explore Free Resources ↓</a>
-                    </div>
+                    <a href="#contact" class="cta-button">Get Your Free Consultation</a>
                 </div>
             </div>
         </section>
 
-        <!-- ===== NEW INSIGHTS & RESOURCES SECTION ===== -->
-        <section id="insights" style="background: var(--primary-dark); padding: 4rem 0;">
-            <div class="container">
-                <h2 class="section-title">Insights & Resources</h2>
-                <p class="section-subtitle">Curated knowledge to grow your digital presence — from quick wins to deep dives.</p>
-
-                <!-- Featured Insight -->
-                <div class="featured-card fade-in" style="margin-bottom: 4rem;">
-                    <span class="pillar-tag">✨ Featured</span>
-                    <h3 style="font-size: 2rem; margin: 1rem 0;">Your Website is Costing You Money: The 5 Signs You Need a Redesign</h3>
-                    <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 1.5rem;">Slow load times, confusing navigation, and missing trust signals are silently driving away customers. Learn how to diagnose the issues and turn your site into a revenue engine.</p>
-                    <a href="#" class="read-more" style="font-size: 1.2rem;">Read the Full Post →</a>
-                </div>
-
-                <!-- Pillar 1: Your Website is Costing You Money -->
-                <h3 class="pillar-title">💰 Your Website is Costing You Money</h3>
-                <div class="insights-grid">
-                    <div class="insight-card fade-in">
-                        <h4>Why a slow website sends customers to your competitor</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">Every second of delay cuts conversions by 7%. Find out how to speed up and keep visitors.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                    <div class="insight-card fade-in">
-                        <h4>The 5 trust signals your website is probably missing</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">SSL, reviews, clear contact — we break down what builds confidence and what repels.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                    <div class="insight-card fade-in">
-                        <h4>Mobile-first or invisible: what Google actually sees</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">If your site isn't mobile-first indexed, you're ranking behind competitors.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <!-- Pillar 2: AI for Real Businesses -->
-                <h3 class="pillar-title">🤖 AI for Real Businesses</h3>
-                <div class="insights-grid">
-                    <div class="insight-card fade-in">
-                        <h4>How local contractors are using AI to follow up with leads automatically</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">Never lose another lead — AI voice and text follow-up that works while you work.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                    <div class="insight-card fade-in">
-                        <h4>3 AI tools that can replace a part-time employee</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">From scheduling to copywriting, these tools save thousands per month.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                    <div class="insight-card fade-in">
-                        <h4>What ChatGPT can and can't do for your business (honest breakdown)</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">Realistic use cases and where you still need human expertise.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <!-- Pillar 3: The Digital Growth Playbook -->
-                <h3 class="pillar-title">📈 The Digital Growth Playbook</h3>
-                <div class="insights-grid">
-                    <div class="insight-card fade-in">
-                        <h4>How Google decides who shows up first (and how to be that business)</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">Ranking factors simplified: authority, relevance, and user experience.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                    <div class="insight-card fade-in">
-                        <h4>The $0 local marketing strategy that actually works</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">Google Business Profile, local citations, and community engagement.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                    <div class="insight-card fade-in">
-                        <h4>SEO vs. paid ads: what makes sense at each stage of growth</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">When to invest in organic vs. paid for maximum ROI.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <!-- Pillar 4: Behind the Build -->
-                <h3 class="pillar-title">🛠️ Behind the Build</h3>
-                <div class="insights-grid">
-                    <div class="insight-card fade-in">
-                        <h4>Case study: How we rebuilt a fashion brand's Shopify store to actually convert</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">A 40% increase in conversion rate through UX and speed optimizations.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                    <div class="insight-card fade-in">
-                        <h4>Before & after: What a real website transformation looks like</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">Visual walkthrough of a recent redesign and the strategy behind it.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                    <div class="insight-card fade-in">
-                        <h4>Why we build mockups before we ever send a proposal</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">Our transparent process ensures you love the design before committing.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <!-- Pillar 5: Tools & Resources -->
-                <h3 class="pillar-title">🧰 Tools & Resources</h3>
-                <div class="insights-grid">
-                    <div class="insight-card fade-in">
-                        <h4>The 7 free tools every local business should be using</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">From Canva to Google Analytics — our essential starter pack.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                    <div class="insight-card fade-in">
-                        <h4>A simple website audit checklist you can do in 15 minutes</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">Quick wins to improve performance, SEO, and user trust.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                    <div class="insight-card fade-in">
-                        <h4>Our go-to tech stack for building fast, modern websites</h4>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">The frameworks, hosting, and tools we use for optimal results.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== VLOG SECTION (MOVED UP) ===== -->
-        <section id="vlog" style="padding: 4rem 0;">
-            <div class="container">
-                <h2 class="section-title">Latest Insights</h2>
-                <p class="section-subtitle">Expert guides to help your Toronto business grow online</p>
-
-                <div class="services-grid" style="max-width: 900px; margin: 0 auto;">
-                    <a href="local-seo-guide-toronto.html" class="blog-preview-card">
-                        <span class="blog-tag">Local SEO</span>
-                        <div class="service-icon">🎯</div>
-                        <h3>The Complete Local SEO Guide for Toronto Businesses (2026)</h3>
-                        <p style="color: var(--text-secondary); margin: 1rem 0;">
-                            Master local SEO and dominate Google search results. Get more customers finding your business online with proven strategies.
-                        </p>
-                        <span class="read-more">Read Full Guide →</span>
-                    </a>
-                </div>
-
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="blog.html" class="cta-button" style="background: transparent; border: 2px solid var(--accent);">
-                        View All Articles
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== SERVICES SECTION (KEPT EXISTING) ===== -->
-        <section id="services" style="background: var(--primary-dark); padding: 4rem 0;">
+        <!-- ===== SERVICES SECTION ===== -->
+        <section id="services" style="background: var(--primary-dark);">
             <div class="container">
                 <h2 class="section-title">Our Services</h2>
                 <p class="section-subtitle">Comprehensive digital solutions to help your business thrive online</p>
@@ -1211,8 +1036,34 @@
             </div>
         </section>
 
-        <!-- ===== PRICING SECTION (COMPLETE) ===== -->
-        <section id="pricing" style="background: var(--primary-dark); padding: 4rem 0;">
+        <!-- ===== BLOG SECTION ===== -->
+        <section id="blog">
+            <div class="container">
+                <h2 class="section-title">Latest Insights</h2>
+                <p class="section-subtitle">Expert guides to help your Toronto business grow online</p>
+
+                <div class="services-grid" style="max-width: 900px; margin: 0 auto;">
+                    <a href="local-seo-guide-toronto.html" class="blog-preview-card">
+                        <span class="blog-tag">Local SEO</span>
+                        <div class="service-icon">🎯</div>
+                        <h3>The Complete Local SEO Guide for Toronto Businesses (2026)</h3>
+                        <p>
+                            Master local SEO and dominate Google search results. Get more customers finding your business online with proven strategies.
+                        </p>
+                        <span class="read-more">Read Full Guide →</span>
+                    </a>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="blog.html" class="cta-button" style="background: transparent; border: 2px solid var(--accent);">
+                        View All Articles
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PRICING SECTION ===== -->
+        <section id="pricing" style="background: var(--primary-dark);">
             <div class="container">
                 <h2 class="section-title">Transparent Pricing</h2>
                 <p class="section-subtitle">Choose the package that fits your business needs</p>
@@ -1440,7 +1291,7 @@
         </section>
 
         <!-- ===== CONTACT SECTION ===== -->
-        <section id="contact" style="padding: 4rem 0;">
+        <section id="contact">
             <div class="container">
                 <h2 class="section-title">Let's Grow Your Business Together</h2>
                 <p class="section-subtitle">Ready to transform your digital presence? Get in touch today for a free consultation</p>
@@ -1508,8 +1359,6 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#insights">Insights</a></li>
-                        <li><a href="#vlog">Vlog</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#pricing">Pricing</a></li>
                         <li><a href="/blog.html">Blog</a></li>
@@ -1655,7 +1504,7 @@
                 });
             }, { threshold: 0.1 });
 
-            document.querySelectorAll('.service-card, .pricing-card, .blog-preview-card, .insight-card, .featured-card').forEach(el => {
+            document.querySelectorAll('.service-card, .pricing-card, .blog-preview-card').forEach(el => {
                 el.classList.add('fade-in');
                 observer.observe(el);
             });
