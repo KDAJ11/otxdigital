@@ -328,7 +328,7 @@
             background: var(--text-light);
         }
 
-        /* Hero section - critical */
+        /* Hero section - critical with mobile fixes */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -391,7 +391,7 @@
             box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
         }
 
-        /* ===== MOBILE OPTIMIZATIONS ===== */
+        /* ===== MOBILE OPTIMIZATIONS (UPDATED HERO FIXES) ===== */
         @media (max-width: 768px) {
             .desktop-nav {
                 display: none;
@@ -413,30 +413,50 @@
                 font-size: 0.9rem;
             }
 
+            /* FIXED HERO SECTION */
             .hero {
                 min-height: 90vh;
-                padding: 100px 15px 40px;
+                padding: 60px 15px 40px;
+                display: flex;
+                align-items: center;
             }
 
             .hero-content {
                 text-align: left;
-                padding: 0 0.5rem;
+                padding: 0;
+                width: 100%;
             }
 
             .hero-content h1 {
-                font-size: clamp(1.8rem, 7vw, 2.2rem);
+                font-size: clamp(2rem, 8vw, 2.5rem);
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+
+            .hero-content h1 .gradient-text {
+                display: block;
+                font-size: inherit;
             }
 
             .hero-subtitle {
-                font-size: 0.95rem;
-                margin: 1rem 0 1.5rem;
+                font-size: 1.1rem;
+                margin: 1rem 0 2rem;
+                line-height: 1.5;
+                color: var(--text-secondary);
+                max-width: 90%;
             }
 
-            .cta-button {
+            .hero-content .cta-button {
                 width: 100%;
                 text-align: center;
-                padding: 0.8rem 1.5rem;
-                font-size: 0.95rem;
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+                margin: 0.5rem 0;
+            }
+
+            .hero-content .cta-button:last-child {
+                background: transparent;
+                border: 2px solid var(--accent);
             }
 
             .container {
@@ -494,11 +514,11 @@
             }
 
             .hero-content h1 {
-                font-size: clamp(1.5rem, 6vw, 1.8rem);
+                font-size: clamp(1.8rem, 7vw, 2.2rem);
             }
 
             .hero-subtitle {
-                font-size: 0.85rem;
+                font-size: 1rem;
             }
         }
 
@@ -852,56 +872,7 @@
             opacity: 0.7;
         }
 
-        @media (max-width: 768px) {
-            .pricing-grid {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                gap: 1rem;
-                margin: 2rem -1rem;
-                padding: 0.5rem 1rem;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-            }
-
-            .pricing-grid::-webkit-scrollbar {
-                display: none;
-            }
-
-            .pricing-card {
-                min-width: 80vw;
-                scroll-snap-align: center;
-                flex-shrink: 0;
-            }
-
-            .swipe-hint {
-                display: block;
-            }
-
-            .service-card:hover, .pricing-card:hover, .blog-preview-card:hover {
-                transform: translateY(-3px) scale(1.01);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            .fade-in {
-                opacity: 1;
-                transform: none;
-            }
-        }
-
-        /* Insights grid styles */
+        /* Insights grid styles with mobile swipe */
         .insights-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -928,15 +899,9 @@
             height: 100%;
         }
 
-        .insight-card p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-
         .insight-card .insight-quote {
             font-size: 1.25rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text);
             margin-bottom: 1rem;
             line-height: 1.4;
@@ -948,9 +913,16 @@
             color: var(--text);
         }
 
+        .insight-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
         .insight-meta {
             margin-top: auto;
-            padding-top: 1.5rem;
             font-size: 0.875rem;
             color: var(--accent);
             font-weight: 600;
@@ -963,6 +935,57 @@
             background: rgba(139, 92, 246, 0.1);
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
+        }
+
+        /* Mobile swipe styles (same as pricing) */
+        @media (max-width: 768px) {
+            .insights-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 1rem;
+                margin: 1rem -1rem 2rem;
+                padding: 0.5rem 1rem 1.5rem;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .insights-grid::-webkit-scrollbar {
+                display: none;
+            }
+
+            .insights-grid .insight-card {
+                min-width: 80vw;
+                scroll-snap-align: center;
+                flex-shrink: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .swipe-hint {
+                display: block;
+            }
+
+            .pillar-title {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .fade-in {
+                opacity: 1;
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -1017,7 +1040,7 @@
                 <div class="hero-content">
                     <h1><span class="gradient-text">We Help Businesses Get More Customers Online</span></h1>
                     <p class="hero-subtitle">AI-powered websites, local SEO, and automation that actually drives growth. Stop losing customers to competitors.</p>
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <div class="cta-buttons">
                         <a href="#contact" class="cta-button">Get Your Free Consultation</a>
                         <a href="#insights" class="cta-button" style="background: transparent; border: 2px solid var(--accent);">Explore Free Resources ↓</a>
                     </div>
@@ -1025,123 +1048,138 @@
             </div>
         </section>
 
-        <!-- ===== INSIGHTS & RESOURCES SECTION (MICRO-CONTENT HUB) ===== -->
+        <!-- ===== INSIGHTS & RESOURCES SECTION (YOUR CONTENT + MOBILE SWIPE) ===== -->
         <section id="insights" style="background: var(--primary-dark); padding: 4rem 0;">
             <div class="container">
                 <h2 class="section-title">Insights & Resources</h2>
                 <p class="section-subtitle">Actionable intelligence for your business — no fluff, just value.</p>
 
-                <!-- Featured Insight -->
+                <!-- Featured Insight (using your strongest stat) -->
                 <div class="featured-card fade-in" style="margin-bottom: 4rem;">
                     <span class="pillar-tag">✨ Featured</span>
-                    <div class="insight-quote">"53% of mobile users leave a site that takes longer than 3 seconds to load. If your site is slow, you're literally paying competitors to take your customers."</div>
-                    <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 1.5rem;">The average small business website loses 12% of potential revenue due to poor performance. A redesign pays for itself in 3-6 months.</p>
-                    <div class="insight-meta"><span>🚀 actionable</span></div>
+                    <div class="insight-quote">"92% of all search traffic goes to page 1 of Google. If you're not there, your competitors are getting your customers right now."</div>
+                    <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 1.5rem;">Local SEO in Toronto has grown 900% in the past year. The window is closing — but most businesses are still asleep.</p>
+                    <div class="insight-meta"><span>📍 Local SEO</span></div>
                 </div>
 
-                <!-- Pillar 1: Your Website is Costing You Money -->
-                <h3 class="pillar-title">💰 Your Website is Costing You Money</h3>
+                <!-- Pillar 1: Search Engine Optimization for Toronto Businesses -->
+                <h3 class="pillar-title">🔍 Search Engine Optimization for Toronto Businesses</h3>
+                <p class="swipe-hint">← Swipe to see more insights →</p>
                 <div class="insights-grid">
                     <div class="insight-card fade-in">
-                        <div class="insight-quote">"47% of users expect a website to load in 2 seconds or less."</div>
-                        <p>For every 1-second delay in page load time, conversions drop by 7%. A site earning $50,000/day could lose $1.25 million annually to slow load times.</p>
-                        <div class="insight-meta"><span>📊 stat</span></div>
+                        <div class="insight-quote">Why Every Toronto Business Needs Local SEO in 2025 (And Most Are Already Behind)</div>
+                        <p>Searches for local SEO in Toronto have grown 900% in the past year. Your competitors are waking up to this. 92% of all search traffic goes to page 1 of Google, so if your business isn't showing up for local searches in Toronto, Durham Region, or Oshawa, someone else is getting those customers right now. Not tomorrow. Right now.</p>
+                        <div class="insight-meta"><span>📍 Local SEO</span> <span>Google Keyword Planner, 2025</span></div>
                     </div>
                     <div class="insight-card fade-in">
-                        <div class="insight-quote">"84% of users won't return to a site after a bad mobile experience."</div>
-                        <p>Yet 62% of small business websites still aren't optimized for mobile. Google indexes mobile-first - if your site isn't mobile-friendly, it might as well be invisible.</p>
-                        <div class="insight-meta"><span>⚠️ red flag</span></div>
+                        <div class="insight-quote">What Do SEO Services in Toronto Actually Cost? Here's the Honest Breakdown</div>
+                        <p>Most Toronto SEO agencies charge $1,500 to $5,000 per month and lock you into a 12-month contract before you've seen a single result. At DOTxLabs, SEO services start at $800/month with transparent monthly reporting so you always know what your money is doing. No vanity metrics, no fluff, just results you can see.</p>
+                        <div class="insight-meta"><span>💰 Pricing</span> <span>DOTxLabs Pricing, 2025</span></div>
                     </div>
                     <div class="insight-card fade-in">
-                        <div class="insight-quote">"When did you last update your copyright date? Users notice."</div>
-                        <p>Outdated trust signals (old blog posts, broken links, missing SSL) destroy credibility. 75% of users judge a company's credibility by their website design.</p>
-                        <div class="insight-meta"><span>🔍 quick win</span></div>
-                    </div>
-                </div>
-
-                <!-- Pillar 2: AI for Real Businesses -->
-                <h3 class="pillar-title">🤖 AI for Real Businesses</h3>
-                <div class="insights-grid">
-                    <div class="insight-card fade-in">
-                        <div class="insight-quote">"One contractor saved 12 hours/week using AI to draft estimates from client photos."</div>
-                        <p>AI vision tools can analyze project photos, generate material lists, and create professional estimates in minutes instead of hours.</p>
-                        <div class="insight-meta"><span>⚡ productivity</span></div>
+                        <div class="insight-quote">Looking for an SEO Consultant in Toronto? Here's What Separates Good from Great</div>
+                        <p>A good SEO consultant chases rankings. A great one chases revenue. Anyone can move a keyword up a few spots. The right consultant connects your search visibility directly to booked calls, form fills, and actual sales. Before you hire anyone, ask them this: what business outcome are we optimizing for? If they hesitate, keep looking.</p>
+                        <div class="insight-meta"><span>🎯 Hiring Tip</span> <span>DOTxLabs Process</span></div>
                     </div>
                     <div class="insight-card fade-in">
-                        <div class="insight-quote">"Claude.ai reads 100-page PDFs in seconds. Perfect for reviewing contracts."</div>
-                        <p>Upload vendor agreements, leases, or proposals and get instant summaries, risk flags, and key clause extraction.</p>
-                        <div class="insight-meta"><span>📄 tool tip</span></div>
-                    </div>
-                    <div class="insight-card fade-in">
-                        <div class="insight-quote">"ChatGPT can write your emails, but it can't verify if they're true about YOUR business."</div>
-                        <p>AI hallucinates. Always fact-check. Use it for drafts and brainstorming, not final customer-facing content without review.</p>
-                        <div class="insight-meta"><span>⚠️ reality check</span></div>
+                        <div class="insight-quote">SEO Services in Oshawa: The Opportunity Durham Region Businesses Are Sleeping On</div>
+                        <p>Searches for SEO services in Oshawa are growing 900% year over year and almost nobody is competing for them yet. Durham Region businesses that invest in local SEO now will own these rankings before the market gets crowded. Toronto businesses had this same window in 2019. Most of them missed it. You don't have to.</p>
+                        <div class="insight-meta"><span>📍 Durham Region</span> <span>Google Keyword Planner, 2025</span></div>
                     </div>
                 </div>
 
-                <!-- Pillar 3: The Digital Growth Playbook -->
-                <h3 class="pillar-title">📈 The Digital Growth Playbook</h3>
+                <!-- Pillar 2: Website Design Toronto -->
+                <h3 class="pillar-title">🎨 Website Design Toronto</h3>
+                <p class="swipe-hint">← Swipe to see more insights →</p>
                 <div class="insights-grid">
                     <div class="insight-card fade-in">
-                        <div class="insight-quote">"Google prioritizes sites with fresh content. One new blog post monthly can boost rankings."</div>
-                        <p>Sites with blogs have 434% more indexed pages and 97% more inbound links. Consistency beats volume.</p>
-                        <div class="insight-meta"><span>🎯 SEO</span></div>
+                        <div class="insight-quote">Why Toronto Businesses Are Investing in Website Redesigns in 2025</div>
+                        <p>A website redesign in Toronto is not a vanity expense. It is a revenue decision. 75% of users judge your credibility from your website design alone. If your site looks outdated, visitors are gone before you get a chance to say anything. The businesses winning online right now did not get lucky. They rebuilt.</p>
+                        <div class="insight-meta"><span>💡 Trust</span> <span>Stanford Web Credibility Research</span></div>
                     </div>
                     <div class="insight-card fade-in">
-                        <div class="insight-quote">"The #1 local SEO win: Get 10 Google reviews with keyword-rich responses."</div>
-                        <p>Respond to each review using local keywords ("thanks for choosing our Toronto plumbing services") - it signals relevance to Google.</p>
-                        <div class="insight-meta"><span>📍 local</span></div>
+                        <div class="insight-quote">Looking for a Web Designer Near You? Ask This Before You Hire Anyone</div>
+                        <p>Before hiring a web designer near you, ask one question: does this site convert, or does it just look good? A professional website should work like your best salesperson. It should be available 24/7, load in under 3 seconds, and turn visitors into booked calls. A site that looks great but does not convert is just an expensive business card.</p>
+                        <div class="insight-meta"><span>⚡ Quick Tip</span> <span>Google/Deloitte Mobile Speed Study</span></div>
                     </div>
                     <div class="insight-card fade-in">
-                        <div class="insight-quote">"SEO builds equity. Ads build velocity. You need both at different stages."</div>
-                        <p>SEO: 3-6 month payoff, lower long-term cost. Ads: immediate traffic, scales with budget. Use ads to test, SEO to scale.</p>
-                        <div class="insight-meta"><span>⚖️ strategy</span></div>
+                        <div class="insight-quote">Web Design in Oshawa and Durham Region: Why Local Businesses Are Finally Taking It Seriously</div>
+                        <p>Durham Region businesses are sitting on a local SEO opportunity that most have not touched yet. Low competition, high buyer intent, and a growing number of people searching for local services online every day. A properly built website targeting Oshawa and Durham Region searches can rank faster here than almost anywhere else in the GTA.</p>
+                        <div class="insight-meta"><span>📍 Local Insight</span> <span>Google Keyword Planner, 2025</span></div>
                     </div>
                 </div>
 
-                <!-- Pillar 4: Behind the Build -->
-                <h3 class="pillar-title">🛠️ Behind the Build</h3>
+                <!-- Pillar 3: Marketing and Automation -->
+                <h3 class="pillar-title">🤖 Marketing and Automation</h3>
+                <p class="swipe-hint">← Swipe to see more insights →</p>
                 <div class="insights-grid">
                     <div class="insight-card fade-in">
-                        <div class="insight-quote">"We increased conversion rate from 1.2% to 3.8% just by moving the CTA above the fold."</div>
-                        <p>A Toronto fashion brand added $24,000/month in revenue with zero ad spend increase - just better UX.</p>
-                        <div class="insight-meta"><span>📈 case study</span></div>
+                        <div class="insight-quote">AI Website Builder vs. Hiring a Web Agency: What Toronto Businesses Need to Know</div>
+                        <p>AI website builders like Wix ADI and Squarespace AI can get you online fast. But fast is not the same as effective. They cannot optimize for web design in Oshawa or build a conversion funnel specific to your market. For any business serious about growth, an AI-assisted agency build will outperform a DIY builder every single time.</p>
+                        <div class="insight-meta"><span>⚖️ Comparison</span> <span>Google Keyword Planner, 2025</span></div>
                     </div>
                     <div class="insight-card fade-in">
-                        <div class="insight-quote">"We prototype in Figma first - clients save 40% on revisions by seeing it before we code."</div>
-                        <p>Changes in design cost hours. Changes in development cost days. Mockups = faster launches, happier clients.</p>
-                        <div class="insight-meta"><span>🎨 process</span></div>
+                        <div class="insight-quote">How We Use AI to Build Toronto Websites Faster Without Cutting Corners</div>
+                        <p>We use AI tools internally to speed up copywriting, design mockups, and SEO research. That means faster launches and lower costs for our clients. But AI handles the grunt work. The strategy, the market knowledge, and the decisions that actually move your business forward? That is still us.</p>
+                        <div class="insight-meta"><span>⚡ How We Work</span> <span>DOTxLabs Process</span></div>
                     </div>
                     <div class="insight-card fade-in">
-                        <div class="insight-quote">"That 'simple' dropdown menu? It cost one client $12,000/month in lost sales."</div>
-                        <p>Users couldn't find products. We simplified navigation and average order value increased 34%.</p>
-                        <div class="insight-meta"><span>🔧 lesson</span></div>
+                        <div class="insight-quote">Why AI Website Builders Hurt Your SEO (And What to Do Instead)</div>
+                        <p>Most AI website builders generate duplicate, generic code that Google can identify instantly. They share the same template structures across thousands of sites, so your site ends up looking identical to your competitor's in the eyes of search engines. For local rankings in Toronto or Oshawa, custom always beats cookie-cutter.</p>
+                        <div class="insight-meta"><span>🔍 SEO Insight</span> <span>Google Search Central, 2024</span></div>
                     </div>
                 </div>
 
-                <!-- Pillar 5: Tools & Resources -->
-                <h3 class="pillar-title">🧰 Tools & Resources</h3>
+                <!-- Pillar 4: Web Development Toronto -->
+                <h3 class="pillar-title">💻 Web Development Toronto</h3>
+                <p class="swipe-hint">← Swipe to see more insights →</p>
                 <div class="insights-grid">
                     <div class="insight-card fade-in">
-                        <div class="insight-quote">"PageSpeed Insights tells you exactly what's slowing your site down."</div>
-                        <p>Free Google tool. Run it monthly. Fix what it flags. It's the closest thing to a website health checkup.</p>
-                        <div class="insight-meta"><span>🔧 free tool</span></div>
+                        <div class="insight-quote">What to Look for in a Web Development Company in Toronto</div>
+                        <p>Most Toronto web development companies will sell you a website. Very few will sell you a system that actually grows your business. Before you sign anything, ask whether they build for speed, SEO, and conversions from day one. Or do they hand you something that looks good but does not rank, does not load fast, and does not convert? That question tells you everything.</p>
+                        <div class="insight-meta"><span>🎯 Hiring Tip</span> <span>DOTxLabs Process</span></div>
                     </div>
                     <div class="insight-card fade-in">
-                        <div class="insight-quote">"Run your site through WAVE - it checks accessibility in 60 seconds."</div>
-                        <p>Accessibility isn't just ethical; it's often legally required. WAVE finds contrast issues, missing alt text, and navigation problems.</p>
-                        <div class="insight-meta"><span>♿ a11y</span></div>
+                        <div class="insight-quote">Web Development in Toronto: Why We Prototype Before We Write a Single Line of Code</div>
+                        <p>We took one client's conversion rate from 1.2% to 3.8%, not by writing better code, but by rethinking the layout before development started. Every project at DOTxLabs begins with a Figma prototype so you see exactly what you are getting before we build it. A change in design takes hours. A change in development takes days. Prototyping saves both.</p>
+                        <div class="insight-meta"><span>📈 Case Study</span> <span>DOTxLabs Case Study</span></div>
                     </div>
                     <div class="insight-card fade-in">
-                        <div class="insight-quote">"We build on Webflow for marketing sites, Shopify for stores, and Next.js for custom apps."</div>
-                        <p>Each tool has a purpose. Using the right platform for the job saves time and money.</p>
-                        <div class="insight-meta"><span>⚙️ stack</span></div>
+                        <div class="insight-quote">Web Development in Oshawa and Durham Region: The Opportunity Nobody Is Talking About</div>
+                        <p>Searches for web development in Oshawa are growing at an infinite rate year over year, and almost no agency is targeting this market yet. Durham Region businesses that invest in a properly built, locally optimized website right now will own these rankings before Toronto agencies even notice this market exists.</p>
+                        <div class="insight-meta"><span>📍 Local Insight</span> <span>Google Keyword Planner, 2025</span></div>
+                    </div>
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">Website Developer Near You vs. Remote Agency: Which One Is Actually Better?</div>
+                        <p>The best website developer for your Toronto or Oshawa business is not necessarily the closest one. It is the one who understands your market, your customers, and your growth goals. At DOTxLabs we work with businesses across the GTA and Durham Region, combining local market knowledge with development standards you would expect from a much larger agency.</p>
+                        <div class="insight-meta"><span>💡 Perspective</span> <span>DOTxLabs Process</span></div>
+                    </div>
+                </div>
+
+                <!-- Pillar 5: Tools and Resources -->
+                <h3 class="pillar-title">🧰 Tools and Resources</h3>
+                <p class="swipe-hint">← Swipe to see more insights →</p>
+                <div class="insights-grid">
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">The Best Free Website Audit Tool for Toronto Small Businesses (And What to Do With the Results)</div>
+                        <p>Google PageSpeed Insights is the closest thing to a free website health report you will find. It tells you exactly what is slowing your site down, what is hurting your mobile score, and what to fix first. Run it on your site right now. Most Toronto businesses are surprised by what comes back. Want someone to walk you through the results? We include a free website audit with every consultation.</p>
+                        <div class="insight-meta"><span>🔧 Free Tool</span> <span>Google PageSpeed Insights</span></div>
+                    </div>
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">How to Use a Website Audit Tool to Find Out Why You Are Losing Customers</div>
+                        <p>A website audit tool does not just flag technical errors. It shows you where visitors are dropping off and why. Slow load times, broken links, missing meta descriptions, and poor mobile experience are the four issues we find most often when auditing Toronto and Durham Region business websites. Most of them are fixable in under a week.</p>
+                        <div class="insight-meta"><span>🔍 Quick Win</span> <span>DOTxLabs Audit Process</span></div>
+                    </div>
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">Free SEO Audit for Your Toronto or Oshawa Business: Here Is What We Check</div>
+                        <p>Our free website review covers page speed, mobile optimization, local keyword targeting, Google Business Profile alignment, and conversion signals. Most businesses we audit are leaving real money on the table from issues they did not know existed. Book a free audit. No pitch, no pressure, just a clear picture of where you stand and what to fix.</p>
+                        <div class="insight-meta"><span>🎯 Free Offer</span> <span>DOTxLabs Process</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== BLOG SECTION (formerly vlog) ===== -->
+        <!-- ===== BLOG SECTION ===== -->
         <section id="blog" style="padding: 4rem 0;">
             <div class="container">
                 <h2 class="section-title">Latest from Our Blog</h2>
