@@ -852,41 +852,14 @@
             opacity: 0.7;
         }
 
-        /* Mobile swipe styles - Applied to insights section */
         @media (max-width: 768px) {
-            .insights-grid-mobile {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                gap: 1rem;
-                margin: 2rem -1rem;
-                padding: 0.5rem 1rem 1rem;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-            }
-
-            .insights-grid-mobile::-webkit-scrollbar {
-                display: none;
-            }
-
-            .insight-card {
-                min-width: 85vw;
-                scroll-snap-align: center;
-                flex-shrink: 0;
-                margin: 0;
-            }
-
-            .swipe-hint {
-                display: block;
-            }
-
             .pricing-grid {
                 display: flex;
                 overflow-x: auto;
                 scroll-snap-type: x mandatory;
                 gap: 1rem;
                 margin: 2rem -1rem;
-                padding: 0.5rem 1rem 1rem;
+                padding: 0.5rem 1rem;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
             }
@@ -901,31 +874,12 @@
                 flex-shrink: 0;
             }
 
+            .swipe-hint {
+                display: block;
+            }
+
             .service-card:hover, .pricing-card:hover, .blog-preview-card:hover {
                 transform: translateY(-3px) scale(1.01);
-            }
-
-            /* Desktop grid hidden on mobile */
-            .insights-grid-desktop {
-                display: none;
-            }
-        }
-
-        /* Desktop grid visible */
-        @media (min-width: 769px) {
-            .insights-grid-desktop {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-                margin: 2rem 0 3rem;
-            }
-            
-            .insights-grid-mobile {
-                display: none;
-            }
-            
-            .pillar-section {
-                margin-bottom: 3rem;
             }
         }
 
@@ -1071,7 +1025,7 @@
             </div>
         </section>
 
-        <!-- ===== INSIGHTS & RESOURCES SECTION (FIXED - NOW MATCHES PRICING SECTION BEHAVIOR) ===== -->
+        <!-- ===== INSIGHTS & RESOURCES SECTION (MICRO-CONTENT HUB) ===== -->
         <section id="insights" style="background: var(--primary-dark); padding: 4rem 0;">
             <div class="container">
                 <h2 class="section-title">Insights & Resources</h2>
@@ -1086,222 +1040,102 @@
                 </div>
 
                 <!-- Pillar 1: Your Website is Costing You Money -->
-                <div class="pillar-section">
-                    <h3 class="pillar-title">💰 Your Website is Costing You Money</h3>
-                    <p class="swipe-hint">← Swipe to see all insights →</p>
-                    
-                    <!-- Desktop Grid (3 cards) -->
-                    <div class="insights-grid-desktop">
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"47% of users expect a website to load in 2 seconds or less."</div>
-                            <p>For every 1-second delay in page load time, conversions drop by 7%. A site earning $50,000/day could lose $1.25 million annually to slow load times.</p>
-                            <div class="insight-meta"><span>📊 stat</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"84% of users won't return to a site after a bad mobile experience."</div>
-                            <p>Yet 62% of small business websites still aren't optimized for mobile. Google indexes mobile-first - if your site isn't mobile-friendly, it might as well be invisible.</p>
-                            <div class="insight-meta"><span>⚠️ red flag</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"When did you last update your copyright date? Users notice."</div>
-                            <p>Outdated trust signals (old blog posts, broken links, missing SSL) destroy credibility. 75% of users judge a company's credibility by their website design.</p>
-                            <div class="insight-meta"><span>🔍 quick win</span></div>
-                        </div>
+                <h3 class="pillar-title">💰 Your Website is Costing You Money</h3>
+                <div class="insights-grid">
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"47% of users expect a website to load in 2 seconds or less."</div>
+                        <p>For every 1-second delay in page load time, conversions drop by 7%. A site earning $50,000/day could lose $1.25 million annually to slow load times.</p>
+                        <div class="insight-meta"><span>📊 stat</span></div>
                     </div>
-                    
-                    <!-- Mobile Swipe Container -->
-                    <div class="insights-grid-mobile">
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"47% of users expect a website to load in 2 seconds or less."</div>
-                            <p>For every 1-second delay in page load time, conversions drop by 7%. A site earning $50,000/day could lose $1.25 million annually to slow load times.</p>
-                            <div class="insight-meta"><span>📊 stat</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"84% of users won't return to a site after a bad mobile experience."</div>
-                            <p>Yet 62% of small business websites still aren't optimized for mobile. Google indexes mobile-first - if your site isn't mobile-friendly, it might as well be invisible.</p>
-                            <div class="insight-meta"><span>⚠️ red flag</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"When did you last update your copyright date? Users notice."</div>
-                            <p>Outdated trust signals (old blog posts, broken links, missing SSL) destroy credibility. 75% of users judge a company's credibility by their website design.</p>
-                            <div class="insight-meta"><span>🔍 quick win</span></div>
-                        </div>
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"84% of users won't return to a site after a bad mobile experience."</div>
+                        <p>Yet 62% of small business websites still aren't optimized for mobile. Google indexes mobile-first - if your site isn't mobile-friendly, it might as well be invisible.</p>
+                        <div class="insight-meta"><span>⚠️ red flag</span></div>
+                    </div>
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"When did you last update your copyright date? Users notice."</div>
+                        <p>Outdated trust signals (old blog posts, broken links, missing SSL) destroy credibility. 75% of users judge a company's credibility by their website design.</p>
+                        <div class="insight-meta"><span>🔍 quick win</span></div>
                     </div>
                 </div>
 
                 <!-- Pillar 2: AI for Real Businesses -->
-                <div class="pillar-section">
-                    <h3 class="pillar-title">🤖 AI for Real Businesses</h3>
-                    <p class="swipe-hint">← Swipe to see all insights →</p>
-                    
-                    <!-- Desktop Grid (3 cards) -->
-                    <div class="insights-grid-desktop">
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"One contractor saved 12 hours/week using AI to draft estimates from client photos."</div>
-                            <p>AI vision tools can analyze project photos, generate material lists, and create professional estimates in minutes instead of hours.</p>
-                            <div class="insight-meta"><span>⚡ productivity</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"Claude.ai reads 100-page PDFs in seconds. Perfect for reviewing contracts."</div>
-                            <p>Upload vendor agreements, leases, or proposals and get instant summaries, risk flags, and key clause extraction.</p>
-                            <div class="insight-meta"><span>📄 tool tip</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"ChatGPT can write your emails, but it can't verify if they're true about YOUR business."</div>
-                            <p>AI hallucinates. Always fact-check. Use it for drafts and brainstorming, not final customer-facing content without review.</p>
-                            <div class="insight-meta"><span>⚠️ reality check</span></div>
-                        </div>
+                <h3 class="pillar-title">🤖 AI for Real Businesses</h3>
+                <div class="insights-grid">
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"One contractor saved 12 hours/week using AI to draft estimates from client photos."</div>
+                        <p>AI vision tools can analyze project photos, generate material lists, and create professional estimates in minutes instead of hours.</p>
+                        <div class="insight-meta"><span>⚡ productivity</span></div>
                     </div>
-                    
-                    <!-- Mobile Swipe Container -->
-                    <div class="insights-grid-mobile">
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"One contractor saved 12 hours/week using AI to draft estimates from client photos."</div>
-                            <p>AI vision tools can analyze project photos, generate material lists, and create professional estimates in minutes instead of hours.</p>
-                            <div class="insight-meta"><span>⚡ productivity</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"Claude.ai reads 100-page PDFs in seconds. Perfect for reviewing contracts."</div>
-                            <p>Upload vendor agreements, leases, or proposals and get instant summaries, risk flags, and key clause extraction.</p>
-                            <div class="insight-meta"><span>📄 tool tip</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"ChatGPT can write your emails, but it can't verify if they're true about YOUR business."</div>
-                            <p>AI hallucinates. Always fact-check. Use it for drafts and brainstorming, not final customer-facing content without review.</p>
-                            <div class="insight-meta"><span>⚠️ reality check</span></div>
-                        </div>
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"Claude.ai reads 100-page PDFs in seconds. Perfect for reviewing contracts."</div>
+                        <p>Upload vendor agreements, leases, or proposals and get instant summaries, risk flags, and key clause extraction.</p>
+                        <div class="insight-meta"><span>📄 tool tip</span></div>
+                    </div>
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"ChatGPT can write your emails, but it can't verify if they're true about YOUR business."</div>
+                        <p>AI hallucinates. Always fact-check. Use it for drafts and brainstorming, not final customer-facing content without review.</p>
+                        <div class="insight-meta"><span>⚠️ reality check</span></div>
                     </div>
                 </div>
 
                 <!-- Pillar 3: The Digital Growth Playbook -->
-                <div class="pillar-section">
-                    <h3 class="pillar-title">📈 The Digital Growth Playbook</h3>
-                    <p class="swipe-hint">← Swipe to see all insights →</p>
-                    
-                    <!-- Desktop Grid (3 cards) -->
-                    <div class="insights-grid-desktop">
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"Google prioritizes sites with fresh content. One new blog post monthly can boost rankings."</div>
-                            <p>Sites with blogs have 434% more indexed pages and 97% more inbound links. Consistency beats volume.</p>
-                            <div class="insight-meta"><span>🎯 SEO</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"The #1 local SEO win: Get 10 Google reviews with keyword-rich responses."</div>
-                            <p>Respond to each review using local keywords ("thanks for choosing our Toronto plumbing services") - it signals relevance to Google.</p>
-                            <div class="insight-meta"><span>📍 local</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"SEO builds equity. Ads build velocity. You need both at different stages."</div>
-                            <p>SEO: 3-6 month payoff, lower long-term cost. Ads: immediate traffic, scales with budget. Use ads to test, SEO to scale.</p>
-                            <div class="insight-meta"><span>⚖️ strategy</span></div>
-                        </div>
+                <h3 class="pillar-title">📈 The Digital Growth Playbook</h3>
+                <div class="insights-grid">
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"Google prioritizes sites with fresh content. One new blog post monthly can boost rankings."</div>
+                        <p>Sites with blogs have 434% more indexed pages and 97% more inbound links. Consistency beats volume.</p>
+                        <div class="insight-meta"><span>🎯 SEO</span></div>
                     </div>
-                    
-                    <!-- Mobile Swipe Container -->
-                    <div class="insights-grid-mobile">
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"Google prioritizes sites with fresh content. One new blog post monthly can boost rankings."</div>
-                            <p>Sites with blogs have 434% more indexed pages and 97% more inbound links. Consistency beats volume.</p>
-                            <div class="insight-meta"><span>🎯 SEO</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"The #1 local SEO win: Get 10 Google reviews with keyword-rich responses."</div>
-                            <p>Respond to each review using local keywords ("thanks for choosing our Toronto plumbing services") - it signals relevance to Google.</p>
-                            <div class="insight-meta"><span>📍 local</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"SEO builds equity. Ads build velocity. You need both at different stages."</div>
-                            <p>SEO: 3-6 month payoff, lower long-term cost. Ads: immediate traffic, scales with budget. Use ads to test, SEO to scale.</p>
-                            <div class="insight-meta"><span>⚖️ strategy</span></div>
-                        </div>
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"The #1 local SEO win: Get 10 Google reviews with keyword-rich responses."</div>
+                        <p>Respond to each review using local keywords ("thanks for choosing our Toronto plumbing services") - it signals relevance to Google.</p>
+                        <div class="insight-meta"><span>📍 local</span></div>
+                    </div>
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"SEO builds equity. Ads build velocity. You need both at different stages."</div>
+                        <p>SEO: 3-6 month payoff, lower long-term cost. Ads: immediate traffic, scales with budget. Use ads to test, SEO to scale.</p>
+                        <div class="insight-meta"><span>⚖️ strategy</span></div>
                     </div>
                 </div>
 
                 <!-- Pillar 4: Behind the Build -->
-                <div class="pillar-section">
-                    <h3 class="pillar-title">🛠️ Behind the Build</h3>
-                    <p class="swipe-hint">← Swipe to see all insights →</p>
-                    
-                    <!-- Desktop Grid (3 cards) -->
-                    <div class="insights-grid-desktop">
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"We increased conversion rate from 1.2% to 3.8% just by moving the CTA above the fold."</div>
-                            <p>A Toronto fashion brand added $24,000/month in revenue with zero ad spend increase - just better UX.</p>
-                            <div class="insight-meta"><span>📈 case study</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"We prototype in Figma first - clients save 40% on revisions by seeing it before we code."</div>
-                            <p>Changes in design cost hours. Changes in development cost days. Mockups = faster launches, happier clients.</p>
-                            <div class="insight-meta"><span>🎨 process</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"That 'simple' dropdown menu? It cost one client $12,000/month in lost sales."</div>
-                            <p>Users couldn't find products. We simplified navigation and average order value increased 34%.</p>
-                            <div class="insight-meta"><span>🔧 lesson</span></div>
-                        </div>
+                <h3 class="pillar-title">🛠️ Behind the Build</h3>
+                <div class="insights-grid">
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"We increased conversion rate from 1.2% to 3.8% just by moving the CTA above the fold."</div>
+                        <p>A Toronto fashion brand added $24,000/month in revenue with zero ad spend increase - just better UX.</p>
+                        <div class="insight-meta"><span>📈 case study</span></div>
                     </div>
-                    
-                    <!-- Mobile Swipe Container -->
-                    <div class="insights-grid-mobile">
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"We increased conversion rate from 1.2% to 3.8% just by moving the CTA above the fold."</div>
-                            <p>A Toronto fashion brand added $24,000/month in revenue with zero ad spend increase - just better UX.</p>
-                            <div class="insight-meta"><span>📈 case study</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"We prototype in Figma first - clients save 40% on revisions by seeing it before we code."</div>
-                            <p>Changes in design cost hours. Changes in development cost days. Mockups = faster launches, happier clients.</p>
-                            <div class="insight-meta"><span>🎨 process</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"That 'simple' dropdown menu? It cost one client $12,000/month in lost sales."</div>
-                            <p>Users couldn't find products. We simplified navigation and average order value increased 34%.</p>
-                            <div class="insight-meta"><span>🔧 lesson</span></div>
-                        </div>
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"We prototype in Figma first - clients save 40% on revisions by seeing it before we code."</div>
+                        <p>Changes in design cost hours. Changes in development cost days. Mockups = faster launches, happier clients.</p>
+                        <div class="insight-meta"><span>🎨 process</span></div>
+                    </div>
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"That 'simple' dropdown menu? It cost one client $12,000/month in lost sales."</div>
+                        <p>Users couldn't find products. We simplified navigation and average order value increased 34%.</p>
+                        <div class="insight-meta"><span>🔧 lesson</span></div>
                     </div>
                 </div>
 
                 <!-- Pillar 5: Tools & Resources -->
-                <div class="pillar-section">
-                    <h3 class="pillar-title">🧰 Tools & Resources</h3>
-                    <p class="swipe-hint">← Swipe to see all insights →</p>
-                    
-                    <!-- Desktop Grid (3 cards) -->
-                    <div class="insights-grid-desktop">
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"PageSpeed Insights tells you exactly what's slowing your site down."</div>
-                            <p>Free Google tool. Run it monthly. Fix what it flags. It's the closest thing to a website health checkup.</p>
-                            <div class="insight-meta"><span>🔧 free tool</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"Run your site through WAVE - it checks accessibility in 60 seconds."</div>
-                            <p>Accessibility isn't just ethical; it's often legally required. WAVE finds contrast issues, missing alt text, and navigation problems.</p>
-                            <div class="insight-meta"><span>♿ a11y</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"We build on Webflow for marketing sites, Shopify for stores, and Next.js for custom apps."</div>
-                            <p>Each tool has a purpose. Using the right platform for the job saves time and money.</p>
-                            <div class="insight-meta"><span>⚙️ stack</span></div>
-                        </div>
+                <h3 class="pillar-title">🧰 Tools & Resources</h3>
+                <div class="insights-grid">
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"PageSpeed Insights tells you exactly what's slowing your site down."</div>
+                        <p>Free Google tool. Run it monthly. Fix what it flags. It's the closest thing to a website health checkup.</p>
+                        <div class="insight-meta"><span>🔧 free tool</span></div>
                     </div>
-                    
-                    <!-- Mobile Swipe Container -->
-                    <div class="insights-grid-mobile">
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"PageSpeed Insights tells you exactly what's slowing your site down."</div>
-                            <p>Free Google tool. Run it monthly. Fix what it flags. It's the closest thing to a website health checkup.</p>
-                            <div class="insight-meta"><span>🔧 free tool</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"Run your site through WAVE - it checks accessibility in 60 seconds."</div>
-                            <p>Accessibility isn't just ethical; it's often legally required. WAVE finds contrast issues, missing alt text, and navigation problems.</p>
-                            <div class="insight-meta"><span>♿ a11y</span></div>
-                        </div>
-                        <div class="insight-card fade-in">
-                            <div class="insight-quote">"We build on Webflow for marketing sites, Shopify for stores, and Next.js for custom apps."</div>
-                            <p>Each tool has a purpose. Using the right platform for the job saves time and money.</p>
-                            <div class="insight-meta"><span>⚙️ stack</span></div>
-                        </div>
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"Run your site through WAVE - it checks accessibility in 60 seconds."</div>
+                        <p>Accessibility isn't just ethical; it's often legally required. WAVE finds contrast issues, missing alt text, and navigation problems.</p>
+                        <div class="insight-meta"><span>♿ a11y</span></div>
+                    </div>
+                    <div class="insight-card fade-in">
+                        <div class="insight-quote">"We build on Webflow for marketing sites, Shopify for stores, and Next.js for custom apps."</div>
+                        <p>Each tool has a purpose. Using the right platform for the job saves time and money.</p>
+                        <div class="insight-meta"><span>⚙️ stack</span></div>
                     </div>
                 </div>
             </div>
